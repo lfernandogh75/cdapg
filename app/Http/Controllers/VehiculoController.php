@@ -399,15 +399,7 @@ if (isset($vehiculo) && $vehiculoindex=="vidrio" ) {
 }
 }
 
-if (isset($vehiculo) && $vehiculoindex=="firma" ) {
-    
-    
-    return view('vehiculo.firma.index')->with(compact('vehiculo'));
-    
-    
-    }else{
-        return view('vehiculo.index')->with(compact('vehiculo'));
-}
+
 
 
 
@@ -442,6 +434,16 @@ return $pdf->stream($nombre);
       // else{
       //  return view('vehiculo.sistemaelectrico');
      //  }
+
+     if (isset($vehiculo) && $vehiculoindex=="firma" ) {
+        return view('vehiculo.firma.index')->with(compact('vehiculo')); 
+        }else{
+            return view('vehiculo.index')->with(compact('vehiculo'));
+    }
+    
+
+
+
    
     }
 
