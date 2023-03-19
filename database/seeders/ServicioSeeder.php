@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class SwSeeder extends Seeder
+class ServicioSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,12 +16,12 @@ class SwSeeder extends Seeder
     public function run()
     {
         $data = [
-            ['nombre' => 'MECANICO'],
-            ['nombre' => 'AUTOMATICO']       
+            ['nombre' => 'PUBLICO'],
+            ['nombre' => 'PARTICULAR']       
     ];
 
     foreach ($data as $nombre) {
-        DB::table('transmisions')->insert(
+        DB::table('servicios')->insert(
             ['nombre' => $nombre]
          );
     }
