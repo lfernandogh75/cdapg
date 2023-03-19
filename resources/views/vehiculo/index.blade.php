@@ -40,14 +40,14 @@
   <p>PLACA: {{$vehiculo->placa}}  VEHICULO: {{$vehiculo->clase_vehiculo}}</p>
   <p>TIPO DEL PERITAJE: {{$vehiculo->peritaje->tipo}}</p>
   <p>FECHA DEL PERITAJE: {{$vehiculo->peritaje->created_at}}</p>
-  <div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion" id="accordionFlushExample">
     <div class="accordion-item">
       <h2 class="accordion-header" id="flush-headingOne">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
          INFORMACIÓN DEL VEHICULO
         </button>
       </h2>
-      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
         <div class="accordion-body">
           @if(isset($vehiculo->peritaje))
           @if( $vehiculo->activo) 
