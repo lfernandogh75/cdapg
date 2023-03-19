@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
-use App\Http\Controllers\SuperAdminController;
+use App\Http\Controllers\SuperadminController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\LineaController;
 use App\Http\Controllers\CombustibleController;
@@ -189,8 +189,8 @@ Route::middleware([
     
 
 
-//Route::get('/superadmin','App\Http\Controllers\SuperAdminController@index');
-Route::resource('/superadmin',SuperAdminController::class);
+//Route::get('/superadmin','App\Http\Controllers\SuperadminController@index');
+Route::resource('/superadmin',SuperadminController::class);
 Route::resource('activar',ActivarController::class);
 
 
