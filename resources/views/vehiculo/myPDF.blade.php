@@ -71,7 +71,73 @@
       {{ $peritaje->vehiculo->placa }}</div>
       @endif
       <p>
-       
+        <table     style="font-size: xx-small; margin: 0 auto;"  >
+            <tr>
+               
+                <th bgcolor ="#19ea6d">FECHA</th>
+                 <td>{{ $peritaje->created_at}}</td>
+                <th bgcolor ="#19ea6d">TIPO</th>
+                 <td>{{ $peritaje->tipo }}</td>
+                 <th bgcolor ="#19ea6d">VEHICULO</th>
+                 <td>{{ $peritaje->vehiculo->clase_vehiculo }}</td>
+                 
+                 <th bgcolor="#19ea6d">SERVICIO</th>
+                 <td> {{$peritaje->tarjeta->servicio->nombre}}</td>
+                
+                
+            </tr>
+            
+            <tr>
+                <th bgcolor ="#19ea6d">SOLICITANTE</th>
+                <td>{{ $peritaje->vehiculo->solicitante}}</td>
+                <th   bgcolor="#19ea6d">MODELO</th>
+                <td>{{ $peritaje->tarjeta->modelo}}</td>
+                <th  bgcolor="#19ea6d">COMBUSTIBLE</th>
+                <td> {{$peritaje->tarjeta->combustible->nombre}}</td>
+              
+               <th  bgcolor="#19ea6d">N MOTOR</th>
+            <td> {{$peritaje->tarjeta->numero_motor}}</td>
+              
+            </tr>
+            
+             <tr>
+                <th bgcolor ="#19ea6d">CORREO</th>
+                <td>{{ $peritaje->vehiculo->email}}</td>
+                <th bgcolor="#19ea6d">COLOR</th>
+                <td> {{$peritaje->tarjeta->color->nombre}}</td>
+                <th bgcolor ="#19ea6d">KILOMETRAJE</th>
+                <td>{{ $peritaje->vehiculo->km }}Km</td>
+                <th bgcolor="#19ea6d">N SERIE</th>
+                 <td> {{$peritaje->tarjeta->numero_serie}}</td>
+            </tr>
+           <tr>
+            <th bgcolor ="#19ea6d">TELEFONO</th>
+            <td>{{ $peritaje->vehiculo->telefono}}</td>
+            <th bgcolor="#19ea6d">MARCA</th>
+            <td> {{$peritaje->tarjeta->marca->nombre}}</td>
+            <th  bgcolor="#19ea6d">CILINDRADA CC</th>
+               <td>{{ $peritaje->tarjeta->cilindrada}}</td>
+              
+               <th bgcolor="#19ea6d">N VIN</th>
+               <td> {{$peritaje->tarjeta->numero_vin}}</td>
+           
+           
+           </tr>  
+
+           <tr>
+            <th bgcolor ="#19ea6d">{{$peritaje->vehiculo->tipoidentificacion }}</th>
+            <td>{{ $peritaje->vehiculo->numeroidentificacion}}</td>
+            <th  bgcolor="#19ea6d">LINEA</th>
+            <td> {{$peritaje->tarjeta->linea->nombre}}</td>
+            
+                 <th  bgcolor="#19ea6d">CAPACIDAD</th>
+                 <td> {{$peritaje->tarjeta->capacidad}}</td>
+           
+            <th bgcolor="#19ea6d">N CHASIS</th>
+            <td> {{$peritaje->tarjeta->numero_chasis}}</td>
+           </tr>
+           
+        </table>
     
 </body>
 </html>
