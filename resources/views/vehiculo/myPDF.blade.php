@@ -81,9 +81,9 @@
   font-size:10px;
   margin-top:-19px;
    margin-left:20px;
- "> <img    src='/iconos/directions_car.png'>N° INSPECCION {{$peritaje->id}}</p>
+ "> <img     src= "/imagen/plantillas/carro.jpeg">N° INSPECCION {{$peritaje->id}}</p>
       
-      
+       
         
                
             <table     style="font-size: xx-small; margin: 0 auto;"  >
