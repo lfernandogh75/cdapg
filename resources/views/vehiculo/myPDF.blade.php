@@ -81,7 +81,7 @@
   font-size:10px;
   margin-top:-19px;
    margin-left:20px;
- "> <img     src= "/imagen/plantillas/carro.jpeg">N° INSPECCION {{$peritaje->id}}</p>
+ "> <img     src= "{{ base_path() }}/imagen/plantillas/carro.jpeg">N° INSPECCION {{$peritaje->id}}</p>
       
        
         
