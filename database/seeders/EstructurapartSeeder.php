@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class EstructurapartSeeder extends Seeder
 {
@@ -29,9 +30,9 @@ class EstructurapartSeeder extends Seeder
             
     ];
 
-    foreach ($data as $nombre) {
-        DB::table('colors')->insert(
-            ['nombre' => $nombre]
+    foreach ($data as $name) {
+        DB::table('estructuraparts')->insert(
+            ['name' => $name]
          );
     }
 

@@ -85,6 +85,13 @@ public function destroy($id)
         ]);
         $prod=$request->all();
         if($imagen=$request->file('profile_photo_path')){
+           
+            $image_path = 'imagen/'.$usuario->profile_photo_path;
+        
+        if(file_exists($image_path)){
+            unlink($image_path); //borra la imagen de la carpeta
+        }
+           
             $rutaGuardarImg='imagen/';
             $imagenProducto=date('YmdHis').".".$imagen->getClientOriginalExtension();
             $imagen->move($rutaGuardarImg,$imagenProducto);

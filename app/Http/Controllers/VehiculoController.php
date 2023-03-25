@@ -422,7 +422,7 @@ if (isset($vehiculo) && $vehiculoindex=="12" ) {
     $fecha=date('m/d/Y');
    $nombre=$vehiculo->placa.".pdf";
 $pdf = PDF::loadView('vehiculo.myPDF', $data);
-
+$pdf->setPaper('legal', 'portrait');
 // return $pdf->download('peritaje.pdf');
 return $pdf->stream($nombre);
    

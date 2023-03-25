@@ -18,6 +18,16 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ColorSeeder::class,
             ServicioSeeder::class,
+            BajapartSeeder::class,
+            ChasispartSeeder::class,
+            CompresionpartSeeder::class,
+            ElectricalpartSeeder::class,
+            EstructurapartSeeder::class,
+            CombustibleSeeder::class,
+            TransmisionSeeder::class,
+            UserSeeder::class,
+            CarroceriaSeeder::class,
+             
              
         ]);
         // \App\Models\User::factory(10)->create();

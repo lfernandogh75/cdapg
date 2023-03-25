@@ -17,7 +17,7 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
     'PDF' => Barryvdh\DomPDF\Facade::class,
-   
+     
     /*
     |--------------------------------------------------------------------------
     | Application Environment

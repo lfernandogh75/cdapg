@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ServicioSeeder extends Seeder
+class TransmisionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,16 +16,16 @@ class ServicioSeeder extends Seeder
     public function run()
     {
         $data = [
-            ['nombre' => 'PUBLICO'],
-            ['nombre' => 'PARTICULAR'],
-            ['nombre' => 'DIPLOMATICO'],
-            ['nombre' => 'OFICIAL'],
-            ['nombre' => 'ESPECIAL'], 
-            ['nombre' => 'OTROS']          
+            ['nombre' => 'MECANICO'],
+            ['nombre' => 'AUTOMATICO'],
+            ['nombre' => 'CONTINUAMENTE VARIABLE'],
+            ['nombre' => 'DOBLE EMBRAGUE'],
+            ['nombre' => 'OTRAS']
+
     ];
 
     foreach ($data as $nombre) {
-        DB::table('servicios')->insert(
+        DB::table('transmisions')->insert(
             ['nombre' => $nombre]
          );
     }

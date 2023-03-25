@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CompresionpartSeeder extends Seeder
+class CarroceriaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,15 +16,15 @@ class CompresionpartSeeder extends Seeder
     public function run()
     {
         $data = [
-            ['name' => 'CILINDRO 01'],
-            ['name' => 'CILINDRO 02'],
-            ['name' => 'CILINDRO 03'],
-            ['name' => 'CILINDRO 03']
+            ['nombre' => 'HATCHBACK'],
+            ['nombre' => 'SUV'],
+            ['nombre' => 'CROSSOVER'],
+            ['nombre' => 'COUPÉ']
     ];
 
-    foreach ($data as $name) {
-        DB::table('compresionparts')->insert(
-            ['name' => $name]
+    foreach ($data as $nombre) {
+        DB::table('carrocerias')->insert(
+            ['nombre' => $nombre]
          );
     }
     }

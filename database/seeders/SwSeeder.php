@@ -15,15 +15,6 @@ class SwSeeder extends Seeder
      */
     public function run()
     {
-        $data = [
-            ['nombre' => 'MECANICO'],
-            ['nombre' => 'AUTOMATICO']       
-    ];
-
-    foreach ($data as $nombre) {
-        DB::table('transmisions')->insert(
-            ['nombre' => $nombre]
-         );
-    }
+       
     }
 }

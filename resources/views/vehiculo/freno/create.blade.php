@@ -1,7 +1,7 @@
 @extends('layouts.plantillaperitaje')
 
 @section('contenido')
-<h2>REGISTRAR CILINDRO</h2>
+<h2>PRUEBA DE FRENOS</h2>
 
 <form action="/sfrenos" method="POST">
     @csrf

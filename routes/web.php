@@ -28,6 +28,9 @@ use App\Http\Controllers\TarjetaController;
 use App\Http\Controllers\BajapartController;
 use App\Http\Controllers\EquipopartController;
 use App\Http\Controllers\SwpartController;
+use App\Http\Controllers\FpdfController;
+
+
 
 Route::get('/', function () {
    
@@ -47,6 +50,8 @@ Route::get('/', function () {
 Route::get('ejemploFecha', function () {
     return view('pruebas.fecha');
 });
+
+Route::get('fpdf', [FpdfController::class, 'index']);
 
 Route::get('firma', function () {
     return view('vehiculo.firma.index');

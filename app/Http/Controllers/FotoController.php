@@ -130,16 +130,25 @@ class FotoController extends Controller
      */
     public function update(Request $request,$id)
     {
+        
+        
         $fotos =  Foto::find($id);
         if($imagen=$request->file('imagen')){
+            if(isset($imagen)){
+                if(file_exists("imagen/".$fotos->imagen)){
+               unlink("imagen/".$fotos->imagen);
+               }
+               }
+
             $rutaGuardarImg='imagen/';
             $imagenProducto=date('YmdHis').".".$imagen->getClientOriginalExtension();
             $imagen->move($rutaGuardarImg,$imagenProducto);
            // $producto['imagen']="$imagenProducto";
            $fotos->imagen ="$imagenProducto";
+          
         }
       //  $fotos->imagen = $request->get('imagen');
-        $fotos->observacion = $request->get('observacion');
+       $fotos->observacion = $request->get('observacion');
         $fotos->save();    
         $idperitaje=$fotos->fotocontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);
@@ -162,6 +171,13 @@ class FotoController extends Controller
     {
         $foto = Foto::find($id);        
         $idperitaje=$foto->fotocontrol->peritaje->id;
+        if(isset($foto->imagen)){
+            if(file_exists("imagen/".$foto->imagen)){
+           unlink("imagen/".$foto->imagen);
+           }
+           }
+      
+      
         $foto->delete();
 
         $peritaje=Peritaje::find($idperitaje);

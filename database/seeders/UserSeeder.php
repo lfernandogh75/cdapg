@@ -18,11 +18,14 @@ class UserSeeder extends Seeder
         DB::table('roles')->insert(
             ['nombre_rol' => 'superadmin']
          );
+         DB::table('roles')->insert(
+            ['nombre_rol' => 'INSPECTOR_EN_LÍNEA']
+         );
         
 
         DB::table('users')->insert([
             'name' => 'superadmin',
-            'email' => 'fernandogh75@gmail.com',
+            'email' => 'superadmin@gmail.com',
             'role_id'=>1,
             'password'=> Hash::make('password')
         ]);
