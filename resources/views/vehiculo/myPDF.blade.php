@@ -1,5 +1,5 @@
-{{--@extends('layouts.plantillaperitaje')
-@section('contenido')--}}
+@extends('layouts.plantillaperitaje')
+@section('contenido')
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,7 +81,7 @@
   font-size:10px;
   margin-top:-19px;
    margin-left:20px;
- ">  <img  v-bind:src="{{ url('./iconos/directions_car.png')}}"> N° INSPECCION {{$peritaje->id}}</p>
+ ">  <img  src="{{ url('./iconos/directions_car.png')}}"> N° INSPECCION {{$peritaje->id}}</p>
       
        
         
@@ -1864,6 +1864,5 @@ margin-left:20px;">SOFTWARE Y/O APLICATIVO UTILIZADO </p>
 </body>
 </html>
 
-{{--
+
 @endsection
---}}
