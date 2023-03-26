@@ -1600,7 +1600,7 @@ margin-left:20px;">COMPRESION Y FUGAS DEL MOTOR {{$peritaje->compresioncontrol->
             
             <tr>
             <td COLSPAN=3 > <img  style="width: 250px;
-                height: 200px;"  src="{{ url('./iconos/chasis.png')}}"> </td>
+                height: 200px;"  src="{{ public_path('./iconos/chasis.jpg')}}"> </td>
             
             </tr>
             <tr>
