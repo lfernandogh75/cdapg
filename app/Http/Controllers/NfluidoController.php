@@ -7,7 +7,7 @@ use App\Http\Requests\StoreNfluidoRequest;
 use App\Http\Requests\UpdateNfluidoRequest;
 use App\Models\Nfluidocontrol;
 use App\Models\Peritaje;
-use App\Models\fluidopart;
+use App\Models\Fluidopart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,7 +33,7 @@ class NfluidoController extends Controller
     {
         $peritaje_id=$request->get('id');
         $peritaje=Peritaje::find($peritaje_id);
-        $fluidoparts =fluidopart::all();
+        $fluidoparts =Fluidopart::all();
         return view('vehiculo/nfluido.create',compact('peritaje','fluidoparts'));
     }
 
