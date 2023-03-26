@@ -72,7 +72,7 @@
       <br>
    
     @if(isset($peritaje->vehiculo->placa) && isset($peritaje->tarjeta ))
-   {{$imagenBase64 = "data:image/png;base64," . base64_encode(file_get_contents(url('iconos/directions_car.png')))}}
+   
    
    
    <div style=" border-top-width: 20px;
@@ -84,7 +84,7 @@
   font-size:10px;
   margin-top:-19px;
    margin-left:20px;
- "> <img src="{{$imagenBase64}}"> N° INSPECCION {{$peritaje->id}}</p>
+ "> <img src="{{public_path('iconos/directions_car.png')}}"> N° INSPECCION {{$peritaje->id}}</p>
       
        
         
