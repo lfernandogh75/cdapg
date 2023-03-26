@@ -282,7 +282,7 @@
    {{ $c=count($foto)-1}}
    @if($c==0)
    <td>{{ $foto[0]->fotopart->name }}</td>
-   <td>   <img src="{{ url('./imagen/'.$foto[0]->imagen)}}" width="50%"></td>
+   <td>   <img src="{{ public_path('./imagen/'.$foto[0]->imagen)}}" width="50%"></td>
    <td>{{ $foto[0]->observacion }}</td>
    @else
      @for($i=0;$i<$c;$i++)
