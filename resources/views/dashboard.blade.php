@@ -35,7 +35,7 @@
                 </div>
               </div>
 
-              <img src="{{ url('iconos/directions_car.png')}}">
+              
 
             </div>
         </div>
