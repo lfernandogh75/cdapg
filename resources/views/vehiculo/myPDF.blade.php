@@ -282,7 +282,7 @@
    {{ $c=count($foto)-1}}
    @if($c==0)
    <td>{{ $foto[0]->fotopart->name }}</td>
-   <td>   <img src="{{ public_path('./imagen/'.$foto[0]->imagen)}}" width="50%"></td>
+   <td>   <img src="{{ public_path('imagen/'.$foto[0]->imagen)}}" width="50%"></td>
    <td>{{ $foto[0]->observacion }}</td>
    @else
      @for($i=0;$i<$c;$i++)
@@ -290,12 +290,12 @@
      <tr>
               @if($i%2==0)  
             <td>{{ $foto[$i]->fotopart->name }}</td>
-            <td>   <img src="{{ public_path('./imagen/'.$foto[$i]->imagen)}}" width="50%"></td>
+            <td>   <img src="{{ public_path('imagen/'.$foto[$i]->imagen)}}" width="50%"></td>
             <td>{{ $foto[$i]->observacion }}</td>
             @endif
           @if(($i+1)%2!=0)
             <td>{{ $foto[$i+1]->fotopart->name }}</td>
-            <td>   <img src="{{ public_path('./imagen/'.$foto[$i+1]->imagen)}}" width="50%"></td>
+            <td>   <img src="{{ public_path('imagen/'.$foto[$i+1]->imagen)}}" width="50%"></td>
             <td>{{ $foto[$i+1]->observacion }}</td>
             @endif
              
