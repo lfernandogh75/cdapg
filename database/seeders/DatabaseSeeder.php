@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
             MotorparkSeeder::class,
             SuspensionpartSeeder::class,
             VidriopartSeeder::class,
+            MarcaslineasSeeder::class,
 
 
 
