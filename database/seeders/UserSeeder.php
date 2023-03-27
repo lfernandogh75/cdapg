@@ -27,6 +27,7 @@ class UserSeeder extends Seeder
             'name' => 'superadmin',
             'email' => 'superadmin@gmail.com',
             'role_id'=>1,
+            'profile_photo_path'=>'superadmin.jpg',
             'password'=> Hash::make('password')
         ]);
     }

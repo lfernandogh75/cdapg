@@ -13,7 +13,7 @@
   <div class="mb-3">
     <label for="" class="form-label">ESTADO</label>
     
-    <select class="form-select" name="estado"  id="estado" aria-label="Default select example">  
+    <select class="form-select" name="estado"  id="estado" aria-label="Default select example" required>  
       <option value="{{$fluido->estado}}">{{$fluido->estado}}</option>
       <option value="1">NO</option>
       <option value="2">SI</option>

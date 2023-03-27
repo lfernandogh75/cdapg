@@ -11,7 +11,7 @@
     <input id="pieza" name="pieza" type="text" class="form-control" value="{{$baja->bajapart->name}}" disabled>    
   </div>
 
-  <select class="form-select" name="estado"  id="estado" aria-label="Default select example"  >  
+  <select class="form-select" name="estado"  id="estado" aria-label="Default select example" required >  
     <option value="{{$baja->estado}}">{{$baja->estado}}</option>
     <option value="1">N/A</option>
       <option value="2">BUEN ESTADO</option>

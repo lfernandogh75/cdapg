@@ -7,7 +7,7 @@
     @csrf
   <div class="mb-3">
     <label for="" class="form-label">PIEZA</label>
-    <select name="pieza" class="form-select" id="pieza">
+    <select name="pieza" class="form-select" id="pieza" required>
       @foreach($estructuraparts as $estructurapart)
       <option value="{{$estructurapart->id}}">{{$estructurapart->name}}</option>
       @endforeach
@@ -16,7 +16,7 @@
  
   <div class="mb-3">
     <label for="" class="form-label">ESTADO</label>
-    <select class="form-select" name="estado"  id="estado" aria-label="Default select example"  >  
+    <select class="form-select" name="estado"  id="estado" aria-label="Default select example"  required>  
      
       <option value="1">N/A</option>
       <option value="2">ORIGINAL</option>
@@ -31,7 +31,7 @@
 
   <div class="mb-3">
     <label for="" class="form-label">VISTA</label>
-    <select class="form-select" name="vista"  id="vista" aria-label="Default select example"  >  
+    <select class="form-select" name="vista"  id="vista" aria-label="Default select example" required  >  
      
       <option value="1">IZQUIERDA</option>
       <option value="2">DERECHA</option>

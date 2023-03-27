@@ -13,7 +13,7 @@
   <div class="mb-3">
     <label for="" class="form-label">ESTADO</label>
     
-    <select class="form-select" name="estado"  id="estado" aria-label="Default select example">  
+    <select class="form-select" name="estado"  id="estado" aria-label="Default select example" required>  
       <option value="{{$exterior->estado}}">{{$exterior->estado}}</option>
       <option value="1">Bueno</option>
       <option value="2">Malo</option>
@@ -24,7 +24,7 @@
   <div class="mb-3">
     <label for="" class="form-label">TIPO</label>
  
-    <select class="form-select" name="tipo" id="tipo" aria-label="Default select example">  
+    <select class="form-select" name="tipo" id="tipo" aria-label="Default select example" required>  
       <option value="{{$exterior->tipo}}">{{$exterior->tipo}}</option>
       <option value="1">Original</option>
       <option value="2">Generico</option>

@@ -7,7 +7,7 @@
     @csrf
   <div class="mb-3">
     <label for="" class="form-label">APLICACION</label>
-    <select name="pieza" class="form-select" id="pieza">
+    <select name="pieza" class="form-select" id="pieza" required>
       @foreach($swparts as $swpart)
       <option value="{{$swpart->id}}">{{$swpart->name}} Ver:{{$swpart->version}} Dis:{{$swpart->dispositivo}}</option>
       @endforeach

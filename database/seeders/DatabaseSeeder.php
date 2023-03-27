@@ -27,6 +27,21 @@ class DatabaseSeeder extends Seeder
             TransmisionSeeder::class,
             UserSeeder::class,
             CarroceriaSeeder::class,
+            FotopartSeeder::class,
+            FrenopartSeeder::class,
+            FluidopartSeeder::class,
+            InteriorpartSeeder::class,
+            ExteriorpartSeeder::class,
+            LatoneriapartSeeder::class,
+            LlantapartSeeder::class,
+            LuzpartSeeder::class,
+            MotorparkSeeder::class,
+            SuspensionpartSeeder::class,
+            VidriopartSeeder::class,
+
+
+
+
              
              
         ]);

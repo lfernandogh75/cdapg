@@ -11,7 +11,7 @@
     <input id="pieza" name="pieza" type="text" class="form-control" value="{{$estructura->estructurapart->name}}" disabled>    
   </div>
 
-  <select class="form-select" name="estado"  id="estado" aria-label="Default select example"  >  
+  <select class="form-select" name="estado"  id="estado" aria-label="Default select example" required>  
     <option value="{{$estructura->estado}}">{{$estructura->estado}}</option>
     <option value="1">N/A</option>
     <option value="2">ORIGINAL</option>
@@ -26,7 +26,7 @@
 
   <div class="mb-3">
     <label for="" class="form-label">VISTA</label>
-    <select class="form-select" name="vista"  id="vista" aria-label="Default select example"  >  
+    <select class="form-select" name="vista"  id="vista" aria-label="Default select example" required  >  
       <option value="{{$estructura->vista}}">{{$estructura->vista}}</option>
       <option value="1">IZQUIERDA</option>
       <option value="2">DERECHA</option>

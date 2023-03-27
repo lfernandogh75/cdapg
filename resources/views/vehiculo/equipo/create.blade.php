@@ -7,7 +7,7 @@
     @csrf
   <div class="mb-3">
     <label for="" class="form-label">EQUIPO</label>
-    <select name="pieza" class="form-select" id="pieza">
+    <select name="pieza" class="form-select" id="pieza" required>
       @foreach($equipoparts as $equipopart)
       <option value="{{$equipopart->id}}">{{$equipopart->name}} M:{{$equipopart->marca}} S:{{$equipopart->serial}} B:{{$equipopart->banco}} P:{{$equipopart->pef}} L:{{$equipopart->ltoe}}</option>
       @endforeach
