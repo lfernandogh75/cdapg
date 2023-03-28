@@ -20,7 +20,9 @@
       
          <img src="/imagen/{{$foto->imagen}}" id="imagenSelecctionada" style="max-height: 300px;">
     </div>
-    
+    @error('imagen')
+    <p  style=" color: red;" class="error-message">{{ $message }}</p>
+@enderror
 
     <div>
       <label class="block text-sm font-medium text-gray-700">Cover photo</label>
@@ -32,7 +34,7 @@
           <div class="flex text-sm text-gray-600">
             <label  class="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500">
               <p class="text-sm text-gray-400 group-hover:text-purple-600 pt-1 tracking-wider"> Seleccionar imagen</p>
-             <input id="imagen" name="imagen" type="file" class="hidden" required>
+             <input id="imagen" name="imagen" type="file" class="hidden">
               
             </label>
              

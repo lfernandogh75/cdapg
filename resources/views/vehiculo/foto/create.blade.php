@@ -25,7 +25,9 @@
               
     <img id="imagenSelecctionada" style="max-height: 300px;">
 </div>
-
+@error('imagen')
+    <p  style=" color: red;" class="error-message">{{ $message }}</p>
+@enderror
 
 <div>
  <label class="block text-sm font-medium text-gray-700">Cover photo</label>

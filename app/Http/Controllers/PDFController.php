@@ -18,7 +18,8 @@ class PDFController extends Controller
             'users' => $users
         ]; 
             
-        $pdf = PDF::loadView('vehiculo.myPDF', $data);
+      //  $pdf = PDF::loadView('vehiculo.myPDF', $data);
+      $pdf = PDF::loadView('vehiculo.myPDFDOS', $data);
      
        // return $pdf->download('peritaje.pdf');
         return $pdf->stream('peritaje.pdf');

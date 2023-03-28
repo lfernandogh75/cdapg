@@ -44,6 +44,9 @@ class FotoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'imagen'=>'required|image|mimes:jpg|max:2024'
+        ]);
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $foto = new Foto();
        if(isset($peritaje->fotocontrol)){
@@ -134,6 +137,10 @@ class FotoController extends Controller
         
         $fotos =  Foto::find($id);
         if($imagen=$request->file('imagen')){
+            $request->validate([
+                'imagen'=>'required|image|mimes:jpg|max:2024'
+            ]);
+          
             if(isset($imagen)){
                 if(file_exists("imagen/".$fotos->imagen)){
                unlink("imagen/".$fotos->imagen);

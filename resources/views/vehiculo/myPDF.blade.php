@@ -1506,11 +1506,12 @@ margin-left:20px;">EQUIPOS ELECTRICOS {{$peritaje->electricocontrol->nivelaproba
 
 <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->luzcontrol->observacion}}</textarea>
 
+
+
 @endif
 
-
-
         </div>
+       
     </th>
     <th>
 <br>
