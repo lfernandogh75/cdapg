@@ -168,7 +168,7 @@
         <tr>
         <th>
 
-
+@if(isset($peritaje->exteriorcontrol->piezasexteriores))
 <div class="col-10"   style=" 
               width: 300px;
             border-top-width: 20px; 
@@ -176,7 +176,7 @@
           
             border-bottom-width: thin; 
             border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
- @if(isset($peritaje->exteriorcontrol->piezasexteriores))
+ 
  <p style="font-size: xx-small;
                 font-size:10px;
                  margin-top:-19px;
@@ -206,21 +206,22 @@
     
     <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->exteriorcontrol->observacion}}</textarea>
    
- @endif
+ 
 
 
 
             </div>
+            @endif
         </th>
         <th>
-
+    @if(isset($peritaje->bajacontrol->bajaparts))
                 <div class="col-10"   style="
                   width: 300px;
                 border-top-width: 20px;
                 border-right-width: thin;
                 border-bottom-width: thin;
                 border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
- @if(isset($peritaje->bajacontrol->bajaparts))
+ 
  <p style="font-size: xx-small;
  font-size:10px;
   margin-top:-19px;
@@ -245,10 +246,10 @@
       
  </table>
  <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->bajacontrol->observacion}}</textarea>
- @endif
+
 
                 </div> 
-
+                @endif
             </th>
         </tr>
     </table> 
@@ -335,6 +336,7 @@
     <th>
 
 <br>
+@if(isset($peritaje->estructuracontrol->estructuraparts))
 <div class="col-10"   style=" 
  
           width: 300px;
@@ -343,7 +345,7 @@
       
         border-bottom-width: thin; 
         border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->estructuracontrol->estructuraparts))
+
 <p style="font-size: xx-small;
             font-size:10px;
              margin-top:-19px;
@@ -373,14 +375,16 @@
 
  
 
-@endif
+
 
 
 
         </div>
+        @endif
     </th>
     <th>
         <br>
+        @if(isset($peritaje->estructuracontrol->estructuraparts))
         <div class="col-10"   style=" 
         width: 300px;
       
@@ -389,7 +393,7 @@
     
       border-bottom-width: thin; 
       border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->estructuracontrol->estructuraparts))
+
 <p style="font-size: xx-small;
           font-size:10px;
            margin-top:-19px;
@@ -419,13 +423,13 @@
 
 
 
-@endif
+
 
 
 
       </div>
              
-
+      @endif
         </th>
     </tr>
 
@@ -434,6 +438,7 @@
         <th>
     
     <br>
+    @if(isset($peritaje->estructuracontrol->estructuraparts))
     <div class="col-10"   style=" 
      
               width: 300px;
@@ -442,7 +447,7 @@
           
             border-bottom-width: thin; 
             border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-    @if(isset($peritaje->estructuracontrol->estructuraparts))
+   
     <p style="font-size: xx-small;
                 font-size:10px;
                  margin-top:-19px;
@@ -472,14 +477,16 @@
     
      
     
-    @endif
+    
     
     
     
             </div>
+            @endif
         </th>
         <th>
             <br>
+            @if(isset($peritaje->estructuracontrol->estructuraparts))
             <div class="col-10"   style=" 
           
            width: 300px;
@@ -488,7 +495,7 @@
         
           border-bottom-width: thin; 
           border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-    @if(isset($peritaje->estructuracontrol->estructuraparts))
+  
     <p style="font-size: xx-small;
               font-size:10px;
                margin-top:-19px;
@@ -518,12 +525,12 @@
     
     
     
-    @endif
+    
     
     
     
           </div>
-                 
+          @endif  
     
             </th>
         </tr>
@@ -555,7 +562,7 @@
     <tr>
     <th>
 <br>
-
+@if(isset($peritaje->latoneriacontrol->latoneriaparts))
 <div class="col-10"   style=" 
  
           width: 300px;
@@ -564,7 +571,7 @@
       
         border-bottom-width: thin; 
         border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->latoneriacontrol->latoneriaparts))
+
 <p style="font-size: xx-small;
             font-size:10px;
              margin-top:-19px;
@@ -594,14 +601,16 @@
 
  
 
-@endif
+
 
 
 
         </div>
+        @endif
     </th>
     <th>
         <br>
+        @if(isset($peritaje->latoneriacontrol->latoneriaparts))
         <div class="col-10"   style=" 
         width: 300px;
       
@@ -610,7 +619,7 @@
     
       border-bottom-width: thin; 
       border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->latoneriacontrol->latoneriaparts))
+
 <p style="font-size: xx-small;
           font-size:10px;
            margin-top:-19px;
@@ -640,12 +649,12 @@
 
 
 
-@endif
+
 
 
 
       </div>
-             
+      @endif  
 
         </th>
     </tr>
@@ -655,6 +664,7 @@
         <th>
     
     <br>
+    @if(isset($peritaje->latoneriacontrol->latoneriaparts))
     <div class="col-10"   style=" 
      
               width: 300px;
@@ -663,7 +673,7 @@
           
             border-bottom-width: thin; 
             border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-    @if(isset($peritaje->latoneriacontrol->latoneriaparts))
+    
     <p style="font-size: xx-small;
                 font-size:10px;
                  margin-top:-19px;
@@ -693,14 +703,16 @@
     
      
     
-    @endif
+    
     
     
     
             </div>
+            @endif
         </th>
         <th>
             <br>
+            @if(isset($peritaje->latoneriacontrol->latoneriaparts))
             <div class="col-10"   style=" 
           
            width: 300px;
@@ -709,7 +721,7 @@
         
           border-bottom-width: thin; 
           border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-    @if(isset($peritaje->latoneriacontrol->latoneriaparts))
+   
     <p style="font-size: xx-small;
               font-size:10px;
                margin-top:-19px;
@@ -739,12 +751,12 @@
     
     
     
-    @endif
+    
     
     
     
           </div>
-                 
+          @endif  
     
             </th>
         </tr>
@@ -777,7 +789,7 @@
     <tr>
     <th>
 <br>
-
+@if(isset($peritaje->pinturacontrol->latoneriaparts))
 <div class="col-10"   style=" 
  
           width: 300px;
@@ -786,7 +798,7 @@
       
         border-bottom-width: thin; 
         border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->pinturacontrol->latoneriaparts))
+
 <p style="font-size: xx-small;
             font-size:10px;
              margin-top:-19px;
@@ -816,14 +828,16 @@
 
  
 
-@endif
+
 
 
 
         </div>
+        @endif
     </th>
     <th>
         <br>
+        @if(isset($peritaje->pinturacontrol->latoneriaparts))
         <div class="col-10"   style=" 
         width: 300px;
       
@@ -832,7 +846,7 @@
     
       border-bottom-width: thin; 
       border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->pinturacontrol->latoneriaparts))
+
 <p style="font-size: xx-small;
           font-size:10px;
            margin-top:-19px;
@@ -862,13 +876,13 @@
 
 
 
-@endif
+
 
 
 
       </div>
              
-
+      @endif
         </th>
     </tr>
 
@@ -876,7 +890,7 @@
     <tr>
         <th>
     <br>
-    
+    @if(isset($peritaje->pinturacontrol->latoneriaparts))
     <div class="col-10"   style=" 
      
               width: 300px;
@@ -885,7 +899,7 @@
           
             border-bottom-width: thin; 
             border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-    @if(isset($peritaje->pinturacontrol->latoneriaparts))
+   
     <p style="font-size: xx-small;
                 font-size:10px;
                  margin-top:-19px;
@@ -915,14 +929,16 @@
     
      
     
-    @endif
+    
     
     
     
             </div>
+            @endif
         </th>
         <th>
             <br>
+            @if(isset($peritaje->pinturacontrol->latoneriaparts))
             <div class="col-10"   style=" 
           
            width: 300px;
@@ -931,7 +947,7 @@
         
           border-bottom-width: thin; 
           border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-    @if(isset($peritaje->pinturacontrol->latoneriaparts))
+  
     <p style="font-size: xx-small;
               font-size:10px;
                margin-top:-19px;
@@ -961,12 +977,12 @@
     
     
     
-    @endif
+    
     
     
     
           </div>
-                 
+          @endif  
     
             </th>
         </tr>
@@ -986,7 +1002,7 @@
       
             <tr>
             <th>
-    
+    @if(isset($peritaje->vidriocontrol->vidrioparts))
     
     <div class="col-10"   style=" 
                   width: 300px;
@@ -995,7 +1011,7 @@
               
                 border-bottom-width: thin; 
                 border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-     @if(isset($peritaje->vidriocontrol->vidrioparts))
+     
      <p style="font-size: xx-small;
                     font-size:10px;
                      margin-top:-19px;
@@ -1025,21 +1041,22 @@
         
         <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->vidriocontrol->observacion}}</textarea>
        
-     @endif
+     
     
     
     
                 </div>
+                @endif
             </th>
             <th>
-    
+                @if(isset($peritaje->interiorcontrol->interiorparts))
                     <div class="col-10"   style="
                       width: 300px;
                     border-top-width: 20px;
                     border-right-width: thin;
                     border-bottom-width: thin;
                     border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-     @if(isset($peritaje->interiorcontrol->interiorparts))
+     
      <p style="font-size: xx-small;
      font-size:10px;
       margin-top:-19px;
@@ -1065,10 +1082,10 @@
          
      </table>
      <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->interiorcontrol->observacion}}</textarea>
-     @endif
+    
     
                     </div> 
-    
+                    @endif
                 </th>
             </tr>
         </table> 
@@ -1080,7 +1097,7 @@
     <tr>
     <th>
 
-
+        @if(isset($peritaje->fluidocontrol->fluidoparts))
 <div class="col-10"   style=" 
           width: 300px;
         border-top-width: 20px; 
@@ -1088,7 +1105,7 @@
       
         border-bottom-width: thin; 
         border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->fluidocontrol->fluidoparts))
+
 <p style="font-size: xx-small;
             font-size:10px;
              margin-top:-19px;
@@ -1118,21 +1135,23 @@
 
 <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->fluidocontrol->observacion}}</textarea>
 
-@endif
+
 
 
 
         </div>
+        @endif
     </th>
     <th>
 <br>
+@if(isset($peritaje->nfluidocontrol->fluidoparts))
             <div class="col-10"   style="
               width: 300px;
             border-top-width: 20px;
             border-right-width: thin;
             border-bottom-width: thin;
             border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->nfluidocontrol->fluidoparts))
+
 <p style="font-size: xx-small;
 font-size:10px;
 margin-top:-19px;
@@ -1158,10 +1177,10 @@ margin-left:20px;">NIVELES DE FLUIDOS {{$peritaje->nfluidocontrol->nivelaprobado
  
 </table>
 <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->nfluidocontrol->observacion}}</textarea>
-@endif
+
 
             </div> 
-
+            @endif
         </th>
     </tr>
 </table> 
@@ -1173,7 +1192,7 @@ margin-left:20px;">NIVELES DE FLUIDOS {{$peritaje->nfluidocontrol->nivelaprobado
       
     <tr>
     <th>
-
+        @if(isset($peritaje->chasiscontrol->chasisparts))
 
 <div class="col-10"   style=" 
           width: 300px;
@@ -1182,7 +1201,7 @@ margin-left:20px;">NIVELES DE FLUIDOS {{$peritaje->nfluidocontrol->nivelaprobado
       
         border-bottom-width: thin; 
         border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->chasiscontrol->chasisparts))
+
 <p style="font-size: xx-small;
             font-size:10px;
              margin-top:-19px;
@@ -1212,22 +1231,23 @@ margin-left:20px;">NIVELES DE FLUIDOS {{$peritaje->nfluidocontrol->nivelaprobado
 
 <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->fluidocontrol->observacion}}</textarea>
 
-@endif
+
 
 
 
         </div>
+        @endif
     </th>
     <th>
         <br>
-
+        @if(isset($peritaje->suspensioncontrol->suspensionparts))
             <div class="col-10"   style="
               width: 300px;
             border-top-width: 20px;
             border-right-width: thin;
             border-bottom-width: thin;
             border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->suspensioncontrol->suspensionparts))
+
 <p style="font-size: xx-small;
 font-size:10px;
 margin-top:-19px;
@@ -1253,10 +1273,10 @@ margin-left:20px;">ESTADO DE LA SUSPENSION {{$peritaje->suspensioncontrol->nivel
  
 </table>
 <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->suspensioncontrol->observacion}}</textarea>
-@endif
+
 
             </div> 
-
+            @endif
         </th>
     </tr>
 </table> 
@@ -1268,7 +1288,7 @@ margin-left:20px;">ESTADO DE LA SUSPENSION {{$peritaje->suspensioncontrol->nivel
     <tr>
     <th>
 <br>
-
+@if(isset($peritaje->motorcontrol->piezasmotors))
 <div class="col-10"   style=" 
           width: 300px;
         border-top-width: 20px; 
@@ -1276,7 +1296,7 @@ margin-left:20px;">ESTADO DE LA SUSPENSION {{$peritaje->suspensioncontrol->nivel
       
         border-bottom-width: thin; 
         border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->motorcontrol->piezasmotors))
+
 <p style="font-size: xx-small;
             font-size:10px;
              margin-top:-19px;
@@ -1306,21 +1326,23 @@ margin-left:20px;">ESTADO DE LA SUSPENSION {{$peritaje->suspensioncontrol->nivel
 
 <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->motorcontrol->observacion}}</textarea>
 
-@endif
+
 
 
 
         </div>
+        @endif
     </th>
     <th>
 <br>
+@if(isset($peritaje->llantacontrol->llantaparts))
             <div class="col-10"   style="
               width: 300px;
             border-top-width: 20px;
             border-right-width: thin;
             border-bottom-width: thin;
             border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->llantacontrol->llantaparts))
+
 <p style="font-size: xx-small;
 font-size:10px;
 margin-top:-19px;
@@ -1350,10 +1372,10 @@ margin-left:20px;">ESTADO DE LAS LLANTAS </p>
  
 </table>
 <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->llantacontrol->observacion}}</textarea>
-@endif
+
 
             </div> 
-
+            @endif
         </th>
     </tr>
 </table> 
@@ -1367,7 +1389,7 @@ margin-left:20px;">ESTADO DE LAS LLANTAS </p>
     <tr>
     <th>
 
-
+        @if(isset($peritaje->vlucescontrol->luzparts))
 <div class="col-10"   style=" 
           width: 300px;
         border-top-width: 20px; 
@@ -1375,7 +1397,7 @@ margin-left:20px;">ESTADO DE LAS LLANTAS </p>
       
         border-bottom-width: thin; 
         border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->vlucescontrol->luzparts))
+
 <p style="font-size: xx-small;
             font-size:10px;
              margin-top:-19px;
@@ -1405,21 +1427,23 @@ margin-left:20px;">ESTADO DE LAS LLANTAS </p>
 
 <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->vlucescontrol->observacion}}</textarea>
 
-@endif
+
 
 
 
         </div>
+        @endif
     </th>
     <th>
 <br>
+@if(isset($peritaje->electricocontrol->piezaselectricas))
             <div class="col-10"   style="
               width: 300px;
             border-top-width: 20px;
             border-right-width: thin;
             border-bottom-width: thin;
             border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->electricocontrol->piezaselectricas))
+
 <p style="font-size: xx-small;
 font-size:10px;
 margin-top:-19px;
@@ -1445,10 +1469,10 @@ margin-left:20px;">EQUIPOS ELECTRICOS {{$peritaje->electricocontrol->nivelaproba
  
 </table>
 <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->electricocontrol->observacion}}</textarea>
-@endif
+
 
             </div> 
-
+            @endif
         </th>
     </tr>
 </table> 
@@ -1459,7 +1483,7 @@ margin-left:20px;">EQUIPOS ELECTRICOS {{$peritaje->electricocontrol->nivelaproba
     <tr>
     <th>
 <br>
-
+@if(isset($peritaje->luzcontrol->luzparts))
 <div class="col-10"   style=" 
           width: 370px;
         border-top-width: 20px; 
@@ -1467,7 +1491,7 @@ margin-left:20px;">EQUIPOS ELECTRICOS {{$peritaje->electricocontrol->nivelaproba
       
         border-bottom-width: thin; 
         border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->luzcontrol->luzparts))
+
 <p style="font-size: xx-small;
             font-size:10px;
              margin-top:-19px;
@@ -1508,20 +1532,21 @@ margin-left:20px;">EQUIPOS ELECTRICOS {{$peritaje->electricocontrol->nivelaproba
 
 
 
-@endif
+
 
         </div>
-       
+        @endif
     </th>
     <th>
 <br>
+@if(isset($peritaje->compresioncontrol->compresionparts))
             <div class="col-10"   style="
               width: 200px;
             border-top-width: 20px;
             border-right-width: thin;
             border-bottom-width: thin;
             border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->compresioncontrol->compresionparts))
+
 <p style="font-size: xx-small;
 font-size:10px;
 margin-top:-19px;
@@ -1554,10 +1579,10 @@ margin-left:20px;">COMPRESION Y FUGAS DEL MOTOR {{$peritaje->compresioncontrol->
  </tr>
 </table>
 <textarea style="font-size: xx-small;  width: 150px;"   readonly>{{$peritaje->compresioncontrol->observacion}}</textarea>
-@endif
+
 
             </div> 
-
+            @endif
         </th>
     </tr>
 </table> 
@@ -1569,6 +1594,7 @@ margin-left:20px;">COMPRESION Y FUGAS DEL MOTOR {{$peritaje->compresioncontrol->
       
         <tr>
         <th>
+            @if(isset($peritaje->simetria)) 
             <div class="col-10"   style=" 
             width: 300px;
             border-top-width: 20px; 
@@ -1576,7 +1602,7 @@ margin-left:20px;">COMPRESION Y FUGAS DEL MOTOR {{$peritaje->compresioncontrol->
             
             border-bottom-width: thin; 
             border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-            @if(isset($peritaje->simetria)) 
+           
             <p style="font-size: small;
               font-size:10px;
                margin-top:-19px;
@@ -1625,14 +1651,14 @@ margin-left:20px;">COMPRESION Y FUGAS DEL MOTOR {{$peritaje->compresioncontrol->
                         <textarea id="observacion" readonly name="observacion" style="font-size: small;  width: 250px;">{{$peritaje->simetria->observacion}}</textarea>
                         
                                            
-                @endif
+                
             
                 </div>  
-
+                @endif
 
  </th>
     <th>
-
+        @if(isset($peritaje->frenocontrol->frenoparts))
 <div class="col-10"   style=" 
           width: 300px;
         border-top-width: 20px; 
@@ -1640,7 +1666,7 @@ margin-left:20px;">COMPRESION Y FUGAS DEL MOTOR {{$peritaje->compresioncontrol->
       
         border-bottom-width: thin; 
         border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->frenocontrol->frenoparts))
+
 <p style="font-size: xx-small;
             font-size:10px;
              margin-top:-19px;
@@ -1675,18 +1701,18 @@ margin-left:20px;">COMPRESION Y FUGAS DEL MOTOR {{$peritaje->compresioncontrol->
 
 <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->frenocontrol->observacion}}</textarea>
 
-@endif
+
 
 
 
         </div>
-
+        @endif
     </th>
 </tr>
 </table> 
 
        <p> 
-    
+        @if(isset($peritaje->emisiongas))  
         <div class="col-10"   style=" 
         width: 600px;
       border-top-width: 20px; 
@@ -1694,7 +1720,7 @@ margin-left:20px;">COMPRESION Y FUGAS DEL MOTOR {{$peritaje->compresioncontrol->
     
       border-bottom-width: thin; 
       border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->emisiongas))   
+ 
 <p style="font-size: xx-small;
           font-size:10px;
            margin-top:-19px;
@@ -1756,9 +1782,9 @@ margin-left:20px;">COMPRESION Y FUGAS DEL MOTOR {{$peritaje->compresioncontrol->
                  
 
 <p>
-@endif
-</div>  
 
+</div>  
+@endif
    
 {{---fin de gases y frenos--}}
 
@@ -1767,7 +1793,7 @@ margin-left:20px;">COMPRESION Y FUGAS DEL MOTOR {{$peritaje->compresioncontrol->
       
     <tr>
     <th>
-
+        @if(isset($peritaje->equipocontrol->equipoparts))
 
 <div class="col-10"   style=" 
           width: 350px;
@@ -1776,7 +1802,7 @@ margin-left:20px;">COMPRESION Y FUGAS DEL MOTOR {{$peritaje->compresioncontrol->
       
         border-bottom-width: thin; 
         border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->equipocontrol->equipoparts))
+
 <p style="font-size: xx-small;
             font-size:10px;
              margin-top:-19px;
@@ -1815,21 +1841,22 @@ margin-left:20px;">COMPRESION Y FUGAS DEL MOTOR {{$peritaje->compresioncontrol->
 
 <textarea style="font-size: xx-small;  width: 230px;"   readonly>{{$peritaje->equipocontrol->observacion}}</textarea>
 
-@endif
+
 
 
 
         </div>
+        @endif
     </th>
     <th>
-
+        @if(isset($peritaje->swcontrol->swparts))
             <div class="col-10"   style="
               width: 250px;
             border-top-width: 20px;
             border-right-width: thin;
             border-bottom-width: thin;
             border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(239, 107, 19, 0.951);">
-@if(isset($peritaje->swcontrol->swparts))
+
 <p style="font-size: xx-small;
 font-size:10px;
 margin-top:-19px;
@@ -1857,10 +1884,10 @@ margin-left:20px;">SOFTWARE Y/O APLICATIVO UTILIZADO </p>
  
 </table>
 <textarea style="font-size: xx-small;  width: 200px;"   readonly>{{$peritaje->swcontrol->observacion}}</textarea>
-@endif
+
 
             </div> 
-
+            @endif
         </th>
     </tr>
 </table> 
