@@ -24,10 +24,13 @@
         left: 0cm;
         right: 0cm;
         height: 2cm;
-        background-color: #19ea6d;
-        color: white;
+        background-color:rgba(239, 107, 19, 0.951);
+        color: hsla(0, 33%, 4%, 0.851);
         text-align: center;
-        line-height: 30px;
+        line-height: 20px;
+        font-weight: bold;
+        border-radius: 15px 15px 15px 15px;
+        
     }
 
     footer {
@@ -36,10 +39,12 @@
         left: 0cm;
         right: 0cm;
         height: 2cm;
-        background-color: #19ea6d;
-        color: white;
+        background-color:rgba(239, 107, 19, 0.951);
+        color: hsla(0, 33%, 4%, 0.851);
         text-align: center;
-        line-height: 35px;
+        line-height: 20px;
+        font-weight: bold;
+        border-radius: 15px 15px 15px 15px;
        
     }
     
@@ -47,9 +52,16 @@
 
 </style>
 <body>
-  {{--  <header>
-        <h1>CDA PARQUE DEL AGUA</h1>
-    </header>--}}
+ {{--  <header>
+        <p>CAR VALUE <br>
+            INFORME DE PERITAJE <br>
+            LIVIANO BÁSICO
+        </p>
+    </header>
+
+    <footer>
+        Copyright &copy; {{date("Y")}}
+    </footer>  --}}
     
   {{-- <h1>{{ $title }}</h1>
     <p>{{ $date }}</p>
@@ -255,6 +267,32 @@
     </table> 
     <br>
     {{--FIN DE EXTERIOR Y COMPRESION--}}
+ {{--  <div style="page-break-after:always;"></div>
+    <header>
+        <p>CAR VALUE <br>
+            INFORME DE PERITAJE <br>
+            LIVIANO BÁSICO
+        </p>
+    </header>
+
+    <footer>
+        Copyright &copy; {{date("Y")}}
+    </footer> 
+
+
+    @if(isset($peritaje->vehiculo->placa))
+    <div   style=" border-top-width: 5px;
+     border-right-width: 5px;
+     border-bottom-width: 5px;
+     width: 100px;
+   height: 40px; 
+   font-weight: bold;
+   background-color: #eafe39;
+     border-left-width: 5px;  border-radius: 5px 5px 5px 5px;  border-color: rgba(11, 5, 0, 0.951); text-align:center;">
+      
+    
+      {{ $peritaje->vehiculo->placa }}</div>
+      @endif--}}
    
     @if(isset($peritaje->fotocontrol->fotoparts))
     <div style=" border-top-width: 20px;
@@ -270,42 +308,46 @@
     <table class="table table-bordered" style="font-size: xx-small;" >
         <tr bgcolor="#19ea6d">
            
-            <th>FOTO</th>
+       {{--     <th>FOTO</th>
             <th>IMAGEN</th>
             <th>OBSERVACION</th>
             <th>FOTO</th>
             <th>IMAGEN</th>
-            <th>OBSERVACION</th>
+            <th>OBSERVACION</th> --}}
         </tr>
        
        {{-- @foreach($peritaje->fotocontrol->fotoparts as $foto) --}}
      {{  $foto=$peritaje->fotocontrol->fotoparts}}
    {{ $c=count($foto)-1}}
    @if($c==0)
-   <td>{{ $foto[0]->fotopart->name }}</td>
-   <td>   <img src="{{ public_path('imagen/'.$foto[0]->imagen)}}" width="50%"></td>
-   <td>{{ $foto[0]->observacion }}</td>
+  {{-- <td>{{ $foto[0]->fotopart->name }}</td>--}}
+   <td> {{ $foto[0]->fotopart->name }} <br>
+      <img src="{{ public_path('imagen/'.$foto[0]->imagen)}}" width="250" height="200"></td>
+  {{-- <td>{{ $foto[0]->observacion }}</td>--}}
    @else
      @for($i=0;$i<$c;$i++)
     
      <tr>
               @if($i%2==0)  
-            <td>{{ $foto[$i]->fotopart->name }}</td>
-            <td>   <img src="{{ public_path('imagen/'.$foto[$i]->imagen)}}" width="50%"></td>
-            <td>{{ $foto[$i]->observacion }}</td>
+        {{--    <td>{{ $foto[$i]->fotopart->name }}</td>--}}
+            <td>{{ $foto[$i]->fotopart->name }} <br>
+                   <img src="{{ public_path('imagen/'.$foto[$i]->imagen)}}" width="250" height="200"></td>
+        {{--  <td>{{ $foto[$i]->observacion }}</td>--}}
             @endif
           @if(($i+1)%2!=0)
-            <td>{{ $foto[$i+1]->fotopart->name }}</td>
-            <td>   <img src="{{ public_path('imagen/'.$foto[$i+1]->imagen)}}" width="50%"></td>
-            <td>{{ $foto[$i+1]->observacion }}</td>
+          {{-- <td>{{ $foto[$i+1]->fotopart->name }}</td>--}}
+            <td> {{ $foto[$i+1]->fotopart->name }} <br>
+                  <img src="{{ public_path('imagen/'.$foto[$i+1]->imagen)}}" width="250" height="200"></td>
+          {{--  <td>{{ $foto[$i+1]->observacion }}</td>--}}
             @endif
              
         </tr>
         @endfor
         @if($c%2==0)
-        <td>{{ $foto[$c]->fotopart->name }}</td>
-            <td>   <img src="{{ public_path('./imagen/'.$foto[$c]->imagen)}}" width="50%"></td>
-            <td>{{ $foto[$c]->observacion }}</td>
+     {{--   <td>{{ $foto[$c]->fotopart->name }}</td>--}}
+            <td> {{ $foto[$c]->fotopart->name }} <br>
+                   <img src="{{ public_path('./imagen/'.$foto[$c]->imagen)}}" width="250" height="200"></td>
+          {{--  <td>{{ $foto[$c]->observacion }}</td>--}}
             @endif
       @endif
       {{-- @endforeach--}} 

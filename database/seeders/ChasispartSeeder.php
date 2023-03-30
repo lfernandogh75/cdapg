@@ -19,7 +19,11 @@ class ChasispartSeeder extends Seeder
             ['name' => 'PUENTE TRAVIESA'],
             ['name' => 'PUNTA DE CHASIS DELANTERA IZQ'],
             ['name' => 'PUNTA DE CHASIS DELANTERA DER'],
-            ['name' => 'PUNTA DE CHASIS TRASERA IZQ']
+            ['name' => 'PUNTA DE CHASIS TRASERA IZQ'],
+            ['name' => 'LARGUEROS'],
+            ['name' => 'TRAVESAÑOS'],
+            ['name' => 'CORROSION'],
+            ['name' => 'DEFORMACION']
     ];
 
     foreach ($data as $name) {

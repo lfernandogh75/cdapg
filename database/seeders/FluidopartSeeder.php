@@ -19,7 +19,11 @@ class FluidopartSeeder extends Seeder
             ['name' => 'FUGAS DE LIQUIDO DE FRENO'],
             ['name' => 'FUGA DE REFRIGERANTE'],
             ['name' => 'ACEITE MOTOR'],
-            ['name' => 'DIRECCION HIDRAULICA']
+            ['name' => 'DIRECCION HIDRAULICA'],
+            ['name' => 'ACEITE TRANSMISION'],
+            ['name' => 'LIQUIDO DE FRENOS'],
+            ['name' => 'REFRIGERANTE']
+
             
     ];
 

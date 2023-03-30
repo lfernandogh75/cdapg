@@ -20,7 +20,10 @@ class LatoneriapartSeeder extends Seeder
             ['name' => 'PUERTA DELANTERA'],
             ['name' => 'PUERTA TRASERA'],
             ['name' => 'COSTADO'],
-            ['name' => 'AMPLIACION DELANTERA']       
+            ['name' => 'AMPLIACION DELANTERA'],
+            ['name' => 'TAPAS LATELAR'],
+            ['name' => 'RETROVISOR'],
+            ['name' => 'TAPA BAUL/COMPUERTA']     
     ];
 
     foreach ($data as $name) {
