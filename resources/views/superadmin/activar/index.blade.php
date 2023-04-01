@@ -83,6 +83,17 @@
 @endif
        
 @endif
+
+@if(isset($vehiculo->peritaje->cierre))
+@if(Auth::user()->role->nombre_rol=="superadmin" && $vehiculo->peritaje->cierre->activo)
+<p> <a style="color:hsl(20, 80%, 50%);"  href="/cierreinactiva/{{$vehiculo->peritaje->id}}"  tabindex="4">TERMINAR PERITAJE</a>
+  @else
+  <p> <a style="color:rgb(49, 230, 25);"  href="/cierreactivar/{{$vehiculo->peritaje->id}}"  tabindex="4">TERMINAR PERITAJE</a>
+@endif
+    
+@endif
+
+
 <p> <a  href="/vehiculos?placa={{$vehiculo->placa}}&vehiculoindex=12"  tabindex="4" target="_blank" rel="noopener">INFORME DEL  PERITAJE</a>
            
       </div>

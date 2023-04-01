@@ -140,6 +140,13 @@
         <label for="potencia" class="form-label">{{$tarjeta->potencia}}</label>
        
       </div>
+      <div class="col-md-3">
+        <label for="potencia" class="form-label">LICENCIA DE TRANSITO</label>
+      </div>
+      <div class="col-md-3">
+        <label for="potencia" class="form-label">{{$tarjeta->licencia}}</label>
+       
+      </div>
 
     </div>
 
@@ -178,7 +185,14 @@
    
       </div>
     </div>
+
+    <div class="col-md-3">
+      <label for="matriculado" class="form-label">CIUDAD MATRICULA</label>
     </div>
+    <div class="col-md-3">
+      <label for="matriculado" class="form-label">{{$tarjeta->matriculado}}</label>
+    </div></div>
+ 
     
     
       <input type="hidden"    id="lineaid" name="lineaid"  value="{{$tarjeta->linea->id}}">
@@ -188,7 +202,7 @@
 
      <a href="/vehiculos?placa={{$tarjeta->peritaje->vehiculo->placa}}&vehiculoindex=1" class="btn btn-secondary" tabindex="5">Cancelar</a>
    
-
+    </div>
 @section('js')
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>

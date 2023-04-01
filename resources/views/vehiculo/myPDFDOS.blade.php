@@ -56,7 +56,67 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua.</p> --}}
 
-    @if(isset($peritaje->vehiculo->placa))
+    <div class="col-11"   style=" width: 700px; border: 1px solid;">
+  <table width="100%">
+    <td width="80%">
+        <p>N° INSPECCION {{$peritaje->id}}</p>
+    <p>CERTIFICADO DE PERITAJE </p>
+    <table   style="font-size: xx-small; margin: 0 auto;"  >
+                <tr>
+                   
+                    <th>FECHA:</th>
+                     <td colspan="3">{{ $peritaje->created_at}}</td>
+                    <th></th>
+                    <td></td>
+                </tr>
+               <tr>
+                <th>SOLICITANTE:</th>
+                    <td colspan="3">{{ $peritaje->vehiculo->solicitante}}</td>
+                    <th></th>
+                    <td></td>
+               </tr>
+               <tr>
+                <th>{{$peritaje->vehiculo->tipoidentificacion }}:</th>
+                <td>{{ $peritaje->vehiculo->numeroidentificacion}}</td>
+                <th>TELEFONO:</th>
+                <td> {{$peritaje->vehiculo->telefono}}</td>
+               </tr>
+               <tr>
+                <th>CORREO:</th>
+                    <td colspan="3">{{ $peritaje->vehiculo->email}}</td>
+                    <th></th>
+                    <td></td>
+               </tr>
+               <tr>
+                <th>SERVICIO SOLICITADO:</th>
+                    <td colspan="3">{{ $peritaje->cierre->serviciosolicitado}}</td>
+                    
+               </tr>
+               <tr>
+                   
+                <th>CODIGO FASECOLDA:</th>
+                 <td>{{ $peritaje->cierre->codigofasecolda}}</td>
+                <th>VALOR FASECOLDA:</th>
+                 <td>{{ $peritaje->cierre->valorfasecolda }}</td>
+               </tr>
+               <tr>
+                   
+                <th>VALOR {{$peritaje->cierre->empresa->razonsocial}}:</th>
+                 <td>{{ $peritaje->cierre->valorcarvalue}}</td>
+                <th>VALOR ACCESORIOS:</th>
+                 <td>{{ $peritaje->cierre->valoraccesorios }}</td>
+               </tr>
+               <tr>
+                <th>RESULTADO:</th>
+                    <td colspan="3">{{ $peritaje->cierre->resultado}}</td>
+                    
+               </tr>
+               <tr>
+    </table>
+
+</td>
+    <td width="20%" align="right">
+     @if(isset($peritaje->vehiculo->placa))
     <div   style=" border-top-width: 5px;
      border-right-width: 5px;
      border-bottom-width: 5px;
@@ -69,6 +129,11 @@
     
       {{ $peritaje->vehiculo->placa }}</div>
       @endif
+    </td>
+  </table>
+ NOVEDADES EN LA INSPECCION
+  <textarea style="font-size: xx-small;  width: 500px;"   readonly>{{$peritaje->cierre->observacion}}</textarea>
+    </div>
       <br>
    
     @if(isset($peritaje->vehiculo->placa) && isset($peritaje->tarjeta ))
@@ -77,7 +142,7 @@
    
     <div class="col-11"   style=" width: 700px; border: 1px solid;">
   
-  <p>  N° INSPECCION {{$peritaje->id}}</p>
+  <p> DATOS DEL VEHICULO</p>
       
        
         
@@ -85,10 +150,10 @@
             <table   style="font-size: xx-small; margin: 0 auto;"  >
                 <tr>
                    
-                    <th bgcolor ="#19ea6d">FECHA</th>
-                     <td>{{ $peritaje->created_at}}</td>
-                    <th bgcolor ="#19ea6d">TIPO</th>
-                     <td>{{ $peritaje->tipo }}</td>
+                    <th bgcolor ="#19ea6d">PLACA:</th>
+                     <td>{{ $peritaje->vehiculo->placa}}</td>
+                    <th bgcolor ="#19ea6d">NACIONALIDAD:</th>
+                     <td>{{ $peritaje->tarjeta->nacionalidad }}</td>
                      <th bgcolor ="#19ea6d">VEHICULO</th>
                      <td>{{ $peritaje->vehiculo->clase_vehiculo }}</td>
                      
@@ -99,8 +164,8 @@
                 </tr>
                 
                 <tr>
-                    <th bgcolor ="#19ea6d">SOLICITANTE</th>
-                    <td>{{ $peritaje->vehiculo->solicitante}}</td>
+                    <th bgcolor ="#19ea6d">Nº LICENCIA</th>
+                    <td>{{ $peritaje->tarjeta->licencia}}</td>
                     <th   bgcolor="#19ea6d">MODELO</th>
                     <td>{{ $peritaje->tarjeta->modelo}}</td>
                     <th  bgcolor="#19ea6d">COMBUSTIBLE</th>
@@ -112,8 +177,8 @@
                 </tr>
                 
                  <tr>
-                    <th bgcolor ="#19ea6d">CORREO</th>
-                    <td>{{ $peritaje->vehiculo->email}}</td>
+                    <th bgcolor ="#19ea6d">FECHA MATRICULA:</th>
+                    <td>{{ $peritaje->tarjeta->fecha_matricula}}</td>
                     <th bgcolor="#19ea6d">COLOR</th>
                     <td> {{$peritaje->tarjeta->color->nombre}}</td>
                     <th bgcolor ="#19ea6d">KILOMETRAJE</th>
@@ -122,8 +187,8 @@
                      <td> {{$peritaje->tarjeta->numero_serie}}</td>
                 </tr>
                <tr>
-                <th bgcolor ="#19ea6d">TELEFONO</th>
-                <td>{{ $peritaje->vehiculo->telefono}}</td>
+                <th bgcolor ="#19ea6d">TIPO MOTOR:</th>
+                <td>{{ $peritaje->cierre->tipomotor}}</td>
                 <th bgcolor="#19ea6d">MARCA</th>
                 <td> {{$peritaje->tarjeta->marca->nombre}}</td>
                 <th  bgcolor="#19ea6d">CILINDRADA CC</th>
@@ -136,8 +201,8 @@
                </tr>  
 
                <tr>
-                <th bgcolor ="#19ea6d">{{$peritaje->vehiculo->tipoidentificacion }}</th>
-                <td>{{ $peritaje->vehiculo->numeroidentificacion}}</td>
+                <th bgcolor ="#19ea6d">TIPO DE CAJA</th>
+                <td>{{ $peritaje->cierre->tipocaja}}</td>
                 <th  bgcolor="#19ea6d">LINEA</th>
                 <td> {{$peritaje->tarjeta->linea->nombre}}</td>
                 
@@ -146,6 +211,29 @@
                
                 <th bgcolor="#19ea6d">N CHASIS</th>
                 <td> {{$peritaje->tarjeta->numero_chasis}}</td>
+               </tr>
+               <tr>
+                <th bgcolor ="#19ea6d">MATRICULADO EN:</th>
+                <td>{{ $peritaje->tarjeta->matriculado}}</td>
+                <th  bgcolor="#19ea6d">PROPIETARIO:</th>
+                <td> {{$peritaje->tarjeta->propietario}}</td>
+                
+                     <th  bgcolor="#19ea6d">IDENTIFICACION:</th>
+                     <td> {{$peritaje->tarjeta->identificacion_propietario}}</td>
+               
+                <th bgcolor="#19ea6d">TIPO PINTURA</th>
+                <td> {{$peritaje->cierre->tipopintura}}</td>
+               </tr>
+               <tr>
+                <th colspan="3" bgcolor ="#19ea6d">FECHA VENCIMIENTO CERTIFICACO GNVC:</th>
+                <td>{{ $peritaje->cierre->gnvc}}</td>
+                
+                
+                     <th  bgcolor="#19ea6d">BLINDADO:</th>
+                     <td> {{$peritaje->cierre->blindado}}</td>
+               
+                <th bgcolor="#19ea6d">POLARIZADO:</th>
+                <td> {{$peritaje->cierre->polarizado}}</td>
                </tr>
                
             </table>
@@ -265,13 +353,13 @@
      <tr>
               @if($i%2==0)  
        {{--     <td>{{ $foto[$i]->fotopart->name }}</td> --}}
-            <td>{{ $foto[0]->fotopart->name }}<br>
+            <td>{{ $foto[$i]->fotopart->name }}<br>
                    <img src="{{ public_path('imagen/'.$foto[$i]->imagen)}}" width="250" height="200"></td>
          {{--  <td>{{ $foto[$i]->observacion }}</td> --}}
             @endif
           @if(($i+1)%2!=0)
         {{--    <td>{{ $foto[$i+1]->fotopart->name }}</td> --}}
-            <td>{{ $foto[0]->fotopart->name }}<br>
+            <td>{{ $foto[$i+1]->fotopart->name }}<br>
                    <img src="{{ public_path('imagen/'.$foto[$i+1]->imagen)}}" width="250" height="200"></td>
           {{--  <td>{{ $foto[$i+1]->observacion }}</td> --}}
             @endif
@@ -280,7 +368,7 @@
         @endfor
         @if($c%2==0)
      {{--  <td>{{ $foto[$c]->fotopart->name }}</td> --}}
-            <td>{{ $foto[0]->fotopart->name }}<br>
+            <td>{{ $foto[$c]->fotopart->name }}<br>
                    <img src="{{ public_path('./imagen/'.$foto[$c]->imagen)}}" width="250" height="200"></td>
          {{--  <td>{{ $foto[$c]->observacion }}</td> --}}
             @endif

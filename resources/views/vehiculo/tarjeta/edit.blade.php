@@ -158,6 +158,14 @@
         <input type="number"   class="form-control" id="potencia" name="potencia" placeholder="POTENCIA HP" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()"  value ="{{$tarjeta->potencia}}" required >
       </div>
 
+
+      <div class="col-md-3">
+        <label for="potencia" class="form-label">LICENCIA DE TRANSITO</label>
+      </div>
+      <div class="col-md-3">
+        <input type="number"   class="form-control" id="licencia" name="licencia" placeholder="LICENCIA DE TRANSITO" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" value ="{{$tarjeta->licencia}}" required>
+      </div>
+
     </div>
 
 
@@ -192,7 +200,17 @@
      <input type="text" name="nacionalidad"  id="nacionalidad" class="form-control" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()"  value ="{{$tarjeta->nacionalidad}}" required>
       </div>
     </div>
+
+
+    <div class="col-md-3">
+      <label for="matriculado" class="form-label">CIUDAD MATRICULA</label>
     </div>
+    <div class="col-md-3">
+      <input type="text" name="matriculado"  id="matriculado" class="form-control" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" value ="{{$tarjeta->matriculado}}" required>
+    </div></div>
+
+
+    
     
     
       <input type="hidden"    id="lineaid" name="lineaid"  value="{{$tarjeta->linea->id}}">
@@ -202,6 +220,7 @@
 
      <a href="/vehiculos?placa={{$tarjeta->peritaje->vehiculo->placa}}&vehiculoindex=1" class="btn btn-secondary" tabindex="5">Cancelar</a>
   <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+</div>
 </form>
 
 @section('js')

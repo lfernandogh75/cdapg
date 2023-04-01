@@ -87,6 +87,8 @@ class TarjetaController extends Controller
        $tarjeta->fecha_matricula=$request->get('fecha_matricula');
        $tarjeta->propietario=$request->get('propietario');
        $tarjeta->identificacion_propietario=$request->get('identificacion_propietario');
+       $tarjeta->licencia=$request->get('licencia');
+       $tarjeta->matriculado=$request->get('matriculado');
        $tarjeta->peritaje_id=$peritaje->id;
        $tarjeta->activo=0;
        $tarjeta->save();
@@ -164,6 +166,8 @@ class TarjetaController extends Controller
        $tarjeta->potencia=$request->get('potencia');
        $tarjeta->fecha_matricula=$request->get('fecha_matricula');
        $tarjeta->propietario=$request->get('propietario');
+       $tarjeta->licencia=$request->get('licencia');
+       $tarjeta->matriculado=$request->get('matriculado');
        $tarjeta->identificacion_propietario=$request->get('identificacion_propietario');
        $tarjeta->activo=0;
        $tarjeta->save();

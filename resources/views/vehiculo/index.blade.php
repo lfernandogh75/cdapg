@@ -62,6 +62,18 @@
     
    @endif
 
+   @if(isset($vehiculo->peritaje->cierre))
+   @if(Auth::user()->id==$vehiculo->peritaje->cierre->user->id && $vehiculo->peritaje->cierre->activo) 
+   <p>   <a style="color:hsl(20, 80%, 50%);" href="/cierres/{{$vehiculo->peritaje->cierre->id}}/edit"  tabindex="4">TERMINAR PERITAJE </a>
+     @else 
+     <p>   <a style="color:rgb(49, 230, 25);" href="/cierres/{{$vehiculo->peritaje->cierre->id}}"  tabindex="4"> TERMINAR PERITAJE </a>
+   @endif
+ @else
+ <p>  <a  href="/ccierre?placa={{$vehiculo->placa}}"  tabindex="4">TERMINAR PERITAJE </a>  <p>
+ @endif
+ 
+
+
   @if(isset($vehiculo->peritaje->tarjeta))
   @if(Auth::user()->id==$vehiculo->peritaje->tarjeta->user->id && $vehiculo->peritaje->tarjeta->activo) 
   <p>   <a style="color:hsl(20, 80%, 50%);" href="/tarjetas/{{$vehiculo->peritaje->tarjeta->id}}/edit"  tabindex="4">TARJETA </a>

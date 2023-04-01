@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
             SuspensionpartSeeder::class,
             VidriopartSeeder::class,
             MarcaslineasSeeder::class,
+            EmpresaSeeder::class,
 
 
 

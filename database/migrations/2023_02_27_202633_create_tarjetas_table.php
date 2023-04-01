@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('numero_vin');
             $table->string('numero_chasis');
             $table->string('nacionalidad');
+            $table->string('licencia');
+            $table->string('matriculado');
            // $table->string('codigo_fasecolda')->nullable();
            // $table->integer('valor_fasecolda')->nullable();
            // $table->integer('valor_sugerido')->nullable();

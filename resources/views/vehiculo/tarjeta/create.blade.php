@@ -156,6 +156,12 @@
       <div class="col-md-3">
         <input type="number"   class="form-control" id="potencia" name="potencia" placeholder="POTENCIA HP" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()"  required>
       </div>
+      <div class="col-md-3">
+        <label for="potencia" class="form-label">LICENCIA DE TRANSITO</label>
+      </div>
+      <div class="col-md-3">
+        <input type="number"   class="form-control" id="licencia" name="licencia" placeholder="LICENCIA DE TRANSITO" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()"  required>
+      </div>
 
     </div>
 
@@ -192,6 +198,16 @@
       </div>
    
     </div>
+
+
+    <div class="row">
+      <div class="col-md-3">
+        <label for="matriculado" class="form-label">CIUDAD MATRICULA</label>
+      </div>
+      <div class="col-md-3">
+        <input type="text" name="matriculado"  id="matriculado" class="form-control" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" required>
+      </div></div>
+
     <div class="col-md-3"> 
       <input type="hidden"   class="form-control" id="peritaje_id" name="peritaje_id"  value="{{$vehiculo->peritaje->id}}">
   </div>

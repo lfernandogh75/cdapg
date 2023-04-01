@@ -29,6 +29,7 @@ use App\Http\Controllers\BajapartController;
 use App\Http\Controllers\EquipopartController;
 use App\Http\Controllers\SwpartController;
 use App\Http\Controllers\FpdfController;
+use App\Http\Controllers\EmpresaController;
 
 
 
@@ -139,9 +140,11 @@ Route::resource('/estructurapart',EstructurapartController::class);
 Route::resource('/interiorpart',InteriorpartController::class);
 Route::resource('/latoneriapart',LatoneriapartController::class);
 Route::resource('/vidriopart',VidriopartController::class);
+Route::resource('/empresa',EmpresaController::class);
 });
 
 Route::resource('tarjetas','App\Http\Controllers\TarjetaController');
+Route::resource('cierres','App\Http\Controllers\CierreController');
 
 Route::resource('emisiongass','App\Http\Controllers\EmisiongasController');
 Route::resource('simetrias','App\Http\Controllers\SimetriaController');
@@ -174,7 +177,7 @@ Route::resource('frenocontrol','App\Http\Controllers\FrenocontrolController');
 Route::get('cvehiculo','App\Http\Controllers\VehiculoController@cvehiculo');
  
 Route::get('ctarjeta','App\Http\Controllers\TarjetaController@ctarjeta');
- 
+Route::get('ccierre','App\Http\Controllers\CierreController@ccierre');
 Route::get('cemisiongas','App\Http\Controllers\EmisiongasController@cemisiongas');
 Route::get('csimetria','App\Http\Controllers\SimetriaController@csimetria');
 //});
@@ -257,5 +260,6 @@ Route::group(['middleware' => ['superadmin']], function () {
     route::get('equipoinactiva/{id?}', 'App\Http\Controllers\EquipocontrolController@inactiva');
     route::get('vehiculoactivar/{id?}', 'App\Http\Controllers\VehiculoController@activar');
     route::get('vehiculoinactiva/{id?}', 'App\Http\Controllers\VehiculoController@inactiva');
-
+    route::get('cierreactivar/{id?}', 'App\Http\Controllers\CierreController@activar');
+    route::get('cierreinactiva/{id?}', 'App\Http\Controllers\CierreController@inactiva');
 });

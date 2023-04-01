@@ -115,4 +115,9 @@ class Peritaje extends Model
         return $this->hasOne('App\Models\Swcontrol');
         
     }
+    public function cierre(){
+        return $this->hasOne('App\Models\Cierre');
+        
+    }
+    
 }

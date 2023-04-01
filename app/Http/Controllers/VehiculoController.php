@@ -422,7 +422,7 @@ if (isset($vehiculo) && $vehiculoindex=="12" ) {
     $fecha=date('m/d/Y');
    $nombre=$vehiculo->placa.".pdf";
 //$pdf = PDF::loadView('vehiculo.myPDFDOS', $data);
-if($vehiculo->clase_vehiculo=="Motocicleta"){
+ /*   if($vehiculo->clase_vehiculo=="Motocicleta"){
         if($peritaje->tipo=="BÁSICO"){
             $pdf = PDF::loadView('vehiculo.myPDFBM', $data);
             $pdf->setPaper('legal', 'portrait');
@@ -434,13 +434,14 @@ if($vehiculo->clase_vehiculo=="Motocicleta"){
         }
 
 }
-
-$pdf = PDF::loadView('vehiculo.myPDF', $data);
+*/
+//$pdf = PDF::loadView('vehiculo.myPDF', $data);
+$pdf = PDF::loadView('vehiculo.myPDFDOS', $data);
 $pdf->setPaper('legal', 'portrait');
 // return $pdf->download('peritaje.pdf');
-return $pdf->stream($nombre);
+return $pdf->stream($nombre); 
    
-   // return view('vehiculo.foto')->with(compact('peritaje'));
+  //  return view('vehiculo.myPDF')->with($data,'data');
   //  }else{
   //      return view('vehiculo.foto')->with(compact('vehiculo'));
   //}
@@ -450,6 +451,7 @@ return $pdf->stream($nombre);
      //  }
 
      if (isset($vehiculo) && $vehiculoindex=="firma" ) {
+         
         return view('vehiculo.firma.index')->with(compact('vehiculo')); 
         }else{
             return view('vehiculo.index')->with(compact('vehiculo'));

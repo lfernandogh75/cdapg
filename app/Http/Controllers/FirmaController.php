@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Firma;
+use App\Models\Peritaje;
 use App\Http\Requests\StoreFirmaRequest;
 use App\Http\Requests\UpdateFirmaRequest;
 use App\Models\Vehiculo;
@@ -17,7 +18,9 @@ class FirmaController extends Controller
     public function index($id)
     {
         $vehiculo=Vehiculo::find($id);
-        return view('vehiculo.firma.documento')->with('vehiculo',$vehiculo);
+        $peritaje=Peritaje::find( $vehiculo->peritaje_id);
+       // return view('vehiculo.firma.documento')->with('vehiculo',$vehiculo);
+       return view('vehiculo.firma.documento')->with(compact('vehiculo','peritaje'));
     }
 
     /**

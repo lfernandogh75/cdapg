@@ -71,6 +71,9 @@
                 <x-jet-dropdown-link href="{{ route('swpart.index') }}">
                     {{ __('SOFTWARE UTILIZADOS') }}
                 </x-jet-dropdown-link>
+                <x-jet-dropdown-link href="{{ route('empresa.index') }}">
+                    {{ __('DATOS DE LAS EMPRESAS') }}
+                </x-jet-dropdown-link>
                 
             
             

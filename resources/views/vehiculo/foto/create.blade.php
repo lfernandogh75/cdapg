@@ -7,11 +7,23 @@
     @csrf
   <div class="mb-3">
     <label for="" class="form-label">FOTO</label>
-    <select name="pieza" class="form-select" id="pieza" required>
+    <select name="pieza" class="form-select" id="pieza"  required>
+    
+@if(old('pieza')!=null)
+@foreach($fotoparts as $fotopart)
+@if(old('pieza') == $fotopart->id)
+<option value="{{$fotopart->id}}" selected> {{ $fotopart->name }}</option>
+@else
+<option value="{{$fotopart->id}}"> {{ $fotopart->name }}</option>
+@endif
+@endforeach
+
+@else     
       @foreach($fotoparts as $fotopart)
       <option value="{{$fotopart->id}}">{{$fotopart->name}}</option>
       @endforeach
     </select>
+  @endif
   </div>
  
    
