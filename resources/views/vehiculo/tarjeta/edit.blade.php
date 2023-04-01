@@ -163,7 +163,7 @@
         <label for="potencia" class="form-label">LICENCIA DE TRANSITO</label>
       </div>
       <div class="col-md-3">
-        <input type="number"   class="form-control" id="licencia" name="licencia" placeholder="LICENCIA DE TRANSITO" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" value ="{{$tarjeta->licencia}}" required>
+        <input type="text"   class="form-control" id="licencia" name="licencia" placeholder="LICENCIA DE TRANSITO" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" value ="{{$tarjeta->licencia}}" required>
       </div>
 
     </div>

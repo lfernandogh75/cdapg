@@ -55,7 +55,7 @@
     <p>{{ $date }}</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua.</p> --}}
-
+@if($peritaje->cierre!=null && $peritaje->tarjeta!=null)
     <div class="col-11"   style=" width: 700px; border: 1px solid;">
   <table width="100%">
     <td width="80%">
@@ -241,7 +241,7 @@
 
         </div>
 @endif
-
+@endif
     <br>
    
   {{--inicio exteriores y parte baja--}}
