@@ -30,7 +30,7 @@ use App\Http\Controllers\EquipopartController;
 use App\Http\Controllers\SwpartController;
 use App\Http\Controllers\FpdfController;
 use App\Http\Controllers\EmpresaController;
-
+use App\Http\Controllers\HistoricoController;
 
 
 Route::get('/', function () {
@@ -76,6 +76,7 @@ Route::middleware([
 });
 
     route::get('/vehiculos/{placa?}', 'App\Http\Controllers\VehiculoController@show');
+    route::get('/historicos/{peritajeid?}', 'App\Http\Controllers\HistoricoController@show');
     route::get('/consulta/{id}', 'App\Http\Controllers\VehiculoController@consulta');
    
     Route::get('sistemaelectrico', function () {
@@ -141,6 +142,7 @@ Route::resource('/interiorpart',InteriorpartController::class);
 Route::resource('/latoneriapart',LatoneriapartController::class);
 Route::resource('/vidriopart',VidriopartController::class);
 Route::resource('/empresa',EmpresaController::class);
+Route::resource('/historico',HistoricoController::class);
 });
 
 Route::resource('tarjetas','App\Http\Controllers\TarjetaController');
