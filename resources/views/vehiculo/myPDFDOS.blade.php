@@ -1226,7 +1226,7 @@
  
  @if(isset($peritaje->llantacontrol->llantaparts))
  <div class="col-10"   style=" width: 300px;  border: 1px solid;">
- <p>ESTADO DE LAS LLANTAS </p>
+ <p>ESTADO DE LAS LLANTAS {{$peritaje->llantacontrol->nivelaprobado}}%</p>
  <table style="font-size: xx-small; margin: 0 auto;">
  <tr bgcolor="#19ea6d">
     

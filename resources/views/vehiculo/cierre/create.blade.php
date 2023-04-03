@@ -7,6 +7,93 @@
 @section('contenido')
 <form action="/cierres" method="POST">
   @csrf
+  <table>
+    <tr> 
+     @if(isset($vehiculo->peritaje->bajacontrol))
+     <th>PARTES BAJAS</th>
+     <td>{{$vehiculo->peritaje->bajacontrol->nivelaprobado}}%</td>
+     @endif
+     @if(isset($vehiculo->peritaje->exteriorcontrol))
+     <th>REVISION DE EXTERIORES</th>
+     <td>{{$vehiculo->peritaje->exteriorcontrol->nivelaprobado}}%</td>
+     @endif
+     @if(isset($vehiculo->peritaje->estructuracontrol))
+     <th>REVISION ESTRUCTURA</th>
+     <td>{{$vehiculo->peritaje->estructuracontrol->nivelaprobado}}%</td>
+     @endif
+    </tr>
+    <tr> 
+      @if(isset($vehiculo->peritaje->latoneriacontrol))
+      <th>LATONERIA O CARROCERIA</th>
+      <td>{{$vehiculo->peritaje->latoneriacontrol->nivelaprobado}}%</td>
+      @endif
+      @if(isset($vehiculo->peritaje->pinturacontrol))
+      <th>PINTURA </th>
+      <td>{{$vehiculo->peritaje->pinturacontrol->nivelaprobado}}%</td>
+      @endif
+      @if(isset($vehiculo->peritaje->vidriocontrol))
+      <th>REVISION DE VIDRIOS</th>
+      <td>{{$vehiculo->peritaje->vidriocontrol->nivelaprobado}}%</td>
+      @endif
+     </tr>
+     <tr> 
+      @if(isset($vehiculo->peritaje->interiorcontrol))
+      <th>REVISION INTERIOR</th>
+      <td>{{$vehiculo->peritaje->interiorcontrol->nivelaprobado}}%</td>
+      @endif
+      @if(isset($vehiculo->peritaje->fluidocontrol))
+      <th>FUGAS DE FLUIDOS </th>
+      <td>{{$vehiculo->peritaje->fluidocontrol->nivelaprobado}}%</td>
+      @endif
+      @if(isset($vehiculo->peritaje->nfluidocontrol))
+      <th>NIVELES DE FLUIDOS</th>
+      <td>{{$vehiculo->peritaje->nfluidocontrol->nivelaprobado}}%</td>
+      @endif
+     </tr>
+     <tr> 
+      @if(isset($vehiculo->peritaje->chasiscontrol))
+      <th>CHASIS</th>
+      <td>{{$vehiculo->peritaje->chasiscontrol->nivelaprobado}}%</td>
+      @endif
+      @if(isset($vehiculo->peritaje->suspensioncontrol))
+      <th>ESTADO DE LA SUSPENSION</th>
+      <td>{{$vehiculo->peritaje->suspensioncontrol->nivelaprobado}}%</td>
+      @endif
+      @if(isset($vehiculo->peritaje->motorcontrol))
+      <th>PARTES DEL MOTOR</th>
+      <td>{{$vehiculo->peritaje->motorcontrol->nivelaprobado}}%</td>
+      @endif
+     </tr>
+     <tr> 
+      @if(isset($vehiculo->peritaje->vlucescontrol))
+      <th>LUCES</th>
+      <td>{{$vehiculo->peritaje->vlucescontrol->nivelaprobado}}%</td>
+      @endif
+      @if(isset($vehiculo->peritaje->electricocontrol))
+      <th>EQUIPOS ELECTRICOS</th>
+      <td>{{$vehiculo->peritaje->electricocontrol->nivelaprobado}}%</td>
+      @endif
+      @if(isset($vehiculo->peritaje->compresioncontrol))
+      <th>COMPRESION Y FUGAS DEL MOTOR</th>
+      <td>{{$vehiculo->peritaje->compresioncontrol->nivelaprobado}}%</td>
+      @endif
+     </tr>
+     <tr> 
+      @if(isset($vehiculo->peritaje->simetria))
+      <th>SIMETRIA</th>
+      <td>{{$vehiculo->peritaje->simetria->nivelaprobado}}%</td>
+      @endif
+      @if(isset($vehiculo->peritaje->frenocontrol))
+      <th>PRUEBA DE FRENOS</th>
+      <td>{{$vehiculo->peritaje->frenocontrol->nivelaprobado}}%</td>
+      @endif
+      @if(isset($vehiculo->peritaje->llantacontrol))
+      <th>LLANTAS</th>
+      <td>{{$vehiculo->peritaje->llantacontrol->nivelaprobado}}%</td>
+      @endif
+      
+     </tr>
+  </table>
   
   <div class="row">
     <div class="col-md-3">
