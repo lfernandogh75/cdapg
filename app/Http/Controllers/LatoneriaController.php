@@ -44,6 +44,7 @@ class LatoneriaController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $latoneria = new Latoneria();
        if(isset($peritaje->latoneriacontrol)){
@@ -53,10 +54,11 @@ class LatoneriaController extends Controller
         $latoneria->vista = $request->get('vista');
         $latoneria->latoneriacontrol_id =  $peritaje->latoneriacontrol->id;
         $latoneria->observaciones = $request->get('observaciones');
+        $latoneria->perito =  $user->name;
         $latoneria->save(); 
 
        }else{
-        $user=Auth::user();
+      
         $latoneriacontrol = new Latoneriacontrol();
         $latoneriacontrol->peritaje_id=$request->get('peritaje_id');
         $latoneriacontrol->user_id=$user->id;
@@ -68,6 +70,7 @@ class LatoneriaController extends Controller
         $latoneria->vista = $request->get('vista');
         $latoneria->latoneriacontrol_id =  $latoneriacontrol->id;
         $latoneria->observaciones = $request->get('observaciones');
+        $latoneria->perito =  $user->name;
         $latoneria->save(); 
        }
         
@@ -116,10 +119,12 @@ class LatoneriaController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $user=Auth::user();
         $latonerias =  Latoneria::find($id);
         $latonerias->estado = $request->get('estado');
         $latonerias->observaciones = $request->get('observaciones');
         $latonerias->vista = $request->get('vista');
+        $latonerias->perito =  $user->name;
         $latonerias->save();    
         $idperitaje=$latonerias->latoneriacontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

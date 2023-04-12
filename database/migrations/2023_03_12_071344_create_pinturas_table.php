@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('pinturas', function (Blueprint $table) {
             $table->id();
+            $table->string('perito');
             $table->enum("estado", ["N/A","ORIGINAL","BIEN REPINTADO","RAYON","IMPUREZAS","MAL REPINTADO","PIEL DE NARANJA",]);
             $table->enum("vista", ["IZQUIERDA","DERECHA","POSTERIOR","FRONTAL","BAJA"]);
             $table->text('observaciones');

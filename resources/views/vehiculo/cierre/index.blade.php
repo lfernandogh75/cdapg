@@ -106,13 +106,13 @@
     <label for="modelo" class="form-label">VALOR FASECOLDA</label>
   </div> 
   <div class="col-md-3">
-    <label for="modelo" class="form-label">{{$cierre->valorfasecolda}}</label>
+    <label for="modelo" class="form-label">${{$cierre->valorfasecolda}}</label>
   </div>
   <div class="col-md-3">
  <label for="marca" class="form-label">VALOR ACCESORIOS</label>
   </div>
  <div class="col-md-3">
-  <label for="marca" class="form-label">{{$cierre->valoraccesorios}}</label>
+  <label for="marca" class="form-label">${{$cierre->valoraccesorios}}</label>
   </div>
     </div>
    
@@ -123,7 +123,7 @@
       <label for="linea" class="form-label">VALOR CARVALUE</label>
     </div>
     <div class="col-md-3">
-      <label for="linea" class="form-label">{{$cierre->valorcarvalue}}</label>
+      <label for="linea" class="form-label">${{$cierre->valorcarvalue}}</label>
     </div>
         
           

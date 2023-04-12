@@ -44,6 +44,7 @@ class FluidoController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $fluido = new Fluido();
        if(isset($peritaje->fluidocontrol)){
@@ -52,10 +53,11 @@ class FluidoController extends Controller
         $fluido->estado = $request->get('estado');
         $fluido->fluidocontrol_id =  $peritaje->fluidocontrol->id;
         $fluido->observaciones = $request->get('observaciones');
+        $fluido->perito =  $user->name;
         $fluido->save(); 
 
        }else{
-        $user=Auth::user();
+       
         $fluidocontrol = new Fluidocontrol();
         $fluidocontrol->peritaje_id=$request->get('peritaje_id');
         $fluidocontrol->user_id=$user->id;
@@ -66,6 +68,7 @@ class FluidoController extends Controller
         $fluido->estado = $request->get('estado');
         $fluido->fluidocontrol_id =  $fluidocontrol->id;
         $fluido->observaciones = $request->get('observaciones');
+        $fluido->perito =  $user->name;
         $fluido->save(); 
        }
         
@@ -114,9 +117,11 @@ class FluidoController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $user=Auth::user();
         $fluidos =  Fluido::find($id);
         $fluidos->estado = $request->get('estado');
         $fluidos->observaciones = $request->get('observaciones');
+        $fluidos->perito =  $user->name;
         $fluidos->save();    
         $idperitaje=$fluidos->fluidocontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

@@ -27,12 +27,12 @@
  SISTEMA EXTERIOR VEHICULO : {{$vehiculo->placa}} <br/>
   @endif
   @if(isset($responsable))  
-  PERITO SISTEMA EXTERIOR : {{$responsable->name}} <br/>
+  
   
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-@if(isset($vehiculo) && Auth::user()->id==$responsable->id && $exteriorcontrol->activo)
+@if(isset($vehiculo) && $exteriorcontrol->activo)
   
          <a href="{{ URL::to('/') }}/sexteriors/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
        
@@ -79,6 +79,7 @@
       <th scope="col">ESTADO</th>
       <th scope="col">TIPO</th>
       <th scope="col">OBSERVACIONES</th>
+      <th scope="col">PERITO</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -91,14 +92,17 @@
         <td>{{$exterior->estado}}</td>
         <td>{{$exterior->tipo}}</td>
         <td>{{$exterior->observaciones}}</td>
+        <td>{{$exterior->perito}}</td>
         <td>
-          @if(Auth::user()->id==$responsable->id && $exteriorcontrol->activo) 
+          @if($exteriorcontrol->activo) 
         <form action="{{ route('sexteriors.destroy',$exterior->id) }}" method="POST">
           <a href="/sexteriors/{{$exterior->id}}/edit" class="btn btn-info">Editar</a>         
               @csrf
               @method('DELETE')
-          <button type="submit" class="btn btn-danger">Delete</button>
-         </form>  
+              @if(Auth::user()->role->nombre_rol=="superadmin")
+              <button type="submit" class="btn btn-danger">Delete</button>
+        @endif
+            </form>  
           
          @endif
                    
@@ -110,7 +114,7 @@
 
 @if(isset($vehiculo))
         <p>
-         <a href="{{ URL::to('/') }}/sexteriors/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA Y SER RESPONSABLE DE PERITAJE EXTERIOR </a>
+         <a href="{{ URL::to('/') }}/sexteriors/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA </a>
        
      @endif
 

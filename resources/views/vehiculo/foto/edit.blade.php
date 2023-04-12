@@ -16,6 +16,34 @@
         <input type="text" name="observacion"  value="{{$foto->observacion}}"   class="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required> 
     </div>
 
+    <div class="mb-3">
+      <label for="" class="form-label">CATEGORIA</label>
+     
+      <select  class="form-select"  name="categoria" id="categoria" required> 
+       
+        <option value="{{$foto->categoria}}">{{$foto->categoria}}</option>
+       
+        <option value="TARJETA">TARJETA</option>
+        <option value="RECESION">RECESION</option>
+        <option value="IMPRONTAS">IMPRONTAS</option>
+        <option value="LLANTAS">LLANTAS</option>
+        <option value="LUCES">LUCES</option>
+        <option value="PARTES BAJAS">PARTES BAJAS</option>
+        <option value="REVISION DE EXTERIORES">REVISION DE EXTERIORES</option>
+        <option value="ESTRUCTURA">ESTRUCTURA</option>
+        <option value="LATONERIA O CARROCERIA">LATONERIA O CARROCERIA</option>
+        <option value="PINTURA">PINTURA</option>
+        <option value="VIDRIOS">VIDRIOS</option>
+        <option value="INTERIOR">INTERIOR</option>
+        <option value="FUGAS DE FLUIDOS">FUGAS DE FLUIDOS</option>
+        <option value="NIVELES DE FLUIDOS">NIVELES DE FLUIDOS</option>
+        <option value="CHASIS">CHASIS</option>
+        <option value="SUSPENSION">SUSPENSION</option>
+        <option value="PARTES DEL MOTOR">PARTES DEL MOTOR</option>
+        <option value="EQUIPOS ELECTRICOS">EQUIPOS ELECTRICOS</option>
+      </select>
+      </div>
+
     <div class="grid grid-cols-1 mt-5 mx-7">
       
          <img src="/imagen/{{$foto->imagen}}" id="imagenSelecctionada" style="max-height: 300px;">

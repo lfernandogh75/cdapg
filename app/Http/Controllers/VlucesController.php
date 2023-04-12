@@ -44,6 +44,7 @@ class VlucesController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $vluces = new Vluces();
        if(isset($peritaje->vlucescontrol)){
@@ -52,10 +53,11 @@ class VlucesController extends Controller
         $vluces->estado = $request->get('estado');
         $vluces->vlucescontrol_id =  $peritaje->vlucescontrol->id;
         $vluces->observaciones = $request->get('observaciones');
+        $vluces->perito =  $user->name;
         $vluces->save(); 
 
        }else{
-        $user=Auth::user();
+      
         $vlucescontrol = new Vlucescontrol();
         $vlucescontrol->peritaje_id=$request->get('peritaje_id');
         $vlucescontrol->user_id=$user->id;
@@ -66,6 +68,7 @@ class VlucesController extends Controller
         $vluces->estado = $request->get('estado');
         $vluces->vlucescontrol_id =  $vlucescontrol->id;
         $vluces->observaciones = $request->get('observaciones');
+        $vluces->perito =  $user->name;
         $vluces->save(); 
        }
         
@@ -114,9 +117,11 @@ class VlucesController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $user=Auth::user();
         $vlucess =  Vluces::find($id);
         $vlucess->estado = $request->get('estado');
         $vlucess->observaciones = $request->get('observaciones');
+        $vlucess->perito =  $user->name;
         $vlucess->save();    
         $idperitaje=$vlucess->vlucescontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

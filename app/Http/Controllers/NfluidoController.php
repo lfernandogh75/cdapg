@@ -45,6 +45,7 @@ class NfluidoController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $nfluido = new Nfluido();
        if(isset($peritaje->nfluidocontrol)){
@@ -53,10 +54,11 @@ class NfluidoController extends Controller
         $nfluido->estado = $request->get('estado');
         $nfluido->nfluidocontrol_id =  $peritaje->nfluidocontrol->id;
         $nfluido->observaciones = $request->get('observaciones');
+        $nfluido->perito =  $user->name;
         $nfluido->save(); 
 
        }else{
-        $user=Auth::user();
+      
         $nfluidocontrol = new Nfluidocontrol();
         $nfluidocontrol->peritaje_id=$request->get('peritaje_id');
         $nfluidocontrol->user_id=$user->id;
@@ -67,6 +69,7 @@ class NfluidoController extends Controller
         $nfluido->estado = $request->get('estado');
         $nfluido->nfluidocontrol_id =  $nfluidocontrol->id;
         $nfluido->observaciones = $request->get('observaciones');
+        $nfluido->perito =  $user->name;
         $nfluido->save(); 
        }
         
@@ -115,9 +118,11 @@ class NfluidoController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $user=Auth::user();
         $nfluidos =  Nfluido::find($id);
         $nfluidos->estado = $request->get('estado');
         $nfluidos->observaciones = $request->get('observaciones');
+        $nfluidos->perito =  $user->name;
         $nfluidos->save();    
         $idperitaje=$nfluidos->nfluidocontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

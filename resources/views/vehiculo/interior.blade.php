@@ -10,11 +10,11 @@
  INTERIOR DEL VEHICULO : {{$vehiculo->placa}} <br/>
   @endif
   @if(isset($responsable))  
-  PERITO DE INTERIOR : {{$responsable->name}} <br/>
+  
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-@if(isset($vehiculo) && Auth::user()->id==$responsable->id && $interiorcontrol->activo)
+@if(isset($vehiculo) && $interiorcontrol->activo)
   
          <a href="{{ URL::to('/') }}/sinteriors/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
        
@@ -60,6 +60,7 @@
       <th scope="col">PIEZA</th>
       <th scope="col">ESTADO</th>
       <th scope="col">OBSERVACIONES</th>
+      <th scope="col">PERITO</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -71,14 +72,17 @@
         <td>{{$interior->interiorpart->name}}</td>
         <td>{{$interior->estado}}</td>
         <td>{{$interior->observaciones}}</td>
+        <td>{{$interior->perito}}</td>
         <td>
-          @if(Auth::user()->id==$responsable->id && $interiorcontrol->activo) 
+          @if($interiorcontrol->activo) 
         <form action="{{ route('sinteriors.destroy',$interior->id) }}" method="POST">
           <a href="/sinteriors/{{$interior->id}}/edit" class="btn btn-info">Editar</a>         
               @csrf
               @method('DELETE')
+              @if(Auth::user()->role->nombre_rol=="superadmin")
           <button type="submit" class="btn btn-danger">Delete</button>
-         </form>  
+        @endif
+        </form>  
           
          @endif
                    
@@ -90,7 +94,7 @@
 
 @if(isset($vehiculo))
         <p>
-         <a href="{{ URL::to('/') }}/sinteriors/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA Y SER RESPONSABLE DEL PERITAJE DEL INTERIOR </a>
+         <a href="{{ URL::to('/') }}/sinteriors/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA </a>
        
      @endif
 

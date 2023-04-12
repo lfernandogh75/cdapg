@@ -45,6 +45,7 @@ class MotorController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
       $peritaje=Peritaje::find($request->get('peritaje_id'));
       $motors = new Motor();
        if(isset($peritaje->motorcontrol)){
@@ -54,10 +55,11 @@ class MotorController extends Controller
         $motors->tipo = $request->get('tipo');
         $motors->motorcontrol_id =  $peritaje->motorcontrol->id;
         $motors->observaciones = $request->get('observaciones');
+        $motors->perito =  $user->name;
         $motors->save(); 
 
        }else{
-        $user=Auth::user();
+       
         $motorcontrol = new Motorcontrol();
         $motorcontrol->peritaje_id=$request->get('peritaje_id');
         $motorcontrol->user_id=$user->id;
@@ -69,6 +71,7 @@ class MotorController extends Controller
         $motors->tipo = $request->get('tipo');
         $motors->motorcontrol_id =  $motorcontrol->id;
         $motors->observaciones = $request->get('observaciones');
+        $motors->perito =  $user->name;
         $motors->save(); 
        }
         
@@ -115,10 +118,12 @@ class MotorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user=Auth::user();
         $motors =  Motor::find($id);
         $motors->estado = $request->get('estado');
         $motors->tipo = $request->get('tipo');
         $motors->observaciones = $request->get('observaciones');
+        $motors->perito =  $user->name;
         $motors->save();    
         $idperitaje=$motors->motorcontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

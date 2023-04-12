@@ -44,6 +44,7 @@ class LlantaController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $llanta = new Llanta();
        if(isset($peritaje->llantacontrol)){
@@ -55,10 +56,11 @@ class LlantaController extends Controller
         $llanta->vidautil =$request->get('vidautil');
         $llanta->llantacontrol_id =  $peritaje->llantacontrol->id;
         $llanta->observaciones = $request->get('observaciones');
+        $llanta->perito =  $user->name;
         $llanta->save(); 
 
        }else{
-        $user=Auth::user();
+         
         $llantacontrol = new Llantacontrol();
         $llantacontrol->peritaje_id=$request->get('peritaje_id');
         $llantacontrol->user_id=$user->id;
@@ -72,6 +74,7 @@ class LlantaController extends Controller
         $llanta->vidautil =$request->get('vidautil');
         $llanta->llantacontrol_id =  $llantacontrol->id;
         $llanta->observaciones = $request->get('observaciones');
+        $llanta->perito =  $user->name;
         $llanta->save(); 
        }
         
@@ -120,12 +123,14 @@ class LlantaController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $user=Auth::user();
         $llantas =  Llanta::find($id);
         $llantas->cambio = $request->get('cambio');
         $llantas->labrado =$request->get('labrado');
         $llantas->presion =$request->get('presion');
         $llantas->vidautil =$request->get('vidautil');
         $llantas->observaciones = $request->get('observaciones');
+        $llantas->perito =  $user->name;
         $llantas->save();    
         $idperitaje=$llantas->llantacontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

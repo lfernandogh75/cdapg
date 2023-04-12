@@ -45,6 +45,7 @@ class ExteriorController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $exterior = new Exterior();
        if(isset($peritaje->exteriorcontrol)){
@@ -54,10 +55,11 @@ class ExteriorController extends Controller
         $exterior->tipo = $request->get('tipo');
         $exterior->exteriorcontrol_id =  $peritaje->exteriorcontrol->id;
         $exterior->observaciones = $request->get('observaciones');
+        $exterior->perito =  $user->name;
         $exterior->save(); 
 
        }else{
-        $user=Auth::user();
+       
         $exteriorcontrol = new Exteriorcontrol();
         $exteriorcontrol->peritaje_id=$request->get('peritaje_id');
         $exteriorcontrol->user_id=$user->id;
@@ -69,6 +71,7 @@ class ExteriorController extends Controller
         $exterior->tipo = $request->get('tipo');
         $exterior->exteriorcontrol_id =  $exteriorcontrol->id;
         $exterior->observaciones = $request->get('observaciones');
+        $exterior->perito =  $user->name;
         $exterior->save(); 
        }
         
@@ -117,10 +120,12 @@ class ExteriorController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $user=Auth::user();
         $exteriors =  Exterior::find($id);
         $exteriors->estado = $request->get('estado');
         $exteriors->tipo = $request->get('tipo');
         $exteriors->observaciones = $request->get('observaciones');
+        $exteriors->perito =  $user->name;
         $exteriors->save();    
         $idperitaje=$exteriors->exteriorcontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

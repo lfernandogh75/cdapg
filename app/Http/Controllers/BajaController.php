@@ -44,6 +44,7 @@ class BajaController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $baja = new Baja();
        if(isset($peritaje->bajacontrol)){
@@ -52,10 +53,11 @@ class BajaController extends Controller
         $baja->estado = $request->get('estado');
         $baja->bajacontrol_id =  $peritaje->bajacontrol->id;
         $baja->observaciones = $request->get('observaciones');
+        $baja->perito =  $user->name;
         $baja->save(); 
 
        }else{
-        $user=Auth::user();
+        
         $bajacontrol = new Bajacontrol();
         $bajacontrol->peritaje_id=$request->get('peritaje_id');
         $bajacontrol->user_id=$user->id;
@@ -66,6 +68,7 @@ class BajaController extends Controller
         $baja->estado = $request->get('estado');
         $baja->bajacontrol_id =  $bajacontrol->id;
         $baja->observaciones = $request->get('observaciones');
+        $baja->perito =  $user->name;
         $baja->save(); 
        }
         
@@ -114,9 +117,11 @@ class BajaController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $user=Auth::user();
         $bajas =  Baja::find($id);
         $bajas->estado = $request->get('estado');
         $bajas->observaciones = $request->get('observaciones');
+        $bajas->perito =  $user->name;
         $bajas->save();    
         $idperitaje=$bajas->bajacontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

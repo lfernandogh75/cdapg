@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('exteriors', function (Blueprint $table) {
             $table->id();
+            $table->string('perito');
             $table->enum("estado", ["Bueno","Malo","Regular","N/A"]);
             $table->enum("tipo", ["Original","Genérica","N/A"]);
             $table->text('observaciones')->nullable();

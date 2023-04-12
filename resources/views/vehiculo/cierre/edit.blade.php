@@ -179,14 +179,25 @@
         <label for="identificacion_propietario" class="form-label">POLARIZADO</label>
       </div>
       <div class="col-md-3">
-        <input type="text"   class="form-control" id="polarizado" name="polarizado" placeholder="POLARIZADO" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()"  value ="{{$cierre->polarizado}}" required>
+     {{--   <input type="text"   class="form-control" id="polarizado" name="polarizado" placeholder="POLARIZADO" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()"  value ="{{$cierre->polarizado}}" required> --}}
+        <select name="polarizado" class="form-select" id="polarizado" required>
+          <option value="{{$cierre->polarizado}}">{{$cierre->polarizado}}</option>
+          <option value="NO">NO</option>
+          <option value="SI">SI</option>
+        </select>
+     
       </div>
       <div class="col-md-3">
         <label for="identificacion_propietario" class="form-label">BLINDADO</label>
       </div>
       <div class="col-md-3">
-        <input type="text"   class="form-control" id="blindado" name="blindado" placeholder="BLINDADO" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" value ="{{$cierre->blindado}}"  required>
-      </div>
+     {{--   <input type="text"   class="form-control" id="blindado" name="blindado" placeholder="BLINDADO" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" value ="{{$cierre->blindado}}"  required> --}}
+     <select name="blindado" class="form-select" id="blindado" required>
+      <option value="{{$cierre->blindado}}">{{$cierre->blindado}}</option>
+      <option value="NO">NO</option>
+      <option value="SI">SI</option>
+    </select>  
+    </div>
       
   
     </div>
@@ -218,6 +229,28 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+  $("#valorcarvalue").keyup(function() {
+ this.value = parseInt(this.value.replace(/,/g, ""))
+                  .toString()
+                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                 });
+ $("#valorfasecolda").keyup(function() {
+ this.value = parseInt(this.value.replace(/,/g, ""))
+                  .toString()
+                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                 });
+ $("#valoraccesorios").keyup(function() {
+ this.value = parseInt(this.value.replace(/,/g, ""))
+                  .toString()
+                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                 });
+ 
+ 
+ 
+ </script>
+
 
 
 @endsection

@@ -26,10 +26,37 @@
   @endif
   </div>
  
-   
+   <br>
   <div class="mb-3">
     <label for="" class="form-label">OBSERVACIÓN</label>
-    <input id="observacion" name="observacion" type="text"  placeholder="  "    class="form-control" tabindex="3" value="N/A" required>
+    <input id="observacion" name="observacion" type="text"  placeholder="  "    class="form-control" tabindex="3" value="{{ old('observacion', 'N/A') }}" required>
+  </div>
+  <div class="mb-3">
+  <label for="" class="form-label">CATEGORIA</label>
+ 
+  <select  class="form-select"  name="categoria" id="categoria" required> 
+    @if(old('categoria')!=null)
+    <option value="{{old('categoria')}}">{{old('categoria')}}</option>
+    @endif
+    <option value="TARJETA">TARJETA</option>
+    <option value="RECESION">RECESION</option>
+    <option value="IMPRONTAS">IMPRONTAS</option>
+    <option value="LLANTAS">LLANTAS</option>
+    <option value="LUCES">LUCES</option>
+    <option value="PARTES BAJAS">PARTES BAJAS</option>
+    <option value="REVISION DE EXTERIORES">REVISION DE EXTERIORES</option>
+    <option value="ESTRUCTURA">ESTRUCTURA</option>
+    <option value="LATONERIA O CARROCERIA">LATONERIA O CARROCERIA</option>
+    <option value="PINTURA">PINTURA</option> 
+    <option value="VIDRIOS">VIDRIOS</option>
+    <option value="INTERIOR">INTERIOR</option>
+    <option value="FUGAS DE FLUIDOS">FUGAS DE FLUIDOS</option>
+    <option value="NIVELES DE FLUIDOS">NIVELES DE FLUIDOS</option>
+    <option value="CHASIS">CHASIS</option>
+    <option value="SUSPENSION">SUSPENSION</option>
+    <option value="PARTES DEL MOTOR">PARTES DEL MOTOR</option> 
+    <option value="EQUIPOS ELECTRICOS">EQUIPOS ELECTRICOS</option>
+  </select>
   </div>
   
   

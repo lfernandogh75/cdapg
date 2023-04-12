@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('frenos', function (Blueprint $table) {
             $table->id();
+            $table->string('perito');
             $table->decimal('eficiencia', 8, 2);
             $table->decimal('minimo', 8, 2);
             $table->integer('fuerza');

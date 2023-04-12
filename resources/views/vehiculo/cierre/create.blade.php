@@ -147,7 +147,7 @@
       <label for="identificacion_propietario" class="form-label">FECHA GNVC</label>
     </div>
     <div class="col-md-3">
-      <input type="text"   class="form-control" id="gnvc" name="gnvc" placeholder="FECHA CERTIFICADO GNVC" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()"   required>
+      <input type="text"   class="form-control" id="gnvc" name="gnvc" placeholder="FECHA CERTIFICADO GNVC" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" value="NO APLICA"  required>
     </div>
     <div class="col-md-3">
       <label for="identificacion_propietario" class="form-label">TIPO DE PINTURA</label>
@@ -180,13 +180,22 @@
       <label for="identificacion_propietario" class="form-label">POLARIZADO</label>
     </div>
     <div class="col-md-3">
-      <input type="text"   class="form-control" id="polarizado" name="polarizado" placeholder="POLARIZADO" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()"   required>
-    </div>
+    {{--  <input type="text"   class="form-control" id="polarizado" name="polarizado" placeholder="POLARIZADO" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()"   required> --}}
+    <select name="polarizado" class="form-select" id="polarizado" required>
+      <option value="NO">NO</option>
+      <option value="SI">SI</option>
+    </select>
+  
+  </div>
     <div class="col-md-3">
       <label for="identificacion_propietario" class="form-label">BLINDADO</label>
     </div>
     <div class="col-md-3">
-      <input type="text"   class="form-control" id="blindado" name="blindado" placeholder="BLINDADO" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()"   required>
+    {{--  <input type="text"   class="form-control" id="blindado" name="blindado" placeholder="BLINDADO" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()"   required> --}}
+    <select name="blindado" class="form-select" id="blindado" required>
+      <option value="NO">NO</option>
+      <option value="SI">SI</option>
+    </select>
     </div>
     
 
@@ -217,6 +226,9 @@
      <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
   </div>
 </div>
+
+
+
  
 </form>
 
@@ -227,7 +239,31 @@
 
 <script src="/js/marca_lineas.js">
 
+
 </script>
+ 
+
+<script>
+ $("#valorcarvalue").keyup(function() {
+this.value = parseInt(this.value.replace(/,/g, ""))
+                 .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                });
+$("#valorfasecolda").keyup(function() {
+this.value = parseInt(this.value.replace(/,/g, ""))
+                 .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                });
+$("#valoraccesorios").keyup(function() {
+this.value = parseInt(this.value.replace(/,/g, ""))
+                 .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                });
+
+
+
+</script>
+ 
 @endsection
 @endsection
 

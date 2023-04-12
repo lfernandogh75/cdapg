@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('nfluidos', function (Blueprint $table) {
             $table->id();
+            $table->string('perito');
             $table->enum("estado", ["N/A","NORMAL","BAJO","ALTO"]);
             $table->text('observaciones')->nullable();
             $table->unsignedBigInteger('nfluidocontrol_id')

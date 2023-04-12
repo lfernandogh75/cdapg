@@ -45,6 +45,7 @@ class ElectricoController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
         $electricos = new Electrico();
         if(isset($peritaje->electricocontrol)){
@@ -53,9 +54,10 @@ class ElectricoController extends Controller
         $electricos->tipo = $request->get('tipo');
         $electricos->electricocontrol_id =$peritaje->electricocontrol->id ;
         $electricos->observaciones = $request->get('observaciones');
+        $electricos->perito =  $user->name;
         $electricos->save(); 
     }else{
-        $user=Auth::user();
+      
         $electricocontrol = new Electricocontrol();
         $electricocontrol->peritaje_id=$request->get('peritaje_id');
         $electricocontrol->user_id=$user->id;
@@ -67,6 +69,7 @@ class ElectricoController extends Controller
         $electricos->tipo = $request->get('tipo');
         $electricos->electricocontrol_id =  $electricocontrol->id;
         $electricos->observaciones = $request->get('observaciones');
+        $electricos->perito =  $user->name;
         $electricos->save(); 
        }
 
@@ -125,11 +128,12 @@ class ElectricoController extends Controller
      */
     public function update(Request $request,$id)
     {
-        
+        $user=Auth::user();
         $electricos =  Electrico::find($id);
         $electricos->estado = $request->get('estado');
         $electricos->tipo = $request->get('tipo');
         $electricos->observaciones = $request->get('observaciones');
+        $electricos->perito =  $user->name;
         $electricos->save();   
         $idperitaje=$electricos->electricocontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje); 

@@ -27,12 +27,12 @@
  FOTOS DEL VEHICULO : {{$vehiculo->placa}} <br/>
   @endif
   @if(isset($responsable))  
-  PERITO REGISTRO FOTOGRAFICO : {{$responsable->name}} <br/>
+   
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-@if(isset($vehiculo) && Auth::user()->id==$responsable->id  && $fotocontrol->activo)
+@if(isset($vehiculo)   && $fotocontrol->activo)
   
          <a href="{{ URL::to('/') }}/sfotos/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR FOTO</a>
          <form action="{{ route('fotocontrol.update',"foto")}}" method="POST" class="formdesactivar">
@@ -50,6 +50,8 @@
      {{-- <th scope="col">ID</th>--}}
       <th scope="col">FOTO</th>
       <th scope="col">IMAGEN</th>
+      <th scope="col">CATEGORIA</th>
+      <th scope="col">PERITO</th>
       <th scope="col">OBSERVACION</th>
       <th scope="col">Acciones</th>
     </tr>
@@ -61,11 +63,13 @@
        {{-- <td>{{$foto->id}}</td>--}}
         <td>{{$foto->fotopart->name}}</td>
         <td>   <img src="/imagen/{{$foto->imagen}}" width="30%"></td>
+        <td>{{$foto->categoria}}</td>
+        <td>{{$foto->perito}}</td>
         <td>{{$foto->observacion}}</td>
          
          
         <td>
-          @if(Auth::user()->id==$responsable->id && $fotocontrol->activo) 
+          @if($fotocontrol->activo) 
         <form action="{{ route('sfotos.destroy',$foto->id) }}" method="POST" class="formEliminar">
           <a href="/sfotos/{{$foto->id}}/edit" class="btn btn-info">Editar</a>         
               @csrf

@@ -5,6 +5,8 @@
 <head>
     <title> Generate PDF  </title>
  {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">--}}
+ 
+ 
  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"/>
   
 </head>
@@ -46,7 +48,45 @@
         
 
 </style>
+
+ 
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h1></h1>
+  
+    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+ @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        
+        .img {
+            display: block;
+            margin-left: middle;
+            margin-right: auto;
+            width:200px;
+             height:100px;
+             
+        }
+        .text-justify {
+  text-align: justify;
+}
+    </style>
+     <title>INSPECCIÓN Nº  {{ $peritaje->id }}
+      
+
+    
+    </title>
+ 
+</head>
+
+
+
+
 <body>
+   
   {{--  <header>
         <h1>CDA PARQUE DEL AGUA</h1>
     </header>--}}
@@ -273,6 +313,44 @@
           
      </tr>
      @endforeach
+     {{--inicio fotos  --}}
+     <th colspan="2">
+        {{--fotos --}}
+ @if(isset($peritaje->fotocontrol->fotoparts))
+ @php ($fotos = []) @endphp
+ @foreach($peritaje->fotocontrol->fotoparts as $foto) 
+             @if($foto->categoria=="REVISION DE EXTERIORES")
+              @php $fotos[]=$foto @endphp
+               @endif              
+@endforeach
+@if(count($fotos)>0)
+ <div class="col-11"   style=" width: 700px; border: 1px solid;">
+ <p> REGISTRO FOTOGRAFICO</p>
+ <table class="table table-bordered" style="font-size: xx-small;" >
+     <tr bgcolor="#19ea6d">
+     </tr>
+    
+     @foreach ($fotos as $foto)
+     <tr>
+<td>{{ $foto->fotopart->name }}<br>
+    <img src="{{ public_path('imagen/'.$foto->imagen)}}" width="250" height="200"></td>
+
+     </tr>
+          @endforeach
+     
+               
+   
+   {{-- @endforeach--}} 
+ </table>
+
+ </div>
+ @endif
+ @endif
+
+   </th>
+
+
+     {{-- fin de fotos --}}
  </table>
 
 
@@ -310,6 +388,41 @@
           
      </tr>
      @endforeach
+
+     <th colspan="2">
+          {{--fotos --}}
+   @if(isset($peritaje->fotocontrol->fotoparts))
+   @php ($fotos = []) @endphp
+   @foreach($peritaje->fotocontrol->fotoparts as $foto) 
+               @if($foto->categoria=="PARTES BAJAS")
+                @php $fotos[]=$foto @endphp
+                 @endif              
+@endforeach
+@if(count($fotos)>0)
+   <div class="col-11"   style=" width: 700px; border: 1px solid;">
+   <p> REGISTRO FOTOGRAFICO</p>
+   <table class="table table-bordered" style="font-size: xx-small;" >
+       <tr bgcolor="#19ea6d">
+       </tr>
+      
+       @foreach ($fotos as $foto)
+       <tr>
+  <td>{{ $foto->fotopart->name }}<br>
+      <img src="{{ public_path('imagen/'.$foto->imagen)}}" width="250" height="200"></td>
+ 
+       </tr>
+            @endforeach
+       
+                 
+     
+     {{-- @endforeach--}} 
+   </table>
+  
+   </div>
+   @endif
+   @endif
+
+     </th>
       
  </table>
  <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->bajacontrol->observacion}}</textarea>
@@ -319,28 +432,28 @@
                 @endif
             </th>
         </tr>
+
+ 
+    
+
     </table> 
     <br>
     {{--FIN DE EXTERIOR Y COMPRESION--}}
    
+    {{--fotos --}}
     @if(isset($peritaje->fotocontrol->fotoparts))
     <div class="col-11"   style=" width: 700px; border: 1px solid;">
-
-    
     <p> REGISTRO FOTOGRAFICO</p>
     <table class="table table-bordered" style="font-size: xx-small;" >
         <tr bgcolor="#19ea6d">
-    
-         {{--  <th>FOTO</th>  
-            <th>IMAGEN</th>
-           <th>OBSERVACION</th>
-            <th>FOTO</th>  
-            <th>IMAGEN</th>
-           <th>OBSERVACION</th> --}} 
         </tr>
-       
-       {{-- @foreach($peritaje->fotocontrol->fotoparts as $foto) --}}
-     {{  $foto=$peritaje->fotocontrol->fotoparts}}
+        @php ($foto = []) @endphp
+        @foreach($peritaje->fotocontrol->fotoparts as $fotos) 
+                    @if($fotos->categoria=="RECESION")
+                     @php $foto[]=$fotos @endphp
+                      @endif              
+    @endforeach
+     {{-- $foto=$peritaje->fotocontrol->fotoparts --}}
    {{ $c=count($foto)-1}}
    @if($c==0)
 {{--   <td>{{ $foto[0]->fotopart->name }}</td> --}}
@@ -349,7 +462,6 @@
  {{-- <td>{{ $foto[0]->observacion }}</td> --}}
    @else
      @for($i=0;$i<$c;$i++)
-    
      <tr>
               @if($i%2==0)  
        {{--     <td>{{ $foto[$i]->fotopart->name }}</td> --}}
@@ -378,6 +490,8 @@
    
     </div>
     @endif
+{{--fin fotos--}}
+
  {{--   <footer>
         <h1>CDA PARQUE DEL AGUA</h1>
     </footer>--}}
@@ -554,8 +668,64 @@
             </th>
         </tr>
 </table> 
+<br>
+{{--fotos --}}
+@if(isset($peritaje->fotocontrol->fotoparts))
+@php ($foto = []) @endphp
+@foreach($peritaje->fotocontrol->fotoparts as $fotos) 
+            @if($fotos->categoria=="ESTRUCTURA")
+             @php $foto[]=$fotos @endphp
+              @endif              
+@endforeach
+ @if(count($foto)>0)
 
-        
+<div class="col-11"   style=" width: 700px; border: 1px solid;">
+<p> REGISTRO FOTOGRAFICO</p>
+<table class="table table-bordered" style="font-size: xx-small;" >
+    <tr bgcolor="#19ea6d">
+    </tr>
+   
+ {{-- $foto=$peritaje->fotocontrol->fotoparts --}}
+{{ $c=count($foto)-1}}
+@if($c==0)
+{{--   <td>{{ $foto[0]->fotopart->name }}</td> --}}
+<td>{{ $foto[0]->fotopart->name }}<br>
+   <img src="{{ public_path('imagen/'.$foto[0]->imagen)}}" width="250" height="200"></td>
+{{-- <td>{{ $foto[0]->observacion }}</td> --}}
+@else
+ @for($i=0;$i<$c;$i++)
+ <tr>
+          @if($i%2==0)  
+   {{--     <td>{{ $foto[$i]->fotopart->name }}</td> --}}
+        <td>{{ $foto[$i]->fotopart->name }}<br>
+               <img src="{{ public_path('imagen/'.$foto[$i]->imagen)}}" width="250" height="200"></td>
+     {{--  <td>{{ $foto[$i]->observacion }}</td> --}}
+        @endif
+      @if(($i+1)%2!=0)
+    {{--    <td>{{ $foto[$i+1]->fotopart->name }}</td> --}}
+        <td>{{ $foto[$i+1]->fotopart->name }}<br>
+               <img src="{{ public_path('imagen/'.$foto[$i+1]->imagen)}}" width="250" height="200"></td>
+      {{--  <td>{{ $foto[$i+1]->observacion }}</td> --}}
+        @endif
+         
+    </tr>
+    @endfor
+    @if($c%2==0)
+ {{--  <td>{{ $foto[$c]->fotopart->name }}</td> --}}
+        <td>{{ $foto[$c]->fotopart->name }}<br>
+               <img src="{{ public_path('./imagen/'.$foto[$c]->imagen)}}" width="250" height="200"></td>
+     {{--  <td>{{ $foto[$c]->observacion }}</td> --}}
+        @endif
+  @endif
+  {{-- @endforeach--}} 
+</table>
+
+</div>
+@endif
+@endif
+{{--fin fotos--}}
+ 
+
 
 <textarea style="font-size: xx-small;  width: 550px;margin: 20px;"   readonly>{{$peritaje->estructuracontrol->observacion}}</textarea>
          
@@ -736,7 +906,62 @@
             </th>
         </tr>
 </table> 
+<br>
+{{--fotos --}}
+@if(isset($peritaje->fotocontrol->fotoparts))
+@php ($foto = []) @endphp
+@foreach($peritaje->fotocontrol->fotoparts as $fotos) 
+            @if($fotos->categoria=="LATONERIA O CARROCERIA")
+             @php $foto[]=$fotos @endphp
+              @endif              
+@endforeach
+ @if(count($foto)>0)
 
+<div class="col-11"   style=" width: 700px; border: 1px solid;">
+<p> REGISTRO FOTOGRAFICO</p>
+<table class="table table-bordered" style="font-size: xx-small;" >
+    <tr bgcolor="#19ea6d">
+    </tr>
+   
+ {{-- $foto=$peritaje->fotocontrol->fotoparts --}}
+{{ $c=count($foto)-1}}
+@if($c==0)
+{{--   <td>{{ $foto[0]->fotopart->name }}</td> --}}
+<td>{{ $foto[0]->fotopart->name }}<br>
+   <img src="{{ public_path('imagen/'.$foto[0]->imagen)}}" width="250" height="200"></td>
+{{-- <td>{{ $foto[0]->observacion }}</td> --}}
+@else
+ @for($i=0;$i<$c;$i++)
+ <tr>
+          @if($i%2==0)  
+   {{--     <td>{{ $foto[$i]->fotopart->name }}</td> --}}
+        <td>{{ $foto[$i]->fotopart->name }}<br>
+               <img src="{{ public_path('imagen/'.$foto[$i]->imagen)}}" width="250" height="200"></td>
+     {{--  <td>{{ $foto[$i]->observacion }}</td> --}}
+        @endif
+      @if(($i+1)%2!=0)
+    {{--    <td>{{ $foto[$i+1]->fotopart->name }}</td> --}}
+        <td>{{ $foto[$i+1]->fotopart->name }}<br>
+               <img src="{{ public_path('imagen/'.$foto[$i+1]->imagen)}}" width="250" height="200"></td>
+      {{--  <td>{{ $foto[$i+1]->observacion }}</td> --}}
+        @endif
+         
+    </tr>
+    @endfor
+    @if($c%2==0)
+ {{--  <td>{{ $foto[$c]->fotopart->name }}</td> --}}
+        <td>{{ $foto[$c]->fotopart->name }}<br>
+               <img src="{{ public_path('./imagen/'.$foto[$c]->imagen)}}" width="250" height="200"></td>
+     {{--  <td>{{ $foto[$c]->observacion }}</td> --}}
+        @endif
+  @endif
+  {{-- @endforeach--}} 
+</table>
+
+</div>
+@endif
+@endif
+{{--fin fotos--}}
         
 
 <textarea style="font-size: xx-small;  width: 550px;margin: 20px;"   readonly>{{$peritaje->latoneriacontrol->observacion}}</textarea>
@@ -922,7 +1147,62 @@
        </tr>
 </table> 
 
-       
+<br>
+{{--fotos --}}
+@if(isset($peritaje->fotocontrol->fotoparts))
+@php ($foto = []) @endphp
+@foreach($peritaje->fotocontrol->fotoparts as $fotos) 
+            @if($fotos->categoria=="PINTURA")
+             @php $foto[]=$fotos @endphp
+              @endif              
+@endforeach
+ @if(count($foto)>0)
+
+<div class="col-11"   style=" width: 700px; border: 1px solid;">
+<p> REGISTRO FOTOGRAFICO</p>
+<table class="table table-bordered" style="font-size: xx-small;" >
+    <tr bgcolor="#19ea6d">
+    </tr>
+   
+ {{-- $foto=$peritaje->fotocontrol->fotoparts --}}
+{{ $c=count($foto)-1}}
+@if($c==0)
+{{--   <td>{{ $foto[0]->fotopart->name }}</td> --}}
+<td>{{ $foto[0]->fotopart->name }}<br>
+   <img src="{{ public_path('imagen/'.$foto[0]->imagen)}}" width="250" height="200"></td>
+{{-- <td>{{ $foto[0]->observacion }}</td> --}}
+@else
+ @for($i=0;$i<$c;$i++)
+ <tr>
+          @if($i%2==0)  
+   {{--     <td>{{ $foto[$i]->fotopart->name }}</td> --}}
+        <td>{{ $foto[$i]->fotopart->name }}<br>
+               <img src="{{ public_path('imagen/'.$foto[$i]->imagen)}}" width="250" height="200"></td>
+     {{--  <td>{{ $foto[$i]->observacion }}</td> --}}
+        @endif
+      @if(($i+1)%2!=0)
+    {{--    <td>{{ $foto[$i+1]->fotopart->name }}</td> --}}
+        <td>{{ $foto[$i+1]->fotopart->name }}<br>
+               <img src="{{ public_path('imagen/'.$foto[$i+1]->imagen)}}" width="250" height="200"></td>
+      {{--  <td>{{ $foto[$i+1]->observacion }}</td> --}}
+        @endif
+         
+    </tr>
+    @endfor
+    @if($c%2==0)
+ {{--  <td>{{ $foto[$c]->fotopart->name }}</td> --}}
+        <td>{{ $foto[$c]->fotopart->name }}<br>
+               <img src="{{ public_path('./imagen/'.$foto[$c]->imagen)}}" width="250" height="200"></td>
+     {{--  <td>{{ $foto[$c]->observacion }}</td> --}}
+        @endif
+  @endif
+  {{-- @endforeach--}} 
+</table>
+
+</div>
+@endif
+@endif
+{{--fin fotos--}}   
 
 <textarea style="font-size: xx-small;  width: 550px;margin: 20px;"   readonly>{{$peritaje->pinturacontrol->observacion}}</textarea>
         
@@ -962,6 +1242,48 @@
              
         </tr>
         @endforeach
+{{-- FOTOS--}}
+<th colspan="2">
+    {{--fotos --}}
+@if(isset($peritaje->fotocontrol->fotoparts))
+@php ($fotos = []) @endphp
+@foreach($peritaje->fotocontrol->fotoparts as $foto) 
+         @if($foto->categoria=="VIDRIOS")
+          @php $fotos[]=$foto @endphp
+           @endif              
+@endforeach
+@if(count($fotos)>0)
+<div class="col-11"   style=" width: 700px; border: 1px solid;">
+<p> REGISTRO FOTOGRAFICO</p>
+<table class="table table-bordered" style="font-size: xx-small;" >
+ <tr bgcolor="#19ea6d">
+ </tr>
+
+ @foreach ($fotos as $foto)
+ <tr>
+<td>{{ $foto->fotopart->name }}<br>
+<img src="{{ public_path('imagen/'.$foto->imagen)}}" width="250" height="200"></td>
+
+ </tr>
+      @endforeach
+ 
+           
+
+{{-- @endforeach--}} 
+</table>
+
+</div>
+@endif
+@endif
+
+</th>
+
+{{-- FIN DE FOTOS--}}
+
+
+
+
+
     </table>
    
    
@@ -1000,6 +1322,44 @@
              
         </tr>
         @endforeach
+
+        {{-- FOTOS--}}
+<th colspan="2">
+    {{--fotos --}}
+@if(isset($peritaje->fotocontrol->fotoparts))
+@php ($fotos = []) @endphp
+@foreach($peritaje->fotocontrol->fotoparts as $foto) 
+         @if($foto->categoria=="INTERIOR")
+          @php $fotos[]=$foto @endphp
+           @endif              
+@endforeach
+@if(count($fotos)>0)
+<div class="col-11"   style=" width: 700px; border: 1px solid;">
+<p> REGISTRO FOTOGRAFICO</p>
+<table class="table table-bordered" style="font-size: xx-small;" >
+ <tr bgcolor="#19ea6d">
+ </tr>
+
+ @foreach ($fotos as $foto)
+ <tr>
+<td>{{ $foto->fotopart->name }}<br>
+<img src="{{ public_path('imagen/'.$foto->imagen)}}" width="250" height="200"></td>
+
+ </tr>
+      @endforeach
+ 
+           
+
+{{-- @endforeach--}} 
+</table>
+
+</div>
+@endif
+@endif
+
+</th>
+
+{{-- FIN DE FOTOS--}}
         
     </table>
     <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->interiorcontrol->observacion}}</textarea>
@@ -1043,6 +1403,47 @@
      
 </tr>
 @endforeach
+
+ {{-- FOTOS--}}
+ <th colspan="2">
+    {{--fotos --}}
+@if(isset($peritaje->fotocontrol->fotoparts))
+@php ($fotos = []) @endphp
+@foreach($peritaje->fotocontrol->fotoparts as $foto) 
+         @if($foto->categoria=="FUGAS DE FLUIDOS")
+          @php $fotos[]=$foto @endphp
+           @endif              
+@endforeach
+@if(count($fotos)>0)
+<div class="col-11"   style=" width: 700px; border: 1px solid;">
+<p> REGISTRO FOTOGRAFICO</p>
+<table class="table table-bordered" style="font-size: xx-small;" >
+ <tr bgcolor="#19ea6d">
+ </tr>
+
+ @foreach ($fotos as $foto)
+ <tr>
+<td>{{ $foto->fotopart->name }}<br>
+<img src="{{ public_path('imagen/'.$foto->imagen)}}" width="250" height="200"></td>
+
+ </tr>
+      @endforeach
+ 
+           
+
+{{-- @endforeach--}} 
+</table>
+
+</div>
+@endif
+@endif
+
+</th>
+
+{{-- FIN DE FOTOS--}}
+
+
+
 </table>
 
 
@@ -1081,6 +1482,46 @@
      
 </tr>
 @endforeach
+
+ {{-- FOTOS--}}
+ <th colspan="2">
+    {{--fotos --}}
+@if(isset($peritaje->fotocontrol->fotoparts))
+@php ($fotos = []) @endphp
+@foreach($peritaje->fotocontrol->fotoparts as $foto) 
+         @if($foto->categoria=="NIVELES DE FLUIDOS")
+          @php $fotos[]=$foto @endphp
+           @endif              
+@endforeach
+@if(count($fotos)>0)
+<div class="col-11"   style=" width: 700px; border: 1px solid;">
+<p> REGISTRO FOTOGRAFICO</p>
+<table class="table table-bordered" style="font-size: xx-small;" >
+ <tr bgcolor="#19ea6d">
+ </tr>
+
+ @foreach ($fotos as $foto)
+ <tr>
+<td>{{ $foto->fotopart->name }}<br>
+<img src="{{ public_path('imagen/'.$foto->imagen)}}" width="250" height="200"></td>
+
+ </tr>
+      @endforeach
+ 
+           
+
+{{-- @endforeach--}} 
+</table>
+
+</div>
+@endif
+@endif
+
+</th>
+
+{{-- FIN DE FOTOS--}}
+
+
 
 </table>
 <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->nfluidocontrol->observacion}}</textarea>
@@ -1125,6 +1566,43 @@
      
 </tr>
 @endforeach
+{{-- FOTOS--}}
+<th colspan="2">
+    {{--fotos --}}
+@if(isset($peritaje->fotocontrol->fotoparts))
+@php ($fotos = []) @endphp
+@foreach($peritaje->fotocontrol->fotoparts as $foto) 
+         @if($foto->categoria=="CHASIS")
+          @php $fotos[]=$foto @endphp
+           @endif              
+@endforeach
+@if(count($fotos)>0)
+<div class="col-11"   style=" width: 700px; border: 1px solid;">
+<p> REGISTRO FOTOGRAFICO</p>
+<table class="table table-bordered" style="font-size: xx-small;" >
+ <tr bgcolor="#19ea6d">
+ </tr>
+
+ @foreach ($fotos as $foto)
+ <tr>
+<td>{{ $foto->fotopart->name }}<br>
+<img src="{{ public_path('imagen/'.$foto->imagen)}}" width="250" height="200"></td>
+
+ </tr>
+      @endforeach
+ 
+           
+
+{{-- @endforeach--}} 
+</table>
+
+</div>
+@endif
+@endif
+
+</th>
+
+{{-- FIN DE FOTOS--}}
 </table>
 
 
@@ -1164,6 +1642,44 @@
      
 </tr>
 @endforeach
+
+{{-- FOTOS--}}
+<th colspan="2">
+    {{--fotos --}}
+@if(isset($peritaje->fotocontrol->fotoparts))
+@php ($fotos = []) @endphp
+@foreach($peritaje->fotocontrol->fotoparts as $foto) 
+         @if($foto->categoria=="SUSPENSION")
+          @php $fotos[]=$foto @endphp
+           @endif              
+@endforeach
+@if(count($fotos)>0)
+<div class="col-11"   style=" width: 700px; border: 1px solid;">
+<p> REGISTRO FOTOGRAFICO</p>
+<table class="table table-bordered" style="font-size: xx-small;" >
+ <tr bgcolor="#19ea6d">
+ </tr>
+
+ @foreach ($fotos as $foto)
+ <tr>
+<td>{{ $foto->fotopart->name }}<br>
+<img src="{{ public_path('imagen/'.$foto->imagen)}}" width="250" height="200"></td>
+
+ </tr>
+      @endforeach
+ 
+           
+
+{{-- @endforeach--}} 
+</table>
+
+</div>
+@endif
+@endif
+
+</th>
+
+{{-- FIN DE FOTOS--}}
 
 </table>
 <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->suspensioncontrol->observacion}}</textarea>
@@ -1207,6 +1723,46 @@
       
  </tr>
  @endforeach
+{{-- FOTOS--}}
+<th colspan="2">
+    {{--fotos --}}
+@if(isset($peritaje->fotocontrol->fotoparts))
+@php ($fotos = []) @endphp
+@foreach($peritaje->fotocontrol->fotoparts as $foto) 
+         @if($foto->categoria=="PARTES DEL MOTOR")
+          @php $fotos[]=$foto @endphp
+           @endif              
+@endforeach
+@if(count($fotos)>0)
+<div class="col-11"   style=" width: 700px; border: 1px solid;">
+<p> REGISTRO FOTOGRAFICO</p>
+<table class="table table-bordered" style="font-size: xx-small;" >
+ <tr bgcolor="#19ea6d">
+ </tr>
+
+ @foreach ($fotos as $foto)
+ <tr>
+<td>{{ $foto->fotopart->name }}<br>
+<img src="{{ public_path('imagen/'.$foto->imagen)}}" width="250" height="200"></td>
+
+ </tr>
+      @endforeach
+ 
+           
+
+{{-- @endforeach--}} 
+</table>
+
+</div>
+@endif
+@endif
+
+</th>
+
+{{-- FIN DE FOTOS--}}
+
+
+
  </table>
  
  
@@ -1249,6 +1805,45 @@
       
  </tr>
  @endforeach
+
+ {{-- FOTOS--}}
+<th colspan="2">
+    {{--fotos --}}
+@if(isset($peritaje->fotocontrol->fotoparts))
+@php ($fotos = []) @endphp
+@foreach($peritaje->fotocontrol->fotoparts as $foto) 
+         @if($foto->categoria=="LLANTAS")
+          @php $fotos[]=$foto @endphp
+           @endif              
+@endforeach
+@if(count($fotos)>0)
+<div class="col-11"   style=" width: 700px; border: 1px solid;">
+<p> REGISTRO FOTOGRAFICO</p>
+<table class="table table-bordered" style="font-size: xx-small;" >
+ <tr bgcolor="#19ea6d">
+ </tr>
+
+ @foreach ($fotos as $foto)
+ <tr>
+<td>{{ $foto->fotopart->name }}<br>
+<img src="{{ public_path('imagen/'.$foto->imagen)}}" width="250" height="200"></td>
+
+ </tr>
+      @endforeach
+ 
+           
+
+{{-- @endforeach--}} 
+</table>
+
+</div>
+@endif
+@endif
+
+</th>
+
+{{-- FIN DE FOTOS--}}
+
  
  </table>
  <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->llantacontrol->observacion}}</textarea>
@@ -1294,6 +1889,43 @@
      
 </tr>
 @endforeach
+{{-- FOTOS--}}
+<th colspan="2">
+    {{--fotos --}}
+@if(isset($peritaje->fotocontrol->fotoparts))
+@php ($fotos = []) @endphp
+@foreach($peritaje->fotocontrol->fotoparts as $foto) 
+         @if($foto->categoria=="LUCES")
+          @php $fotos[]=$foto @endphp
+           @endif              
+@endforeach
+@if(count($fotos)>0)
+<div class="col-11"   style=" width: 700px; border: 1px solid;">
+<p> REGISTRO FOTOGRAFICO</p>
+<table class="table table-bordered" style="font-size: xx-small;" >
+ <tr bgcolor="#19ea6d">
+ </tr>
+
+ @foreach ($fotos as $foto)
+ <tr>
+<td>{{ $foto->fotopart->name }}<br>
+<img src="{{ public_path('imagen/'.$foto->imagen)}}" width="250" height="200"></td>
+
+ </tr>
+      @endforeach
+ 
+           
+
+{{-- @endforeach--}} 
+</table>
+
+</div>
+@endif
+@endif
+
+</th>
+
+{{-- FIN DE FOTOS--}}
 </table>
 
 
@@ -1333,6 +1965,44 @@
 </tr>
 @endforeach
 
+
+{{-- FOTOS--}}
+<th colspan="2">
+    {{--fotos --}}
+@if(isset($peritaje->fotocontrol->fotoparts))
+@php ($fotos = []) @endphp
+@foreach($peritaje->fotocontrol->fotoparts as $foto) 
+         @if($foto->categoria=="EQUIPOS ELECTRICOS")
+          @php $fotos[]=$foto @endphp
+           @endif              
+@endforeach
+@if(count($fotos)>0)
+<div class="col-11"   style=" width: 700px; border: 1px solid;">
+<p> REGISTRO FOTOGRAFICO</p>
+<table class="table table-bordered" style="font-size: xx-small;" >
+ <tr bgcolor="#19ea6d">
+ </tr>
+
+ @foreach ($fotos as $foto)
+ <tr>
+<td>{{ $foto->fotopart->name }}<br>
+<img src="{{ public_path('imagen/'.$foto->imagen)}}" width="250" height="200"></td>
+
+ </tr>
+      @endforeach
+ 
+           
+
+{{-- @endforeach--}} 
+</table>
+
+</div>
+@endif
+@endif
+
+</th>
+
+{{-- FIN DE FOTOS--}}
 </table>
 <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->electricocontrol->observacion}}</textarea>
 
@@ -1717,4 +2387,4 @@
 </html>
 
 
-@endsection
+@endsection 

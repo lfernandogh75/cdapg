@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('fluidos', function (Blueprint $table) {
             $table->id();
+            $table->string('perito');
             $table->enum("estado", ["NO","SI","N/A"]);
             $table->text('observaciones')->nullable();
             $table->unsignedBigInteger('fluidocontrol_id')

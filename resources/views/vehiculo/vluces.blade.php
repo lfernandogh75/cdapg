@@ -10,11 +10,11 @@
  LUCES DEL VEHICULO : {{$vehiculo->placa}} <br/>
   @endif
   @if(isset($responsable))  
-  PERITO DE LUCES : {{$responsable->name}} <br/>
+   
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-@if(isset($vehiculo) && Auth::user()->id==$responsable->id && $vlucescontrol->activo)
+@if(isset($vehiculo) && $vlucescontrol->activo)
   
          <a href="{{ URL::to('/') }}/svlucess/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
        
@@ -60,6 +60,7 @@
       <th scope="col">PIEZA</th>
       <th scope="col">ESTADO</th>
       <th scope="col">OBSERVACIONES</th>
+      <th scope="col">PERITO</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -71,14 +72,17 @@
         <td>{{$vluces->luzpart->name}}</td>
         <td>{{$vluces->estado}}</td>
         <td>{{$vluces->observaciones}}</td>
+        <td>{{$vluces->perito}}</td>
         <td>
-          @if(Auth::user()->id==$responsable->id && $vlucescontrol->activo) 
+          @if($vlucescontrol->activo) 
         <form action="{{ route('svlucess.destroy',$vluces->id) }}" method="POST">
           <a href="/svlucess/{{$vluces->id}}/edit" class="btn btn-info">Editar</a>         
               @csrf
               @method('DELETE')
-          <button type="submit" class="btn btn-danger">Delete</button>
-         </form>  
+              @if(Auth::user()->role->nombre_rol=="superadmin")
+              <button type="submit" class="btn btn-danger">Delete</button>
+       @endif
+            </form>  
           
          @endif
                    
@@ -90,7 +94,7 @@
 
 @if(isset($vehiculo))
         <p>
-         <a href="{{ URL::to('/') }}/svlucess/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA Y SER RESPONSABLE DEL PERITAJE DE LAS LUCES </a>
+         <a href="{{ URL::to('/') }}/svlucess/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
        
      @endif
 

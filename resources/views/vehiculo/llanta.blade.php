@@ -27,12 +27,12 @@
  LLANTAS DEL VEHICULO : {{$vehiculo->placa}} <br/>
   @endif
   @if(isset($responsable))  
-  PERITO LLANTAS : {{$responsable->name}} <br/>
+  
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-@if(isset($vehiculo) && Auth::user()->id==$responsable->id && $llantacontrol->activo)
+@if(isset($vehiculo)  && $llantacontrol->activo)
   
 <a href="{{ URL::to('/') }}/sllantas/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
 
@@ -77,6 +77,7 @@
       <th scope="col">PRESION</th>
       <th scope="col">VIDA UTIL</th>
       <th scope="col">OBSERVACIONES</th>
+      <th scope="col">PERITO</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -91,14 +92,17 @@
         <td>{{$llanta->presion}}</td>
         <td>{{$llanta->vidautil}}</td>
         <td>{{$llanta->observaciones}}</td>
+        <td>{{$llanta->perito}}</td>
         <td>
-          @if(Auth::user()->id==$responsable->id && $llantacontrol->activo) 
+          @if($llantacontrol->activo) 
         <form action="{{ route('sllantas.destroy',$llanta->id) }}" method="POST">
           <a href="/sllantas/{{$llanta->id}}/edit" class="btn btn-info">Editar</a>         
               @csrf
               @method('DELETE')
-          <button type="submit" class="btn btn-danger">Delete</button>
-         </form>  
+              @if(Auth::user()->role->nombre_rol=="superadmin")
+              <button type="submit" class="btn btn-danger">Delete</button>
+        @endif
+            </form>  
           
          @endif
                    
@@ -110,7 +114,7 @@
 
 @if(isset($vehiculo))
         <p>
-         <a href="{{ URL::to('/') }}/sllantas/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR LLANTA Y SER RESPONSABLE DEL PERITAJE DE LAS LLANTAS </a>
+         <a href="{{ URL::to('/') }}/sllantas/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR LLANTA </a>
        
      @endif
 

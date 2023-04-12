@@ -10,11 +10,11 @@
  VIDRIOS DEL VEHICULO : {{$vehiculo->placa}} <br/>
   @endif
   @if(isset($responsable))  
-  PERITO DE VIDIOS : {{$responsable->name}} <br/>
+   
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-@if(isset($vehiculo) && Auth::user()->id==$responsable->id && $vidriocontrol->activo)
+@if(isset($vehiculo) && $vidriocontrol->activo)
   
          <a href="{{ URL::to('/') }}/svidrios/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
        
@@ -60,6 +60,7 @@
       <th scope="col">PIEZA</th>
       <th scope="col">ESTADO</th>
       <th scope="col">OBSERVACIONES</th>
+      <th scope="col">PERITO</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -71,14 +72,17 @@
         <td>{{$vidrio->vidriopart->name}}</td>
         <td>{{$vidrio->estado}}</td>
         <td>{{$vidrio->observaciones}}</td>
+        <td>{{$vidrio->perito}}</td>
         <td>
-          @if(Auth::user()->id==$responsable->id && $vidriocontrol->activo) 
+          @if($vidriocontrol->activo) 
         <form action="{{ route('svidrios.destroy',$vidrio->id) }}" method="POST">
           <a href="/svidrios/{{$vidrio->id}}/edit" class="btn btn-info">Editar</a>         
               @csrf
               @method('DELETE')
-          <button type="submit" class="btn btn-danger">Delete</button>
-         </form>  
+              @if(Auth::user()->role->nombre_rol=="superadmin")
+              <button type="submit" class="btn btn-danger">Delete</button>
+        @endif
+            </form>  
           
          @endif
                    
@@ -90,7 +94,7 @@
 
 @if(isset($vehiculo))
         <p>
-         <a href="{{ URL::to('/') }}/svidrios/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA Y SER RESPONSABLE DEL PERITAJE DE LOS VIDRIOS </a>
+         <a href="{{ URL::to('/') }}/svidrios/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
        
      @endif
 

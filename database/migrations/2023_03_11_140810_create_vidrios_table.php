@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('vidrios', function (Blueprint $table) {
             $table->id();
+            $table->string('perito');
             $table->enum("estado", ["N/A","BUEN ESTADO","ORIGINAL","CAMBIADO","BUENA REPARACION","MAL REPARADO","PICADO","BUENA SUSTITUCION","REPARACION REGULAR"]);
             $table->text('observaciones');
             $table->unsignedBigInteger('vidriocontrol_id')

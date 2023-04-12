@@ -44,6 +44,7 @@ class InteriorController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $interior = new Interior();
        if(isset($peritaje->interiorcontrol)){
@@ -52,10 +53,11 @@ class InteriorController extends Controller
         $interior->estado = $request->get('estado');
         $interior->interiorcontrol_id =  $peritaje->interiorcontrol->id;
         $interior->observaciones = $request->get('observaciones');
+        $interior->perito =  $user->name;
         $interior->save(); 
 
        }else{
-        $user=Auth::user();
+        
         $interiorcontrol = new Interiorcontrol();
         $interiorcontrol->peritaje_id=$request->get('peritaje_id');
         $interiorcontrol->user_id=$user->id;
@@ -66,6 +68,7 @@ class InteriorController extends Controller
         $interior->estado = $request->get('estado');
         $interior->interiorcontrol_id =  $interiorcontrol->id;
         $interior->observaciones = $request->get('observaciones');
+        $interior->perito =  $user->name;
         $interior->save(); 
        }
         
@@ -114,9 +117,11 @@ class InteriorController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $user=Auth::user();
         $interiors =  Interior::find($id);
         $interiors->estado = $request->get('estado');
         $interiors->observaciones = $request->get('observaciones');
+        $interiors->perito =  $user->name;
         $interiors->save();    
         $idperitaje=$interiors->interiorcontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

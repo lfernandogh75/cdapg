@@ -10,11 +10,11 @@
  LATONERIA O CARROCERIA DEL VEHICULO : {{$vehiculo->placa}} <br/>
   @endif
   @if(isset($responsable))  
-  PERITO DE  LATONERIA O CARROCERIA : {{$responsable->name}} <br/>
+  
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-@if(isset($vehiculo) && Auth::user()->id==$responsable->id && $latoneriacontrol->activo)
+@if(isset($vehiculo) && $latoneriacontrol->activo)
   
          <a href="{{ URL::to('/') }}/slatonerias/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
        
@@ -61,6 +61,7 @@
       <th scope="col">VISTA</th>
       <th scope="col">ESTADO</th>
       <th scope="col">OBSERVACIONES</th>
+      <th scope="col">PERITO</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -73,14 +74,17 @@
         <td>{{$latoneria->vista}}</td>
         <td>{{$latoneria->estado}}</td>
         <td>{{$latoneria->observaciones}}</td>
+        <td>{{$latoneria->perito}}</td>
         <td>
-          @if(Auth::user()->id==$responsable->id && $latoneriacontrol->activo) 
+          @if($latoneriacontrol->activo) 
         <form action="{{ route('slatonerias.destroy',$latoneria->id) }}" method="POST">
           <a href="/slatonerias/{{$latoneria->id}}/edit" class="btn btn-info">Editar</a>         
               @csrf
               @method('DELETE')
-          <button type="submit" class="btn btn-danger">Delete</button>
-         </form>  
+              @if(Auth::user()->role->nombre_rol=="superadmin")
+              <button type="submit" class="btn btn-danger">Delete</button>
+        @endif
+            </form>  
           
          @endif
                    
@@ -92,7 +96,7 @@
 
 @if(isset($vehiculo))
         <p>
-         <a href="{{ URL::to('/') }}/slatonerias/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA Y SER RESPONSABLE DEL PERITAJE DE LA CARROCERIA </a>
+         <a href="{{ URL::to('/') }}/slatonerias/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
        
      @endif
 

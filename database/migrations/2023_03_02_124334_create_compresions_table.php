@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('compresions', function (Blueprint $table) {
             $table->id();
+            $table->string('perito');
             $table->integer('compresion');
             $table->integer('fuga');
             $table->unsignedBigInteger('compresioncontrol_id')

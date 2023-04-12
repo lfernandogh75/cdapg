@@ -44,6 +44,7 @@ class SuspensionController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $suspension = new Suspension();
        if(isset($peritaje->suspensioncontrol)){
@@ -53,10 +54,11 @@ class SuspensionController extends Controller
         $suspension->suspensioncontrol_id =  $peritaje->suspensioncontrol->id;
         $suspension->observaciones = $request->get('observaciones');
         $suspension->estado = $request->get('estado');
+        $suspension->perito =  $user->name;
         $suspension->save(); 
 
        }else{
-        $user=Auth::user();
+        
         $suspensioncontrol = new Suspensioncontrol();
         $suspensioncontrol->peritaje_id=$request->get('peritaje_id');
         $suspensioncontrol->user_id=$user->id;
@@ -68,6 +70,7 @@ class SuspensionController extends Controller
         $suspension->suspensioncontrol_id =  $suspensioncontrol->id;
         $suspension->observaciones = $request->get('observaciones');
         $suspension->estado = $request->get('estado');
+        $suspension->perito =  $user->name;
         $suspension->save(); 
        }
         
@@ -116,10 +119,12 @@ class SuspensionController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $user=Auth::user();
         $suspensions =  Suspension::find($id);
         $suspensions->cambio = $request->get('cambio');
         $suspensions->observaciones = $request->get('observaciones');
         $suspensions->estado = $request->get('estado');
+        $suspensions->perito =  $user->name;
         $suspensions->save();    
         $idperitaje=$suspensions->suspensioncontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

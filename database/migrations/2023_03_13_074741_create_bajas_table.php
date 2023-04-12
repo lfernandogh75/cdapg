@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('bajas', function (Blueprint $table) {
             $table->id();
+            $table->string('perito');
             $table->enum("estado", ["N/A","BUEN ESTADO","ORIGINAL","CAMBIADO","BUENA REPARACION","MAL REPARADO","SUMIDO","BUENA SUSTITUCION","REPARACION REGULAR"]);
             $table->text('observaciones');
             $table->unsignedBigInteger('bajacontrol_id')

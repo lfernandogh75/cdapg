@@ -44,6 +44,7 @@ class LuzController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $luz = new Luz();
        if(isset($peritaje->luzcontrol)){
@@ -55,11 +56,11 @@ class LuzController extends Controller
         $luz->inclinacion =$request->get('inclinacion');
         $luz->rango = $request->get('rango');
         $luz->luzcontrol_id =  $peritaje->luzcontrol->id;
-       
+        $luz->perito =  $user->name;
         $luz->save(); 
 
        }else{
-        $user=Auth::user();
+        
         $luzcontrol = new Luzcontrol();
         $luzcontrol->peritaje_id=$request->get('peritaje_id');
         $luzcontrol->user_id=$user->id;
@@ -73,7 +74,7 @@ class LuzController extends Controller
         $luz->inclinacion =$request->get('inclinacion');
         $luz->rango = $request->get('rango');
         $luz->luzcontrol_id =  $luzcontrol->id;
-       
+        $luz->perito =  $user->name;
         $luz->save(); 
        }
         
@@ -122,12 +123,14 @@ class LuzController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $user=Auth::user();
         $luzs =  Luz::find($id);
         $luzs->intensidad = $request->get('intensidad');
         $luzs->minimo =$request->get('minimo');
         $luzs->unidad =$request->get('unidad');
         $luzs->inclinacion =$request->get('inclinacion');
         $luzs->rango = $request->get('rango');
+        $luzs->perito =  $user->name;
         $luzs->save();    
         $idperitaje=$luzs->luzcontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

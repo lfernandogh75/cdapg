@@ -27,11 +27,11 @@
  PRUENBA DE FRENADO DEL VEHICULO : {{$vehiculo->placa}} <br/>
   @endif
   @if(isset($responsable))  
-  PERITO PRUEBA DE FRENADO : {{$responsable->name}} <br/>
+  
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-@if(isset($vehiculo) && Auth::user()->id==$responsable->id && $frenocontrol->activo)
+@if(isset($vehiculo)  && $frenocontrol->activo)
   
          <a href="{{ URL::to('/') }}/sfrenos/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
        
@@ -77,6 +77,7 @@
       <th scope="col">FUERZA</th>
       <th scope="col">PESO</th>
       <th scope="col">UNIDAD</th>
+      <th scope="col">PERITO</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -91,15 +92,18 @@
         <td>{{$freno->fuerza}}</td>
         <td>{{$freno->peso}}</td>
         <td>{{$freno->unidad}}</td>
+        <td>{{$freno->perito}}</td>
          
         <td>
-          @if(Auth::user()->id==$responsable->id && $frenocontrol->activo) 
+          @if( $frenocontrol->activo) 
         <form action="{{ route('sfrenos.destroy',$freno->id) }}" method="POST">
           <a href="/sfrenos/{{$freno->id}}/edit" class="btn btn-info">Editar</a>         
               @csrf
               @method('DELETE')
+              @if(Auth::user()->role->nombre_rol=="superadmin")
           <button type="submit" class="btn btn-danger">Delete</button>
-         </form>  
+        @endif
+        </form>  
           
          @endif
                    
@@ -112,7 +116,7 @@
 
 @if(isset($vehiculo))
         <p>
-         <a href="{{ URL::to('/') }}/sfrenos/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR RESULTADOS PRUEBA DE FRENADO Y SER RESPONSABLE </a>
+         <a href="{{ URL::to('/') }}/sfrenos/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR RESULTADOS PRUEBA DE FRENADO </a>
        
      @endif
 

@@ -27,7 +27,7 @@
  LUCES DEL VEHICULO : {{$vehiculo->placa}} <br/>
   @endif
   @if(isset($responsable))  
-  PERITO LUCES : {{$responsable->name}} <br/>
+   
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -38,7 +38,7 @@
        
      @endif--}}
 
-     @if(isset($vehiculo) && Auth::user()->id==$responsable->id && $luzcontrol->activo)
+     @if(isset($vehiculo) && $luzcontrol->activo)
   
      <a href="{{ URL::to('/') }}/sluzs/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
    
@@ -85,6 +85,7 @@
       <th scope="col">UNIDAD</th>
       <th scope="col">INCLINACION</th>
       <th scope="col">RANGO</th>
+      <th scope="col">PERITO</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -99,14 +100,17 @@
         <td>{{$luz->unidad}}</td>
         <td>{{$luz->inclinacion}}</td>
         <td>{{$luz->rango}}</td>
+        <td>{{$luz->perito}}</td>
         <td>
-          @if(Auth::user()->id==$responsable->id && $luzcontrol->activo) 
+          @if($luzcontrol->activo) 
         <form action="{{ route('sluzs.destroy',$luz->id) }}" method="POST">
           <a href="/sluzs/{{$luz->id}}/edit" class="btn btn-info">Editar</a>         
               @csrf
               @method('DELETE')
-          <button type="submit" class="btn btn-danger">Delete</button>
-         </form>  
+              @if(Auth::user()->role->nombre_rol=="superadmin")
+              <button type="submit" class="btn btn-danger">Delete</button>
+       @endif
+            </form>  
           
          @endif
                    
@@ -118,7 +122,7 @@
 
 @if(isset($vehiculo))
         <p>
-         <a href="{{ URL::to('/') }}/sluzs/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR LUCES Y SER RESPONSABLE DEL PERITAJE DE LAS LUCES </a>
+         <a href="{{ URL::to('/') }}/sluzs/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR LUCES </a>
        
      @endif
 

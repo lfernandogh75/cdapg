@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('llantas', function (Blueprint $table) {
             $table->id();
+            $table->string('perito');
             $table->enum("cambio", ["NO","SI","N/A"]);
             $table->decimal('labrado', 8, 2);
             $table->integer('presion');

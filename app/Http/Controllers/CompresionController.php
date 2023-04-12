@@ -44,6 +44,7 @@ class CompresionController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $compresion = new Compresion();
        if(isset($peritaje->compresioncontrol)){
@@ -52,11 +53,11 @@ class CompresionController extends Controller
         $compresion->compresion = $request->get('compresion');
         $compresion->fuga =$request->get('fuga');
         $compresion->compresioncontrol_id =  $peritaje->compresioncontrol->id;
-        
+        $compresion->perito =  $user->name;
         $compresion->save(); 
 
        }else{
-        $user=Auth::user();
+       
         $compresioncontrol = new Compresioncontrol();
         $compresioncontrol->peritaje_id=$request->get('peritaje_id');
         $compresioncontrol->user_id=$user->id;
@@ -67,7 +68,7 @@ class CompresionController extends Controller
         $compresion->compresion = $request->get('compresion');
         $compresion->fuga =$request->get('fuga');
         $compresion->compresioncontrol_id =  $compresioncontrol->id;
-       
+        $compresion->perito =  $user->name;
         $compresion->save(); 
        }
         
@@ -116,10 +117,11 @@ class CompresionController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $user=Auth::user();
         $compresions =  Compresion::find($id);
         $compresions->compresion = $request->get('compresion');
         $compresions->fuga =$request->get('fuga');
-         
+        $compresions->perito =  $user->name;
         $compresions->save();    
         $idperitaje=$compresions->compresioncontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

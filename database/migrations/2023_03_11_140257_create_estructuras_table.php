@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('estructuras', function (Blueprint $table) {
             $table->id();
+            $table->string('perito');
             $table->enum("estado", ["N/A","ORIGINAL","CAMBIADO","BUENA REPARACION","MAL REPARADO","SUMIDO","BUENA SUSTITUCION","REPARACION REGULAR"]);
             $table->enum("vista", ["IZQUIERDA","DERECHA","POSTERIOR","FRONTAL","BAJA"]);
             $table->text('observaciones');

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('imagen');
             $table->string('observacion');
+            $table->string('categoria');
+            $table->string('perito');
             $table->unsignedBigInteger('fotocontrol_id')
             ->nullable()
             ->index();

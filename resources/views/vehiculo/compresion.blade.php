@@ -28,7 +28,7 @@
  COMPRESION DEL VEHICULO : {{$vehiculo->placa}} <br/>
   @endif
   @if(isset($responsable))  
-  PERITO CILINDROS : {{$responsable->name}} <br/>
+  
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -38,7 +38,7 @@
          <a href="{{ URL::to('/') }}/scompresions/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
        
      @endif--}}
-     @if(isset($vehiculo) && Auth::user()->id==$responsable->id && $compresioncontrol->activo)
+     @if(isset($vehiculo) && $compresioncontrol->activo)
   
          <a href="{{ URL::to('/') }}/scompresions/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
        
@@ -80,6 +80,7 @@
       <th scope="col">PIEZA</th>
       <th scope="col">COMPRESION EN PSI</th>
       <th scope="col">PORCENTAJE DE FUGA</th>
+      <th scope="col">PERITO</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -91,15 +92,18 @@
         <td>{{$compresion->compresionpart->name}}</td>
         <td>{{$compresion->compresion}}</td>
         <td>{{$compresion->fuga}}</td>
+        <td>{{$compresion->perito}}</td>
          
         <td>
-          @if(Auth::user()->id==$responsable->id && $compresioncontrol->activo) 
+          @if($compresioncontrol->activo) 
         <form action="{{ route('scompresions.destroy',$compresion->id) }}" method="POST">
           <a href="/scompresions/{{$compresion->id}}/edit" class="btn btn-info">Editar</a>         
               @csrf
               @method('DELETE')
-          <button type="submit" class="btn btn-danger">Delete</button>
-         </form>  
+              @if(Auth::user()->role->nombre_rol=="superadmin")
+              <button type="submit" class="btn btn-danger">Delete</button>
+         @endif
+            </form>  
           
          @endif
                    
@@ -113,7 +117,7 @@
 
 @if(isset($vehiculo))
         <p>
-         <a href="{{ URL::to('/') }}/scompresions/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR RESULTADOS DE COMPRESION Y FUGAS DE MOTOR Y SER RESPONSABLE DEL PERITAJE </a>
+         <a href="{{ URL::to('/') }}/scompresions/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR RESULTADOS DE COMPRESION Y FUGAS DE MOTOR</a>
        
      @endif
 

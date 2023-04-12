@@ -44,6 +44,7 @@ class EstructuraController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $estructura = new Estructura();
        if(isset($peritaje->estructuracontrol)){
@@ -53,10 +54,11 @@ class EstructuraController extends Controller
         $estructura->vista = $request->get('vista');
         $estructura->estructuracontrol_id =  $peritaje->estructuracontrol->id;
         $estructura->observaciones = $request->get('observaciones');
+        $estructura->perito =  $user->name;
         $estructura->save(); 
 
        }else{
-        $user=Auth::user();
+        
         $estructuracontrol = new Estructuracontrol();
         $estructuracontrol->peritaje_id=$request->get('peritaje_id');
         $estructuracontrol->user_id=$user->id;
@@ -68,6 +70,7 @@ class EstructuraController extends Controller
         $estructura->vista = $request->get('vista');
         $estructura->estructuracontrol_id =  $estructuracontrol->id;
         $estructura->observaciones = $request->get('observaciones');
+        $estructura->perito =  $user->name;
         $estructura->save(); 
        }
         
@@ -116,10 +119,12 @@ class EstructuraController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $user=Auth::user();
         $estructuras =  Estructura::find($id);
         $estructuras->estado = $request->get('estado');
         $estructuras->observaciones = $request->get('observaciones');
         $estructuras->vista = $request->get('vista');
+        $estructuras->perito =  $user->name;
         $estructuras->save();    
         $idperitaje=$estructuras->estructuracontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

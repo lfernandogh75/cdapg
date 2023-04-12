@@ -44,6 +44,7 @@ class FrenoController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $freno = new Freno();
        if(isset($peritaje->frenocontrol)){
@@ -55,11 +56,11 @@ class FrenoController extends Controller
         $freno->peso = $request->get('peso');
         $freno->unidad = $request->get('unidad');
         $freno->frenocontrol_id =  $peritaje->frenocontrol->id;
-     
+        $freno->perito =  $user->name;
         $freno->save(); 
 
        }else{
-        $user=Auth::user();
+        
         $frenocontrol = new Frenocontrol();
         $frenocontrol->peritaje_id=$request->get('peritaje_id');
         $frenocontrol->user_id=$user->id;
@@ -73,7 +74,7 @@ class FrenoController extends Controller
         $freno->peso = $request->get('peso');
         $freno->unidad = $request->get('unidad');
         $freno->frenocontrol_id =  $frenocontrol->id;
-       
+        $freno->perito =  $user->name;
         $freno->save(); 
        }
         
@@ -122,12 +123,14 @@ class FrenoController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $user=Auth::user();
         $frenos =  Freno::find($id);
         $frenos->eficiencia = $request->get('eficiencia');
         $frenos->minimo = $request->get('minimo');
         $frenos->fuerza = $request->get('fuerza');
         $frenos->peso = $request->get('peso');
         $frenos->unidad = $request->get('unidad');
+        $frenos->perito =  $user->name;
         $frenos->save();    
         $idperitaje=$frenos->frenocontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

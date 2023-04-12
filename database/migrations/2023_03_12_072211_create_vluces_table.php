@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('vluces', function (Blueprint $table) {
             $table->id();
+            $table->string('perito');
             $table->enum("estado", ["N/A","BUENA","MALA","ORIGINAL","CAMBIADO"]);
             $table->text('observaciones');
             $table->unsignedBigInteger('vlucescontrol_id')

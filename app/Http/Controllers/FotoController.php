@@ -44,6 +44,7 @@ class FotoController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $request->validate([
             'imagen'=>'required|image|mimes:jpg|max:3000'
         ]);
@@ -61,13 +62,14 @@ class FotoController extends Controller
         }
        // $foto->imagen = $request->get('imagen');
         $foto->observacion = $request->get('observacion');
-        
+        $foto->categoria = $request->get('categoria');
+        $foto->perito =  $user->name;
         $foto->fotocontrol_id =  $peritaje->fotocontrol->id;
      
         $foto->save(); 
 
        }else{
-        $user=Auth::user();
+       
         $fotocontrol = new Fotocontrol();
         $fotocontrol->peritaje_id=$request->get('peritaje_id');
         $fotocontrol->user_id=$user->id;
@@ -83,6 +85,8 @@ class FotoController extends Controller
         }
        // $foto->imagen = $request->get('imagen');
         $foto->observacion = $request->get('observacion');
+        $foto->categoria = $request->get('categoria');
+        $foto->perito =  $user->name;
         $foto->fotocontrol_id =  $fotocontrol->id;
        
         $foto->save(); 
@@ -133,7 +137,7 @@ class FotoController extends Controller
      */
     public function update(Request $request,$id)
     {
-        
+        $user=Auth::user();
         
         $fotos =  Foto::find($id);
         if($imagen=$request->file('imagen')){
@@ -156,6 +160,8 @@ class FotoController extends Controller
         }
       //  $fotos->imagen = $request->get('imagen');
        $fotos->observacion = $request->get('observacion');
+       $fotos->categoria = $request->get('categoria');
+       $fotos->perito =  $user->name;
         $fotos->save();    
         $idperitaje=$fotos->fotocontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

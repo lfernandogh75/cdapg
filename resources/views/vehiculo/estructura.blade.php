@@ -10,11 +10,11 @@
  ESTRUCTURA DEL VEHICULO : {{$vehiculo->placa}} <br/>
   @endif
   @if(isset($responsable))  
-  PERITO DE LA ESTRUCTURA : {{$responsable->name}} <br/>
+   
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-@if(isset($vehiculo) && Auth::user()->id==$responsable->id && $estructuracontrol->activo)
+@if(isset($vehiculo) && $estructuracontrol->activo)
   
          <a href="{{ URL::to('/') }}/sestructuras/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
        
@@ -62,6 +62,7 @@
       <th scope="col">VISTA</th>
       <th scope="col">ESTADO</th>
       <th scope="col">OBSERVACIONES</th>
+      <th scope="col">PERITO</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -74,14 +75,17 @@
         <td>{{$estructura->vista}}</td>
         <td>{{$estructura->estado}}</td>
         <td>{{$estructura->observaciones}}</td>
+        <td>{{$estructura->perito}}</td>
         <td>
-          @if(Auth::user()->id==$responsable->id && $estructuracontrol->activo) 
+          @if($estructuracontrol->activo) 
         <form action="{{ route('sestructuras.destroy',$estructura->id) }}" method="POST">
           <a href="/sestructuras/{{$estructura->id}}/edit" class="btn btn-info">Editar</a>         
               @csrf
               @method('DELETE')
-          <button type="submit" class="btn btn-danger">Delete</button>
-         </form>  
+              @if(Auth::user()->role->nombre_rol=="superadmin")
+              <button type="submit" class="btn btn-danger">Delete</button>
+        @endif
+            </form>  
           
          @endif
                    
@@ -93,7 +97,7 @@
 
 @if(isset($vehiculo))
         <p>
-         <a href="{{ URL::to('/') }}/sestructuras/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA Y SER RESPONSABLE DEL PERITAJE DE LA ESTRUCTURA </a>
+         <a href="{{ URL::to('/') }}/sestructuras/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA </a>
        
      @endif
 

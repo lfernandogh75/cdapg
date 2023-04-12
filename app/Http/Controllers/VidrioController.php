@@ -44,6 +44,7 @@ class VidrioController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $vidrio = new Vidrio();
        if(isset($peritaje->vidriocontrol)){
@@ -52,10 +53,11 @@ class VidrioController extends Controller
         $vidrio->estado = $request->get('estado');
         $vidrio->vidriocontrol_id =  $peritaje->vidriocontrol->id;
         $vidrio->observaciones = $request->get('observaciones');
+        $vidrio->perito =  $user->name;
         $vidrio->save(); 
 
        }else{
-        $user=Auth::user();
+       
         $vidriocontrol = new Vidriocontrol();
         $vidriocontrol->peritaje_id=$request->get('peritaje_id');
         $vidriocontrol->user_id=$user->id;
@@ -66,6 +68,7 @@ class VidrioController extends Controller
         $vidrio->estado = $request->get('estado');
         $vidrio->vidriocontrol_id =  $vidriocontrol->id;
         $vidrio->observaciones = $request->get('observaciones');
+        $vidrio->perito =  $user->name;
         $vidrio->save(); 
        }
         
@@ -114,9 +117,11 @@ class VidrioController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $user=Auth::user();
         $vidrios =  Vidrio::find($id);
         $vidrios->estado = $request->get('estado');
         $vidrios->observaciones = $request->get('observaciones');
+        $vidrios->perito =  $user->name;
         $vidrios->save();    
         $idperitaje=$vidrios->vidriocontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

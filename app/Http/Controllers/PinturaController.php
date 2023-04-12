@@ -44,6 +44,7 @@ class PinturaController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $pintura = new pintura();
        if(isset($peritaje->pinturacontrol)){
@@ -53,10 +54,11 @@ class PinturaController extends Controller
         $pintura->vista = $request->get('vista');
         $pintura->pinturacontrol_id =  $peritaje->pinturacontrol->id;
         $pintura->observaciones = $request->get('observaciones');
+        $pintura->perito =  $user->name;
         $pintura->save(); 
 
        }else{
-        $user=Auth::user();
+        
         $pinturacontrol = new pinturacontrol();
         $pinturacontrol->peritaje_id=$request->get('peritaje_id');
         $pinturacontrol->user_id=$user->id;
@@ -68,6 +70,7 @@ class PinturaController extends Controller
         $pintura->vista = $request->get('vista');
         $pintura->pinturacontrol_id =  $pinturacontrol->id;
         $pintura->observaciones = $request->get('observaciones');
+        $pintura->perito =  $user->name;
         $pintura->save(); 
        }
         
@@ -116,10 +119,12 @@ class PinturaController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $user=Auth::user();
         $pinturas =  pintura::find($id);
         $pinturas->estado = $request->get('estado');
         $pinturas->observaciones = $request->get('observaciones');
         $pinturas->vista = $request->get('vista');
+        $pinturas->perito =  $user->name;
         $pinturas->save();    
         $idperitaje=$pinturas->pinturacontrol->peritaje->id;
         $peritaje=Peritaje::find($idperitaje);

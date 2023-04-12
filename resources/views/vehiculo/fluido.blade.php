@@ -27,12 +27,12 @@
 FUGAS DE  FLUIDOS VEHICULO : {{$vehiculo->placa}} <br/>
   @endif
   @if(isset($responsable))  
-  PERITO FUGAS DE  FLUIDOS : {{$responsable->name}} <br/>
+  
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-@if(isset($vehiculo) && Auth::user()->id==$responsable->id && $fluidocontrol->activo)
+@if(isset($vehiculo) && $fluidocontrol->activo)
   
 <a href="{{ URL::to('/') }}/sfluidos/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
 
@@ -74,6 +74,7 @@ FUGAS DE  FLUIDOS VEHICULO : {{$vehiculo->placa}} <br/>
       <th scope="col">PIEZA</th>
       <th scope="col">ESTADO</th>
       <th scope="col">OBSERVACIONES</th>
+      <th scope="col">PERITO</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -85,14 +86,17 @@ FUGAS DE  FLUIDOS VEHICULO : {{$vehiculo->placa}} <br/>
         <td>{{$fluido->fluidopart->name}}</td>
         <td>{{$fluido->estado}}</td>
         <td>{{$fluido->observaciones}}</td>
+        <td>{{$fluido->perito}}</td>
         <td>
-          @if(Auth::user()->id==$responsable->id && $fluidocontrol->activo) 
+          @if($fluidocontrol->activo) 
         <form action="{{ route('sfluidos.destroy',$fluido->id) }}" method="POST">
           <a href="/sfluidos/{{$fluido->id}}/edit" class="btn btn-info">Editar</a>         
               @csrf
               @method('DELETE')
-          <button type="submit" class="btn btn-danger">Delete</button>
-         </form>  
+              @if(Auth::user()->role->nombre_rol=="superadmin")
+              <button type="submit" class="btn btn-danger">Delete</button>
+        @endif
+            </form>  
           
          @endif
                    
@@ -104,7 +108,7 @@ FUGAS DE  FLUIDOS VEHICULO : {{$vehiculo->placa}} <br/>
 
 @if(isset($vehiculo))
         <p>
-         <a href="{{ URL::to('/') }}/sfluidos/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA Y SER RESPONSABLE DE PERITAJE EXTERIOR </a>
+         <a href="{{ URL::to('/') }}/sfluidos/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA </a>
        
      @endif
 

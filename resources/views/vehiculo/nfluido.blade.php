@@ -10,11 +10,11 @@
  NIVEL DE FLUIDOS DEL VEHICULO : {{$vehiculo->placa}} <br/>
   @endif
   @if(isset($responsable))  
-  PERITO DE NIVEL DE FLUIDOS : {{$responsable->name}} <br/>
+  
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-@if(isset($vehiculo) && Auth::user()->id==$responsable->id && $nfluidocontrol->activo)
+@if(isset($vehiculo) && $nfluidocontrol->activo)
   
          <a href="{{ URL::to('/') }}/snfluidos/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
        
@@ -60,6 +60,7 @@
       <th scope="col">PIEZA</th>
       <th scope="col">ESTADO</th>
       <th scope="col">OBSERVACIONES</th>
+      <th scope="col">PERITO</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -71,14 +72,17 @@
         <td>{{$nfluido->fluidopart->name}}</td>
         <td>{{$nfluido->estado}}</td>
         <td>{{$nfluido->observaciones}}</td>
+        <td>{{$nfluido->perito}}</td>
         <td>
-          @if(Auth::user()->id==$responsable->id && $nfluidocontrol->activo) 
+          @if($nfluidocontrol->activo) 
         <form action="{{ route('snfluidos.destroy',$nfluido->id) }}" method="POST">
           <a href="/snfluidos/{{$nfluido->id}}/edit" class="btn btn-info">Editar</a>         
               @csrf
               @method('DELETE')
-          <button type="submit" class="btn btn-danger">Delete</button>
-         </form>  
+              @if(Auth::user()->role->nombre_rol=="superadmin")
+              <button type="submit" class="btn btn-danger">Delete</button>
+        @endif
+            </form>  
           
          @endif
                    
@@ -90,7 +94,7 @@
 
 @if(isset($vehiculo))
         <p>
-         <a href="{{ URL::to('/') }}/snfluidos/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA Y SER RESPONSABLE DEL PERITAJE DE NIVELES DE FLUIDOS </a>
+         <a href="{{ URL::to('/') }}/snfluidos/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
        
      @endif
 

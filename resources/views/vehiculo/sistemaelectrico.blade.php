@@ -29,10 +29,10 @@
   @endif
   <br>
  @if(isset($responsable))  
-  PERITO REVISION EQUIPO ELECTRICO : {{$responsable->name}} <br/>
+  
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-@if(isset($vehiculo) && Auth::user()->id==$responsable->id && $electricocontrol->activo)
+@if(isset($vehiculo) && $electricocontrol->activo)
   
 <a href="{{ URL::to('/') }}/selectricos/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
 
@@ -75,6 +75,7 @@
       <th scope="col">ESTADO</th>
       <th scope="col">TIPO</th>
       <th scope="col">OBSERVACIONES</th>
+      <th scope="col">PERITAJE</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -87,15 +88,18 @@
         <td>{{$electrico->estado}}</td>
         <td>{{$electrico->tipo}}</td>
         <td>{{$electrico->observaciones}}</td>
+        <td>{{$electrico->peritaje}}</td>
         <td>
           
-          @if(Auth::user()->id==$responsable->id  && $electricocontrol->activo) 
+          @if($electricocontrol->activo) 
         <form action="{{ route('selectricos.destroy',$electrico->id) }}" method="POST">
           <a href="/selectricos/{{$electrico->id}}/edit" class="btn btn-info">Editar</a>         
               @csrf
               @method('DELETE')
-          <button type="submit" class="btn btn-danger">Delete</button>
-         </form>  
+              @if(Auth::user()->role->nombre_rol=="superadmin")
+              <button type="submit" class="btn btn-danger">Delete</button>
+        @endif
+            </form>  
 
          @endif      
         </td>        
@@ -107,7 +111,7 @@
 
     @if(isset($vehiculo))
             <p>
-             <a href="{{ URL::to('/') }}/selectricos/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA Y SER RESPONSABLE DE PERITAJE DEL SISTEMA ELECTRICO </a>
+             <a href="{{ URL::to('/') }}/selectricos/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
            
          @endif
     
