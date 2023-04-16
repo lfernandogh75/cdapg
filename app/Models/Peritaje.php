@@ -71,6 +71,10 @@ class Peritaje extends Model
         return $this->hasOne('App\Models\Fotocontrol');
         
     }
+    public function archivocontrol(){
+        return $this->hasOne('App\Models\Archivocontrol');
+        
+    }
     public function chasiscontrol(){
         return $this->hasOne('App\Models\Chasiscontrol');
         

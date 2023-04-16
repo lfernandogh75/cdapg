@@ -48,6 +48,17 @@ Route::get('/', function () {
     
     return view('welcome');
 });
+
+route::get('descarga/{id?}', 'App\Http\Controllers\ArchivoController@descarga');
+
+
+
+
+
+
+
+
+
 Route::get('ejemploFecha', function () {
     return view('pruebas.fecha');
 });
@@ -62,7 +73,7 @@ Route::get('firma', function () {
     return view('vehiculo.firma.documento');
 });*/
 Route::get('documento.html/{id?}','App\Http\Controllers\FirmaController@index');
-
+Route::get('inspeccion/{id?}','App\Http\Controllers\Inspeccion@index');
  
 
 Route::middleware([
@@ -104,6 +115,7 @@ Route::resource('scompresions','App\Http\Controllers\CompresionController');
 Route::resource('sluzs','App\Http\Controllers\LuzController');
 Route::resource('sfrenos','App\Http\Controllers\FrenoController');
 Route::resource('sfotos','App\Http\Controllers\FotoController');
+Route::resource('sarchivos','App\Http\Controllers\ArchivoController');
 Route::resource('schasiss','App\Http\Controllers\ChasisController');
 Route::resource('sestructuras','App\Http\Controllers\EstructuraController');
 Route::resource('sinteriors','App\Http\Controllers\InteriorController');
@@ -151,6 +163,7 @@ Route::resource('cierres','App\Http\Controllers\CierreController');
 Route::resource('emisiongass','App\Http\Controllers\EmisiongasController');
 Route::resource('simetrias','App\Http\Controllers\SimetriaController');
 Route::resource('fotocontrol','App\Http\Controllers\FotocontrolController');
+Route::resource('archivocontrol','App\Http\Controllers\ArchivocontrolController');
 Route::resource('exteriorcontrol','App\Http\Controllers\ExteriorcontrolController');
 Route::resource('motorcontrol','App\Http\Controllers\MotorcontrolController');
 Route::resource('fluidocontrol','App\Http\Controllers\FluidocontrolController');
@@ -264,4 +277,6 @@ Route::group(['middleware' => ['superadmin']], function () {
     route::get('vehiculoinactiva/{id?}', 'App\Http\Controllers\VehiculoController@inactiva');
     route::get('cierreactivar/{id?}', 'App\Http\Controllers\CierreController@activar');
     route::get('cierreinactiva/{id?}', 'App\Http\Controllers\CierreController@inactiva');
+    route::get('archivoactivar/{id?}', 'App\Http\Controllers\ArchivocontrolController@activar');
+    route::get('archivoinactiva/{id?}', 'App\Http\Controllers\ArchivocontrolController@inactiva');
 });

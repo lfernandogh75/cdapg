@@ -28,6 +28,7 @@
  <select id ="tipo_peritaje" name="tipo_peritaje"  class="form-select">
     <option value="BÁSICO">BÁSICO</option>
     <option value="COMPLETO">COMPLETO</option>
+    <option value="OTROS">OTROS</option>
   </select>
     </div>
   </div>

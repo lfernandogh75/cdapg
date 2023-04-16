@@ -19,7 +19,7 @@
     <select class="form-select" name="estado"  id="estado" aria-label="Default select example"  >  
      
       <option value="1">N/A</option>
-      <option value="2">NORMAL</option>
+      <option value="2">OPTIMO</option>
       <option value="3">BAJO</option>
       <option value="4">ALTO</option>
      

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('latonerias', function (Blueprint $table) {
             $table->id();
             $table->string('perito');
-            $table->enum("estado", ["N/A","BUEN ESTADO","ORIGINAL","CAMBIADO","BUENA REPARACION","MAL REPARADO","SUMIDO","BUENA SUSTITUCION","REPARACION REGULAR"]);
+            $table->enum("estado", ["N/A","BUENA","MALA","REGULAR","BUEN ESTADO","ORIGINAL","CAMBIADO","BUENA REPARACION","MAL REPARADO","SUMIDO","BUENA SUSTITUCION","REPARACION REGULAR"]);
             $table->enum("vista", ["IZQUIERDA","DERECHA","POSTERIOR","FRONTAL","BAJA"]);
             $table->text('observaciones');
             $table->unsignedBigInteger('latoneriacontrol_id')

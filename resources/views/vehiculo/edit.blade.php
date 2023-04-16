@@ -40,6 +40,7 @@
   <option value="{{$vehiculo->peritaje->tipo}}">{{$vehiculo->peritaje->tipo}}</option>
     <option value="BÁSICO">BÁSICO</option>
     <option value="COMPLETO">COMPLETO</option>
+    <option value="OTROS">OTROS</option>
   </select>
     </div>
   </div>

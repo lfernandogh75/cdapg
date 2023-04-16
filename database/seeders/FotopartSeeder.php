@@ -22,7 +22,9 @@ class FotopartSeeder extends Seeder
             ['name' => 'TRASERA'],
             ['name' => 'LATERAL DERECHA'],
             ['name' => 'LATERAL IZQUIERDA'],
-            ['name' => 'SUPERIOR']
+            ['name' => 'SUPERIOR'],
+            ['name' => 'NOVEDAD']
+           
             
     ];
 

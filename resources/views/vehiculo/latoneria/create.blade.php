@@ -19,14 +19,17 @@
     <select class="form-select" name="estado"  id="estado" aria-label="Default select example"  >  
      
       <option value="1">N/A</option>
-      <option value="2">BUEN ESTADO</option>
-      <option value="3">ORIGINAL</option>
-      <option value="4">CAMBIADO</option>
-      <option value="5">BUENA REPARACION</option>
-      <option value="6">MAL REPARADO</option>
-      <option value="7">SUMIDO</option>
-      <option value="8">BUENA SUSTITUCION</option>
-      <option value="9">REPARACION REGULAR</option>
+      <option value="2">BUENA</option>
+      <option value="3">MALA</option>
+      <option value="4">REGULAR</option>
+      <option value="5">BUEN ESTADO</option>
+      <option value="6">ORIGINAL</option>
+      <option value="7">CAMBIADO</option>
+      <option value="8">BUENA REPARACION</option>
+      <option value="9">MAL REPARADO</option>
+      <option value="10">SUMIDO</option>
+      <option value="11">BUENA SUSTITUCION</option>
+      <option value="12">REPARACION REGULAR</option>
       
     </select>
   </div>

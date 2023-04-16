@@ -322,6 +322,15 @@
 @endif
   
 @endif
+
+@if(isset($vehiculo->peritaje->archivocontrol))
+@if(Auth::user()->role->nombre_rol=="superadmin" && $vehiculo->peritaje->archivocontrol->activo)
+<p> <a style="color:hsl(20, 80%, 50%);"  href="/archivoinactiva/{{$vehiculo->peritaje->id}}"  tabindex="4">ARCHIVOS</a>
+@else
+<p> <a style="color:rgb(49, 230, 25);"  href="/archivoactivar/{{$vehiculo->peritaje->id}}"  tabindex="4">ARCHIVOS</a>
+@endif
+  
+@endif
       </div>
     </div>
   

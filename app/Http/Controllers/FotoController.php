@@ -46,7 +46,7 @@ class FotoController extends Controller
     {
         $user=Auth::user();
         $request->validate([
-            'imagen'=>'required|image|mimes:jpg|max:3000'
+            'imagen'=>'required|image|mimes:jpg|max:10000'
         ]);
         $peritaje=Peritaje::find($request->get('peritaje_id'));
       $foto = new Foto();
@@ -142,7 +142,7 @@ class FotoController extends Controller
         $fotos =  Foto::find($id);
         if($imagen=$request->file('imagen')){
             $request->validate([
-                'imagen'=>'required|image|mimes:jpg|max:2048'
+                'imagen'=>'required|image|mimes:jpg|max:10000'
             ]);
           
             if(isset($imagen)){

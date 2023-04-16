@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('chases', function (Blueprint $table) {
             $table->id();
             $table->string('perito');
-            $table->enum("estado", ["N/A","ORIGINAL","CAMBIADO","BUENA REPARACION","MAL REPARADO","SUMIDO","BUENA SUSTITUCION","REPARACION REGULAR"]);
+            $table->enum("estado", ["N/A","BUENA","MALO","REGULAR","ORIGINAL","CAMBIADO","BUENA REPARACION","MAL REPARADO","SUMIDO","BUENA SUSTITUCION","REPARACION REGULAR"]);
             $table->text('observaciones');
             $table->unsignedBigInteger('chasiscontrol_id')
             ->nullable()

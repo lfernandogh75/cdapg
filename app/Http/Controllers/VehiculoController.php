@@ -330,6 +330,22 @@ if (isset($vehiculo) && $vehiculoindex=="sw" ) {
 }
 }
 
+
+if (isset($vehiculo) && $vehiculoindex=="archivo" ) {
+    $peritaje=Peritaje::find($vehiculo->peritaje_id);
+    if (isset($peritaje->archivocontrol)){
+    $archivos=$peritaje->archivocontrol->archivoparts;
+    
+    $responsable=$peritaje->archivocontrol->user;
+    $archivocontrol=$peritaje->archivocontrol;
+   // return view('vehiculo.sistemaelectrico')->with('vehiculo', $vehiculo);
+    return view('vehiculo.archivo')->with(compact('vehiculo','responsable','archivocontrol','archivos'));
+    }else{
+        return view('vehiculo.archivo')->with(compact('vehiculo'));
+}
+}
+
+
 if (isset($vehiculo) && $vehiculoindex=="latoneria" ) {
     $peritaje=Peritaje::find($vehiculo->peritaje_id);
     if (isset($peritaje->latoneriacontrol)){
@@ -409,11 +425,7 @@ if (isset($vehiculo) && $vehiculoindex=="vidrio" ) {
 
 if (isset($vehiculo) && $vehiculoindex=="12" ) {
     $peritaje=Peritaje::find($vehiculo->peritaje_id);
-  //  if (isset($peritaje->fotocontrol)){
-    
-   // $fotos=$peritaje->fotocontrol->fotoparts;
-   // $responsable=$peritaje->fotocontrol->user;
-   // return view('vehiculo.sistemaelectrico')->with('vehiculo', $vehiculo);
+   
    $data = [
     'title' => 'PERITAJE',
     'date' => date('m/d/Y'),
@@ -421,6 +433,26 @@ if (isset($vehiculo) && $vehiculoindex=="12" ) {
 ]; 
     $fecha=date('m/d/Y');
    $nombre=$vehiculo->placa.".pdf";
+
+   if($vehiculo->clase_vehiculo=="Motocicleta"){
+    if($peritaje->tipo=="BÁSICO"){
+        
+       // return view('vehiculo.firma.documento')->with('vehiculo',$vehiculo);
+       return view('vehiculo.firma.informemotobasico')->with(compact('vehiculo','peritaje'));
+        
+    }
+  }
+  if($vehiculo->clase_vehiculo=="Automóvil"){
+    if($peritaje->tipo=="BÁSICO"){
+        
+       // return view('vehiculo.firma.documento')->with('vehiculo',$vehiculo);
+       return view('vehiculo.firma.informeautomovilbasico')->with(compact('vehiculo','peritaje'));
+        
+    }
+  }
+
+
+
 //$pdf = PDF::loadView('vehiculo.myPDFDOS', $data);
  /*   if($vehiculo->clase_vehiculo=="Motocicleta"){
         if($peritaje->tipo=="BÁSICO"){
@@ -449,9 +481,7 @@ return $pdf->stream($nombre);
   //      return view('vehiculo.foto')->with(compact('vehiculo'));
   //}
 }
-      // else{
-      //  return view('vehiculo.sistemaelectrico');
-     //  }
+       
 
      if (isset($vehiculo) && $vehiculoindex=="firma" ) {
          

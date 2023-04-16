@@ -75,7 +75,7 @@
       <th scope="col">ESTADO</th>
       <th scope="col">TIPO</th>
       <th scope="col">OBSERVACIONES</th>
-      <th scope="col">PERITAJE</th>
+      <th scope="col">PERITO</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -88,7 +88,7 @@
         <td>{{$electrico->estado}}</td>
         <td>{{$electrico->tipo}}</td>
         <td>{{$electrico->observaciones}}</td>
-        <td>{{$electrico->peritaje}}</td>
+        <td>{{$electrico->perito}}</td>
         <td>
           
           @if($electricocontrol->activo) 
