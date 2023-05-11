@@ -80,7 +80,7 @@ class ArchivoController extends Controller
             $documentoProducto=date('YmdHis').".".$documento->getClientOriginalExtension();
             $documento->move($rutaGuardarDcm,$documentoProducto);
            // $producto['documento']="$documentoProducto";
-           $archivo->documento ="$documentoProducto";
+           $archivo->ruta ="$documentoProducto";
         }
        // $archivo->documento = $request->get('documento');
         $archivo->observacion = $request->get('observacion');

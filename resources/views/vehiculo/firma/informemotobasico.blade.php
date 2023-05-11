@@ -23,6 +23,31 @@
         .text-justify {
   text-align: justify;
 }
+ 
+#t1{
+  width: 120px;
+    text-align: right;
+    background-image: no-repeat;
+background-image: fixed;
+    background-image:url({{url('/iconos/peritaje.jpg')}});
+    height: 110px;
+    border-radius: 10px;
+    margin: 10px 10px 10px 700px;
+    font-family: fantasy;}
+    #titulo {
+       
+font: bold 10px auto, verdana, sans-serif;
+ text-shadow: rgba(0,0,0,0.5) 4px 4px 6px;
+color: rgba(239, 107, 19, 0.951);
+margin: 10px 30px 0px 20px;
+}
+body{
+    background-image: no-repeat;
+background-image: fixed;
+background-image: center;
+    background-image:url({{url('/iconos/fondo.jpg')}});
+   
+}
     </style>
      <title>INSPECCIÓN Nº  {{ $vehiculo->peritaje_id }} PLACA {{ $vehiculo->placa }}
       
@@ -33,6 +58,11 @@
 </head>
  
 <body>
+    
+    <div id="t1">
+        <h1 id="titulo">CARBALUE</h1>
+    </div>
+    
     @if($peritaje->cierre!=null && $peritaje->tarjeta!=null)
     <div class="col-11"   style=" width: 100%; border: 1px solid;">
   <table width="100%">
@@ -110,7 +140,7 @@
     </td>
   </table>
   <p style="font-size: small;">NOVEDADES EN LA INSPECCION</p>
-  <textarea style="font-size: small;  width: 500px;"   readonly>{{$peritaje->cierre->observacion}}</textarea>
+  <P class="text-justify" style="font-size: xx-small;  width: 550px;">{{$peritaje->cierre->observacion}}</p>
     </div>
       <br>
    
@@ -401,6 +431,8 @@ text-align:center;
 
 <th>PIEZA</th>
 <th>ESTADO</th>
+<th>OBSERVACION</th>
+
 
 
 </tr>
@@ -409,6 +441,7 @@ text-align:center;
 <tr>
 <td  align="left">{{ $latoneria->latoneriapart->name }}</td>
 <td  align="left">{{ $latoneria->estado }}</td>
+<td  align="left">{{ $latoneria->observaciones }}</td>
 
 
 </tr>
@@ -439,6 +472,7 @@ text-align:center;
 
 <th>PIEZA</th>
 <th>ESTADO</th>
+<th>OBSERVACION</th>
 
 
 </tr>
@@ -447,6 +481,7 @@ text-align:center;
 <tr>
 <td align="left">{{ $latoneria->latoneriapart->name }}</td>
 <td align="left">{{ $latoneria->estado }}</td>
+<td align="left">{{ $latoneria->observaciones }}</td>
 
 
 </tr>
@@ -484,6 +519,7 @@ text-align:center;
   
    <th>PIEZA</th>
    <th>ESTADO</th>
+   <th>OBSERVACION</th>
     
 
 </tr>
@@ -492,6 +528,7 @@ text-align:center;
 <tr>
    <td align="left">{{ $latoneria->latoneriapart->name }}</td>
    <td align="left">{{ $latoneria->estado }}</td>
+   <td align="left">{{ $latoneria->observaciones }}</td>
    
     
 </tr>
@@ -522,6 +559,7 @@ text-align:center;
 
  <th>PIEZA</th>
  <th>ESTADO</th>
+ <th>OBSERVACION</th>
   
 
 </tr>
@@ -530,6 +568,7 @@ text-align:center;
 <tr>
  <td align="left">{{ $latoneria->latoneriapart->name }}</td>
  <td align="left">{{ $latoneria->estado }}</td>
+ <td align="left">{{ $latoneria->observasiones }}</td>
  
   
 </tr>
@@ -555,7 +594,7 @@ text-align:center;
 
   
 
-<textarea style="font-size: xx-small;  width: 550px;margin: 20px;"   readonly>{{$peritaje->latoneriacontrol->observacion}}</textarea>
+<P class="text-justify" style="font-size: xx-small;  width: 550px;">{{$peritaje->latoneriacontrol->observacion}}</p>
    
       {{--registro fotografico--}}
    
@@ -854,7 +893,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
 @endforeach
 
 </table>
-<textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->nfluidocontrol->observacion}}</textarea>
+<P class="text-justify" style="font-size: xx-small;  width: 250px;">{{$peritaje->nfluidocontrol->observacion}}</p>
 
 
            </div> 
@@ -997,7 +1036,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
 
   
     
-    <textarea style="font-size: x-small;  width: 250px;"   readonly>{{$peritaje->exteriorcontrol->observacion}}</textarea>
+ <P class="text-justify" style="font-size: xx-small;  width: 250px;">{{$peritaje->exteriorcontrol->observacion}}</p>
    
  
 
@@ -1045,7 +1084,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
 
       
  </table>
- <textarea style="font-size: x-small;  width: 250px;"   readonly>{{$peritaje->interiorcontrol->observacion}}</textarea>
+ <P class="text-justify" style="font-size: xx-small;  width: 250px;">{{$peritaje->interiorcontrol->observacion}}</p>
  
 
                 </div> 
@@ -1183,7 +1222,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
 
   
     
-    <textarea style="font-size: x-small;  width: 250px;"   readonly>{{$peritaje->vlucescontrol->observacion}}</textarea>
+ <P class="text-justify" style="font-size: xx-small;  width: 250px;">{{$peritaje->vlucescontrol->observacion}}</p>
    
  
 
@@ -1231,7 +1270,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
 
       
  </table>
- <textarea style="font-size: x-small;  width: 250px;"   readonly>{{$peritaje->electricocontrol->observacion}}</textarea>
+ <P class="text-justify" style="font-size: xx-small;  width: 250px;">{{$peritaje->electricocontrol->observacion}}</p>
  
 
                 </div> 
@@ -1363,7 +1402,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
 @endforeach
 </table>
 
-<textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->frenocontrol->observacion}}</textarea>
+<P class="text-justify" style="font-size: xx-small;  width: 250px;">{{$peritaje->frenocontrol->observacion}}</p>
 
 
 
@@ -1410,7 +1449,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
  @endforeach
  
  </table>
- <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->llantacontrol->observacion}}</textarea>
+ <P class="text-justify" style="font-size: xx-small;  width: 250px;">{{$peritaje->llantacontrol->observacion}}</p>
  
  
             </div> 
@@ -1563,7 +1602,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
 
    {{--<img  src="" alt="Firma del usuario" id="firma">--}}
 
-    <br>
+    <br><br><br>
     {{--<input style=" border: 0;" id="nombre" value="{{$nombre}}">--}}
   <label for="">Nombre:{{$vehiculo->solicitante}}</label><br>
   <label for="">{{$vehiculo->tipoidentificacion}}:{{$vehiculo->numeroidentificacion}}</label>

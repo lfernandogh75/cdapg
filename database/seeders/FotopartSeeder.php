@@ -23,6 +23,12 @@ class FotopartSeeder extends Seeder
             ['name' => 'LATERAL DERECHA'],
             ['name' => 'LATERAL IZQUIERDA'],
             ['name' => 'SUPERIOR'],
+            ['name' => 'MILLARE'],
+            ['name' => 'ASIENTOS DELANTEROS'],
+            ['name' => 'ASIENTOS TRASEROS'],
+            ['name' => 'MOTOR'],
+            ['name' => 'BAUL'],
+            ['name' => 'TABLERO'],
             ['name' => 'NOVEDAD']
            
             

@@ -68,9 +68,9 @@ Route::get('fpdf', [FpdfController::class, 'index']);
 Route::get('firma', function () {
     return view('vehiculo.firma.index');
 });
-/*Route::get('documento.html/{id?}', function () {
+/*Route::get('firmardocumento/{id?}', function () {
     
-    return view('vehiculo.firma.documento');
+    return view('vehiculo.firma.guardarfirma');
 });*/
 Route::get('documento.html/{id?}','App\Http\Controllers\FirmaController@index');
 Route::get('inspeccion/{id?}','App\Http\Controllers\Inspeccion@index');

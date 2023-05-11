@@ -20,7 +20,7 @@ class FirmaController extends Controller
         $vehiculo=Vehiculo::find($id);
         $peritaje=Peritaje::find( $vehiculo->peritaje_id);
        // return view('vehiculo.firma.documento')->with('vehiculo',$vehiculo);
-       return view('vehiculo.firma.documento1')->with(compact('vehiculo','peritaje'));
+       return view('vehiculo.firma.documento')->with(compact('vehiculo','peritaje'));
     }
 
     /**

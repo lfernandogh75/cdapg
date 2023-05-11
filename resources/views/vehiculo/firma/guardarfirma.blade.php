@@ -111,6 +111,7 @@
    
  <body onload="startup()">
   
+  <form action="">
   <div class="col-10"   style=" 
  width: 540px;
 border-top-width: 20px; 
@@ -123,7 +124,7 @@ border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(
    font-size:10px;
     margin-top:-19px;
      margin-left:20px;">POLITICAS DE TRATAMIENTO</p>
-<canvas id="canvas"  width="500" height="200"></canvas>
+<canvas id="canvas" name="canvas"  width="500" height="200"></canvas>
 </div>
  </body>
 <br>
@@ -136,15 +137,12 @@ border-left-width: thin;  border-radius: 30px 30px 1px 1px;  border-color: rgba(
   <input type="hidden"   class="form-control" id="vehiculoid" name="vehiculoid"  value="{{$vehiculo->id}}">
 </div>
 <button  class="btn btn-info" id="btnLimpiar">Limpiar</button>
-<button  class="btn btn-info" id="btnDescargar">Descargar</button>
-<button  class="btn btn-info" id="btnGenerarDocumento">Pasar a documento</button>
-<a   class="btn btn-info"    href="/vehiculos?placa={{$vehiculo->placa}}&vehiculoindex=archivo"  tabindex="4">Subir archivo</a>
-<a  href="/vehiculos?placa={{$vehiculo->placa}}&vehiculoindex=1" type="button" class="btn btn-primary" tabindex="4">REGRESAR </a>
+ <button type="submit" class="btn btn-primary">firmar</button>
 <br>
 
  
    
-
+</form>
  
  
  

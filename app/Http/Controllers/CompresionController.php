@@ -61,7 +61,15 @@ class CompresionController extends Controller
         $compresioncontrol = new Compresioncontrol();
         $compresioncontrol->peritaje_id=$request->get('peritaje_id');
         $compresioncontrol->user_id=$user->id;
-        $compresioncontrol->observacion="N/A";
+        $compresioncontrol->observacion="EL RESULTADO INDICA UNA DIFERENCIA
+        DEL 0% ENTRE CADA CILINDRO, TENIENDO
+        EN CUENTA QUE LA DIFERENCIA MAXIMA
+        EN LA MEDICION NO DEBE SUPERAR EL
+        20%.
+        AL MOMENTO DE LA PRUEBA NO
+        PRESENTA FUGAS DE ACEITE EL MOTOR.
+        NO SE REVISAN PARTES NI COMPONENTES
+        MECANICOS DE SU VEHICULO.";
         $compresioncontrol->nivelaprobado=0;
         $compresioncontrol->save(); 
         $compresion->compresionpart_id = $request->get('pieza');
