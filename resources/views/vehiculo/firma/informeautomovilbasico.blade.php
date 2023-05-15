@@ -23,6 +23,49 @@
         .text-justify {
   text-align: justify;
 }
+#t1{
+  width: 900px;
+  height: 180px;
+    background-image: no-repeat;
+    background-image: fixed;
+    background-image: center;
+    
+    background-image:url({{url('/iconos/cabezalivianobasico.jpg')}});
+    
+    
+}
+#t2{
+  width: 900px;
+  height: 47px;
+    background-image: no-repeat;
+    background-image: fixed;
+    background-image: center;
+    margin-top: 350px;  
+    background-image:url({{url('/iconos/piedepagina.png')}});   
+}
+#t3{
+  width: 900px;
+  height: 47px;
+    background-image: no-repeat;
+    background-image: fixed;
+    background-image: center;
+    margin-top: 100px;  
+    background-image:url({{url('/iconos/piedepagina.png')}});   
+}
+    #titulo {
+       
+font: bold 10px auto, verdana, sans-serif;
+ text-shadow: rgba(0,0,0,0.5) 4px 4px 6px;
+color: #00B1DD;
+margin: 10px 30px 0px 20px;
+}
+body{
+    background-image: no-repeat;
+background-image: fixed;
+background-image: center;
+    background-image:url({{url('/iconos/marcadeagua.jpg')}});
+   
+}
     </style>
      <title>INSPECCIÓN Nº  {{ $vehiculo->peritaje_id }} PLACA {{ $vehiculo->placa }}
       
@@ -33,6 +76,10 @@
 </head>
  
 <body>
+    <div id="t1">
+        
+    </div>
+    
     @if($peritaje->cierre!=null && $peritaje->tarjeta!=null)
     <div class="col-11"   style=" width: 100%; border: 1px solid;">
   <table width="100%">
@@ -129,89 +176,89 @@
             <table  style="font-size: xx-small; margin: 0 auto;" >
                 <tr>
                    
-                    <th align="left"  bgcolor ="#19ea6d">PLACA:</th>
+                    <th align="left"  bgcolor ="#B6FF00">PLACA:</th>
                      <td>{{ $peritaje->vehiculo->placa}}</td>
-                    <th align="left"  bgcolor ="#19ea6d">NACIONALIDAD:</th>
+                    <th align="left"  bgcolor ="#B6FF00">NACIONALIDAD:</th>
                      <td>{{ $peritaje->tarjeta->nacionalidad }}</td>
-                     <th align="left"  bgcolor ="#19ea6d">VEHICULO</th>
+                     <th align="left"  bgcolor ="#B6FF00">VEHICULO</th>
                      <td>{{ $peritaje->vehiculo->clase_vehiculo }}</td>
                      
-                     <th align="left"  bgcolor="#19ea6d">SERVICIO</th>
+                     <th align="left"  bgcolor="#B6FF00">SERVICIO</th>
                      <td> {{$peritaje->tarjeta->servicio->nombre}}</td>
                     
                     
                 </tr>
                 
                 <tr>
-                    <th align="left" bgcolor ="#19ea6d">Nº LICENCIA</th>
+                    <th align="left" bgcolor ="#B6FF00">Nº LICENCIA</th>
                     <td>{{ $peritaje->tarjeta->licencia}}</td>
-                    <th align="left"   bgcolor="#19ea6d">MODELO</th>
+                    <th align="left"   bgcolor="#B6FF00">MODELO</th>
                     <td>{{ $peritaje->tarjeta->modelo}}</td>
-                    <th align="left"  bgcolor="#19ea6d">COMBUSTIBLE</th>
+                    <th align="left"  bgcolor="#B6FF00">COMBUSTIBLE</th>
                     <td> {{$peritaje->tarjeta->combustible->nombre}}</td>
                   
-                   <th align="left"  bgcolor="#19ea6d">N MOTOR</th>
+                   <th align="left"  bgcolor="#B6FF00">N MOTOR</th>
                 <td> {{$peritaje->tarjeta->numero_motor}}</td>
                   
                 </tr>
                 
                  <tr>
-                    <th align="left"  bgcolor ="#19ea6d">FECHA MATRICULA:</th>
+                    <th align="left"  bgcolor ="#B6FF00">FECHA MATRICULA:</th>
                     <td>{{ $peritaje->tarjeta->fecha_matricula}}</td>
-                    <th align="left"  bgcolor="#19ea6d">COLOR</th>
+                    <th align="left"  bgcolor="#B6FF00">COLOR</th>
                     <td> {{$peritaje->tarjeta->color->nombre}}</td>
-                    <th align="left"  bgcolor ="#19ea6d">KILOMETRAJE</th>
+                    <th align="left"  bgcolor ="#B6FF00">KILOMETRAJE</th>
                     <td>{{ $peritaje->vehiculo->km }}Km</td>
-                    <th align="left"  bgcolor="#19ea6d">N SERIE</th>
+                    <th align="left"  bgcolor="#B6FF00">N SERIE</th>
                      <td> {{$peritaje->tarjeta->numero_serie}}</td>
                 </tr>
                <tr>
-                <th align="left"  bgcolor ="#19ea6d">TIPO MOTOR:</th>
+                <th align="left"  bgcolor ="#B6FF00">TIPO MOTOR:</th>
                 <td>{{ $peritaje->cierre->tipomotor}}</td>
-                <th align="left"  bgcolor="#19ea6d">MARCA</th>
+                <th align="left"  bgcolor="#B6FF00">MARCA</th>
                 <td> {{$peritaje->tarjeta->marca->nombre}}</td>
-                <th align="left"   bgcolor="#19ea6d">CILINDRADA CC</th>
+                <th align="left"   bgcolor="#B6FF00">CILINDRADA CC</th>
                    <td>{{ $peritaje->tarjeta->cilindrada}}</td>
                   
-                   <th align="left"  bgcolor="#19ea6d">N VIN</th>
+                   <th align="left"  bgcolor="#B6FF00">N VIN</th>
                    <td> {{$peritaje->tarjeta->numero_vin}}</td>
                
                
                </tr>  
 
                <tr>
-                <th align="left"  bgcolor ="#19ea6d">TIPO DE CAJA</th>
+                <th align="left"  bgcolor ="#B6FF00">TIPO DE CAJA</th>
                 <td>{{ $peritaje->cierre->tipocaja}}</td>
-                <th align="left"   bgcolor="#19ea6d">LINEA</th>
+                <th align="left"   bgcolor="#B6FF00">LINEA</th>
                 <td> {{$peritaje->tarjeta->linea->nombre}}</td>
                 
-                     <th align="left"  bgcolor="#19ea6d">CAPACIDAD</th>
+                     <th align="left"  bgcolor="#B6FF00">CAPACIDAD</th>
                      <td> {{$peritaje->tarjeta->capacidad}}</td>
                
-                <th align="left"  bgcolor="#19ea6d">N CHASIS</th>
+                <th align="left"  bgcolor="#B6FF00">N CHASIS</th>
                 <td> {{$peritaje->tarjeta->numero_chasis}}</td>
                </tr>
                <tr>
-                <th align="left"  bgcolor ="#19ea6d">MATRICULADO EN:</th>
+                <th align="left"  bgcolor ="#B6FF00">MATRICULADO EN:</th>
                 <td>{{ $peritaje->tarjeta->matriculado}}</td>
-                <th align="left"   bgcolor="#19ea6d">PROPIETARIO:</th>
+                <th align="left"   bgcolor="#B6FF00">PROPIETARIO:</th>
                 <td> {{$peritaje->tarjeta->propietario}}</td>
                 
-                     <th align="left"   bgcolor="#19ea6d">IDENTIFICACION:</th>
+                     <th align="left"   bgcolor="#B6FF00">IDENTIFICACION:</th>
                      <td> {{$peritaje->tarjeta->identificacion_propietario}}</td>
                
-                <th align="left"  bgcolor="#19ea6d">TIPO PINTURA</th>
+                <th align="left"  bgcolor="#B6FF00">TIPO PINTURA</th>
                 <td> {{$peritaje->cierre->tipopintura}}</td>
                </tr>
                <tr>
-                <th  align="left"  colspan="3" bgcolor ="#19ea6d">FECHA VENCIMIENTO CERTIFICACO GNVC:</th>
+                <th  align="left"  colspan="3" bgcolor ="#B6FF00">FECHA VENCIMIENTO CERTIFICACO GNVC:</th>
                 <td>{{ $peritaje->cierre->gnvc}}</td>
                 
                 
-                     <th align="left"   bgcolor="#19ea6d">BLINDADO:</th>
+                     <th align="left"   bgcolor="#B6FF00">BLINDADO:</th>
                      <td> {{$peritaje->cierre->blindado}}</td>
                
-                <th align="left"  bgcolor="#19ea6d">POLARIZADO:</th>
+                <th align="left"  bgcolor="#B6FF00">POLARIZADO:</th>
                 <td> {{$peritaje->cierre->polarizado}}</td>
                </tr>
                
@@ -236,7 +283,7 @@
 <div style=" border-top-width: 20px;
 border-right-width: thin;
 border-bottom-width: thin; 
-border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(239, 107, 19, 0.951);">
+border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #ff0000d8;">
 
 
 <p style="font-size: small;  margin-left: 20px">TARJETA DE PROPIEDAD</p>
@@ -259,7 +306,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
 <div style=" border-top-width: 20px;
      border-right-width: thin;
     border-bottom-width: thin;  
-    border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(239, 107, 19, 0.951);">
+    border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #ff0000d8;">
 
     
     <p style="font-size: xx-small;
@@ -271,7 +318,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
     border-right-width: thin;
     border-bottom-width: thin; 
    
-    border-left-width: 1em;  border-radius: 5px 5px 5px 5px;  border-color:#19ea6d;">
+    border-left-width: 1em;  border-radius: 5px 5px 5px 5px;  border-color:#B6FF00;">
 
     
 <p style=" 
@@ -286,7 +333,7 @@ text-align:center;
     border-right-width: thin;
     border-bottom-width: thin; 
    
-    border-left-width: 1em;  border-radius: 5px 5px 5px 5px;  border-color:#19ea6d;">
+    border-left-width: 1em;  border-radius: 5px 5px 5px 5px;  border-color:#B6FF00;">
 
     
 <p style=" 
@@ -298,6 +345,7 @@ text-align:center;
     </div>
 
 </div>
+<div id="t2"></div>
     <div style="page-break-after:always;"></div>
 
 
@@ -316,12 +364,12 @@ text-align:center;
       <div class="col-11"  style=" border-top-width: 20px;
       border-right-width: thin;
      border-bottom-width: thin;  
-     border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(239, 107, 19, 0.951);">
+     border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #ff0000d8;">
   
       
           <p style="font-size: small;"> REGISTRO FOTOGRAFICO</p>
       <table  width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
-          <tr bgcolor="#19ea6d">
+          <tr bgcolor="#B6FF00">
       
           </tr>
          
@@ -379,7 +427,7 @@ text-align:center;
   <div class="col-11"  style=" border-top-width: 20px;
   border-right-width: thin;
  border-bottom-width: thin;  
- border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(239, 107, 19, 0.951);">
+ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #ff0000d8;">
 
   @if($peritaje->latoneriacontrol->nivelaprobado!=0)
   <p>LATONERIA O CARROCERIA {{$peritaje->latoneriacontrol->nivelaprobado}}%</p>
@@ -398,7 +446,7 @@ text-align:center;
 <div class="col-10"   style=" width: 320px; border: 1px solid;">
 <p > VISTA IZQUIERDA</p>
 <table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#19ea6d">
+<tr bgcolor="#B6FF00">
 
 <th>PIEZA</th>
 <th>ESTADO</th>
@@ -436,7 +484,7 @@ text-align:center;
 <div class="col-10"   style=" width: 320px; border: 1px solid;">
 <p> VISTA DERECHA </p>
 <table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#19ea6d">
+<tr bgcolor="#B6FF00">
 
 <th>PIEZA</th>
 <th>ESTADO</th>
@@ -481,7 +529,7 @@ text-align:center;
 <div class="col-10"   style=" width: 320px;  border: 1px solid;">
 <p> VISTA POSTERIOR</p>
 <table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#19ea6d">
+<tr bgcolor="#B6FF00">
   
    <th>PIEZA</th>
    <th>ESTADO</th>
@@ -519,7 +567,7 @@ text-align:center;
 <div class="col-10"   style=" width: 320px;  border: 1px solid;">
 <p> VISTA FRONTAL </p>
 <table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#19ea6d">
+<tr bgcolor="#B6FF00">
 
  <th>PIEZA</th>
  <th>ESTADO</th>
@@ -574,7 +622,7 @@ text-align:center;
       
          
       <table width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
-          <tr bgcolor="#19ea6d">
+          <tr bgcolor="#B6FF00">
       
           </tr>
          
@@ -640,7 +688,7 @@ text-align:center;
 <div class="col-10" style=" border-top-width: 20px;
 border-right-width: thin;
 border-bottom-width: thin;  
-border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(239, 107, 19, 0.951);">
+border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #ff0000d8;">
 <br>
 <table   style="font-size: small;margin: 0 auto; width: 100%; " >
      
@@ -657,7 +705,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
 <p> CHASIS</p>
 @endif
     <table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#19ea6d">
+<tr bgcolor="#B6FF00">
    
     <th>PIEZA</th>
     <th>ESTADO</th>
@@ -689,7 +737,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
    <p>PARTE BAJA</p>
    @endif
         <table style="font-size: xx-small; margin: 0 auto;">
-        <tr bgcolor="#19ea6d">
+        <tr bgcolor="#B6FF00">
            
             <th>PIEZA</th>
             <th>ESTADO</th>
@@ -735,7 +783,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
          
             
          <table width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
-             <tr bgcolor="#19ea6d">
+             <tr bgcolor="#B6FF00">
          
              </tr>
             
@@ -808,7 +856,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
  <div  class="col-10" style=" border-top-width: 20px;
  border-right-width: thin;
  border-bottom-width: thin;  
- border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(239, 107, 19, 0.951);">
+ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #ff0000d8;">
   <table   style="font-size: xx-small;width: 100%; margin: 0 auto;" >
      
    <tr>
@@ -826,7 +874,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
 <p> FUGAS DE FLUIDOS</p>
 @endif
     <table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#19ea6d">
+<tr bgcolor="#B6FF00">
    
     <th>PIEZA</th>
     <th>FUGA</th>
@@ -870,7 +918,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
 <p>NIVELES DE FLUIDOS</p>  
 @endif
 <table style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#19ea6d">
+<tr bgcolor="#B6FF00">
    
     <th>PIEZA</th>
     <th>ESTADO</th>
@@ -916,7 +964,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
       
          
       <table width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
-          <tr bgcolor="#19ea6d">
+          <tr bgcolor="#B6FF00">
       
           </tr>
          
@@ -983,7 +1031,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
   <div class="col-10"    style=" border-top-width: 20px;
  border-right-width: thin;
 border-bottom-width: thin;  
-border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(239, 107, 19, 0.951);">
+border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #ff0000d8;">
 
 
 
@@ -1009,7 +1057,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
  
  
  <table   style="font-size: x-small; margin: 0 auto;">
-     <tr bgcolor="#19ea6d">
+     <tr bgcolor="#B6FF00">
         
          <th>PIEZA</th>
          <th>ESTADO</th>
@@ -1059,7 +1107,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
   
  
     <table style="font-size: x-small; margin: 0 auto;">
-     <tr bgcolor="#19ea6d">
+     <tr bgcolor="#B6FF00">
         
          <th>PIEZA</th>
          <th>ESTADO</th>
@@ -1106,7 +1154,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
       
          
       <table width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
-          <tr bgcolor="#19ea6d">
+          <tr bgcolor="#B6FF00">
       
           </tr>
          
@@ -1173,7 +1221,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
       style=" border-top-width: 20px;
           border-right-width: thin;
          border-bottom-width: thin;  
-         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(239, 107, 19, 0.951);">
+         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #ff0000d8;">
       <table   style="font-size: x-small; width: 100%; margin: 0 auto;" >
       
         <tr>
@@ -1196,7 +1244,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
  
  
  <table   style="font-size: x-small; margin: 0 auto;">
-     <tr bgcolor="#19ea6d">
+     <tr bgcolor="#B6FF00">
         
          <th>PIEZA</th>
          <th>ESTADO</th>
@@ -1246,7 +1294,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
   
  
     <table style="font-size: x-small; margin: 0 auto;">
-     <tr bgcolor="#19ea6d">
+     <tr bgcolor="#B6FF00">
         
          <th>PIEZA</th>
          <th>ESTADO</th>
@@ -1293,7 +1341,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
       
          
       <table width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
-          <tr bgcolor="#19ea6d">
+          <tr bgcolor="#B6FF00">
       
           </tr>
          
@@ -1361,7 +1409,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
       style=" border-top-width: 20px;
           border-right-width: thin;
          border-bottom-width: thin;  
-         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(239, 107, 19, 0.951);">
+         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #ff0000d8;">
 <table   style="font-size: xx-small; width: 100%;  margin: 0 auto;" >
      
     <tr>
@@ -1375,7 +1423,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
 <p> PRUEBA DE FRENOS</p>  
 @endif
 <table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#19ea6d">
+<tr bgcolor="#B6FF00">
    
     <th>PIEZA</th>
     <th>EFICIENCIA</th>
@@ -1424,7 +1472,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
  <p>ESTADO DE LAS LLANTAS</p>
  @endif
  <table style="font-size: xx-small; margin: 0 auto;">
- <tr bgcolor="#19ea6d">
+ <tr bgcolor="#B6FF00">
     
      <th>PIEZA</th>
      <th>PARA CAMBIO</th>
@@ -1473,7 +1521,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
      
         
      <table width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
-         <tr bgcolor="#19ea6d">
+         <tr bgcolor="#B6FF00">
      
          </tr>
         
@@ -1537,7 +1585,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
       style=" border-top-width: 20px;
           border-right-width: thin;
          border-bottom-width: thin;  
-         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(239, 107, 19, 0.951);">
+         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #ff0000d8;">
 <table   style="font-size: xx-small;  margin: 0 auto;" >  
     <tr>
     <th>
@@ -1560,7 +1608,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
 <p>COMPRESION Y FUGAS DEL MOTOR</p> 
 @endif
 <table style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#19ea6d">
+<tr bgcolor="#B6FF00">
 
  <th>PIEZA</th>
  <th>COMPRESION</th>
@@ -1680,7 +1728,8 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: rgba(
     <br> 
     <p class="text-justify">EN MI CALIDAD DE CLIENTE MANIFIESTO QUE HE SIDO INFORMADO DE LOS ALCANCES Y LIMITACIONES DEL SERVICIO PRESTADO.</p>
     <p class="text-justify">EL DOCUMENTO NO TENDRÁ VALOR SI FALTA ALGUNA DE SUS PÁGINAS, YA QUE ESTE ES INTEGRAL.</p>
-    <script>
+    <div id="t3"></div>
+   <script>
      //   if (window.opener) {
          //   document.querySelector("#firma").src = window.opener.obtenerImagen();
             // Imprimir documento. Si no quieres imprimir, remueve la siguiente línea

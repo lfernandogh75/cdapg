@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>carvalue</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
 
 
             <div >
-                <div>
+      {{--         <div>
                     <svg >
                         <g >
                             <text x="30" y="60" font-size="80" font-family="Chakra Petch',verdana,arial" fill="red" stroke="red" stroke-width="2" >CDA</text>
@@ -41,7 +41,7 @@
                             <text x="30" y="60" font-size="80" font-family="Chakra Petch',verdana,arial" fill="red" stroke="red" stroke-width="2" > Centro de diagnóstico automotores  </text>
                         </g>
                     </svg>
-                </div>
+                </div>--}}
 
                 
 
@@ -58,7 +58,7 @@
                              {{--  <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>--}}
                              <a href="{{ url('/peritaje') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">peritaje</a>
                              @else
-                                <a href="{{ route('login') }}" class=" text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                                <a href="{{ route('login') }}" class=" text-sm text-gray-700 dark:text-gray-500 underline"><img src="iconos/carvaluelogo.png"></a>
         {{-- comento el regstro para que los usuarios no se puedan registrar
                                 @if (Route::has('register'))
                                     <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
