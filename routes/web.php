@@ -127,6 +127,7 @@ Route::resource('svidrios','App\Http\Controllers\VidrioController');
 Route::resource('spinturas','App\Http\Controllers\PinturaController');
 Route::resource('svlucess','App\Http\Controllers\VlucesController');
 Route::resource('snfluidos','App\Http\Controllers\NfluidoController');
+Route::resource('sescaners','App\Http\Controllers\EscanerController');
 
 
 Route::group(['middleware' => ['superadmin']], function () {
@@ -159,7 +160,7 @@ Route::resource('/historico',HistoricoController::class);
 
 Route::resource('tarjetas','App\Http\Controllers\TarjetaController');
 Route::resource('cierres','App\Http\Controllers\CierreController');
-
+Route::resource('hvehiculos','App\Http\Controllers\Hvehiculo');
 Route::resource('emisiongass','App\Http\Controllers\EmisiongasController');
 Route::resource('simetrias','App\Http\Controllers\SimetriaController');
 Route::resource('fotocontrol','App\Http\Controllers\FotocontrolController');
@@ -184,7 +185,7 @@ Route::resource('nfluidocontrol','App\Http\Controllers\NfluidocontrolController'
 Route::resource('compresioncontrol','App\Http\Controllers\CompresioncontrolController');
 Route::resource('luzcontrol','App\Http\Controllers\LuzcontrolController');
 Route::resource('frenocontrol','App\Http\Controllers\FrenocontrolController');
-
+Route::resource('escanercontrol','App\Http\Controllers\EscanercontrolController');
 
 //Route::get('generate-pdf', [PDFController::class, 'generatePDF']); 
 
@@ -279,4 +280,6 @@ Route::group(['middleware' => ['superadmin']], function () {
     route::get('cierreinactiva/{id?}', 'App\Http\Controllers\CierreController@inactiva');
     route::get('archivoactivar/{id?}', 'App\Http\Controllers\ArchivocontrolController@activar');
     route::get('archivoinactiva/{id?}', 'App\Http\Controllers\ArchivocontrolController@inactiva');
+    route::get('escaneractivar/{id?}', 'App\Http\Controllers\EscanercontrolController@activar');
+    route::get('escanerinactiva/{id?}', 'App\Http\Controllers\EscanercontrolController@inactiva');
 });

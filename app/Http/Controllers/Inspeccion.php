@@ -28,6 +28,18 @@ class Inspeccion extends Controller
                return view('vehiculo.firma.informemotobasico')->with(compact('vehiculo','peritaje'));
                 
             }
+            if($peritaje->tipo=="COMPLETO"){
+                
+              // return view('vehiculo.firma.documento')->with('vehiculo',$vehiculo);
+              return view('vehiculo.firma.informemotocompleto')->with(compact('vehiculo','peritaje'));
+               
+           }
+           if($peritaje->tipo=="OTROS"){
+                
+            // return view('vehiculo.firma.documento')->with('vehiculo',$vehiculo);
+            return view('vehiculo.firma.informemotootro')->with(compact('vehiculo','peritaje'));
+             
+         }
           }
     }
 }

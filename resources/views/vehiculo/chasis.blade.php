@@ -99,6 +99,17 @@
   </tbody>
 </table>
 <a  href="/vehiculos?placa={{$vehiculo->placa}}&vehiculoindex=1" type="button" class="btn btn-primary" tabindex="4">REGRESAR </a>
+@if($vehiculo->clase_vehiculo=="Motocicleta")
+<a href="https://docs.google.com/presentation/d/1nvE86hcRnFqhxOimIyWS4Dm_-CZzKrieQ9rtuHKnjf8/edit?usp=sharing"  type="button" class="btn btn-primary"  target="_blank">COTAS CHASIS</a>
+@endif
+@if($vehiculo->clase_vehiculo=="Automóvil")
+<a href="https://docs.google.com/presentation/d/198UIRVzLugv2Qz_zf5VU8xkvzsDvZ_1l_iy4AcN8aJQ/edit?usp=sharing"  type="button" class="btn btn-primary"  target="_blank">COTAS CHASIS</a>
+@endif
+@if($vehiculo->clase_vehiculo=="Pesados")
+<a href="https://docs.google.com/presentation/d/1ZU9RuSXlPuJWrpQ277wgz5ZbI-lrLTWQ2T4RAgfuaUg/edit?usp=sharing"  type="button" class="btn btn-primary"  target="_blank">COTAS CHASIS</a>
+@endif
+
+<a href="https://docs.google.com/presentation/d/1vuXAzBcE6NMquCbWI5ZtuT_wpF05aLRcMIxiX9B8ujQ/edit?usp=sharing"  type="button" class="btn btn-primary"  target="_blank">EDITOR FOTO</a>
 <!-- xxxxxxxxxxxxxxxxxxxxx -->
 
 

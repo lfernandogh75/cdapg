@@ -25,9 +25,7 @@
  <select id ="tipo_vehiculo" name="tipo_vehiculo"  class="form-select">
   <option value="{{$vehiculo->clase_vehiculo}}">{{$vehiculo->clase_vehiculo}}</option>
     <option value="Automóvil">Automóvil</option>
-    <option value="Camioneta">Camioneta</option>
     <option value="Motocicleta">Motocicleta</option>
-    <option value="Cabezote">Cabezote</option>
     <option value="Pesados">Pesados</option>
   </select>
     </div></div>

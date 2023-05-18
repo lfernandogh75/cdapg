@@ -32,7 +32,7 @@
           <input type="hidden" name="peritajeid" value="{{$vehiculo->peritaje->id}}">
 
           @method('PUT')
-         <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">FINALIZAR REGISTRO DE EXTERIORES</button>
+         <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">FINALIZAR REGISTRO DE PINTURA</button>
         
           </form>
      @endif
@@ -105,6 +105,7 @@
   </tbody>
 </table>
 <a  href="/vehiculos?placa={{$vehiculo->placa}}&vehiculoindex=1" type="button" class="btn btn-primary" tabindex="4">REGRESAR </a>
+<a href="https://docs.google.com/presentation/d/1vuXAzBcE6NMquCbWI5ZtuT_wpF05aLRcMIxiX9B8ujQ/edit?usp=sharing"  type="button" class="btn btn-primary"  target="_blank">EDITOR FOTO</a>
 <!-- xxxxxxxxxxxxxxxxxxxxx -->
 
 

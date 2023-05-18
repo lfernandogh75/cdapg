@@ -401,6 +401,16 @@ if (isset($vehiculo) && $vehiculoindex=="nfluido" ) {
 }
 }
 
+if (isset($vehiculo) && $vehiculoindex=="escaner" ) {
+    $responsable=$vehiculo->peritaje->escanercontrol->user; 
+     $escanercontrol=$vehiculo->peritaje->escanercontrol;
+     $escaners=$escanercontrol->escanerparts;
+    return view('vehiculo.escaner')->with(compact('vehiculo','responsable','escanercontrol','escaners')); 
+    }else{
+        return view('vehiculo.index')->with(compact('vehiculo'));
+}
+
+
 if (isset($vehiculo) && $vehiculoindex=="vidrio" ) {
     $peritaje=Peritaje::find($vehiculo->peritaje_id);
     if (isset($peritaje->vidriocontrol)){
@@ -489,6 +499,8 @@ return $pdf->stream($nombre);
         }else{
             return view('vehiculo.index')->with(compact('vehiculo'));
     }
+
+    
     
 
 

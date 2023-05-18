@@ -15,19 +15,25 @@ return new class extends Migration
     {
         Schema::create('cierres', function (Blueprint $table) {
             $table->id();
-            $table->string('blindado');
-            $table->string('polarizado');
-            $table->string('tipocaja');
-            $table->string('tipomotor');
-            $table->string('codigofasecolda');
-            $table->string('valorfasecolda');
-            $table->string('valorcarvalue');
-            $table->string('resultado');
-            $table->string('gnvc');
-            $table->string('tipopintura');
-            $table->string('serviciosolicitado');
-            $table->string('valoraccesorios');
-            $table->text('observacion');
+            $table->string('blindado')->nullable();
+            $table->string('polarizado')->nullable();
+            $table->string('tipocaja')->nullable();
+            $table->string('tipomotor')->nullable();
+            $table->string('codigofasecolda')->nullable();
+            $table->string('valorfasecolda')->nullable();
+            $table->string('valorcarvalue')->nullable();
+            $table->string('resultado')->nullable();
+            $table->string('gnvc')->nullable();
+            $table->string('tipopintura')->nullable();
+            $table->string('serviciosolicitado')->nullable();
+            $table->string('valoraccesorios')->nullable();
+            $table->text('observacion')->nullable();
+            $table->string('rtm')->nullable();
+            $table->date('fechartmvigente')->nullable();
+            $table->string('soat')->nullable();
+            $table->date('fechasoatvigente')->nullable();
+            $table->text('embargo')->nullable();
+            $table->text('observacionhv')->nullable();
             $table->unsignedBigInteger('peritaje_id')->unique();
             $table->foreign('peritaje_id')
             ->references('id')

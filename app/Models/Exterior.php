@@ -15,6 +15,7 @@ class Exterior extends Model
     public function pieza($id){
         $pieza = Exteriorpart::find($id);  
         return $pieza->name;
+        
     }
     public function exteriorpart(){
         return $this->belongsTo('App\Models\Exteriorpart');

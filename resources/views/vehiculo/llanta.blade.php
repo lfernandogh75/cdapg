@@ -123,6 +123,23 @@
   </tbody>
 </table>
 <a  href="/vehiculos?placa={{$vehiculo->placa}}&vehiculoindex=1" type="button" class="btn btn-primary" tabindex="4">REGRESAR </a>
+
+
+@if($vehiculo->clase_vehiculo=="Motocicleta")
+<a href="https://docs.google.com/presentation/d/1Iywk2LfwQc5iXiXFrLRULd7Mm1MLBTr_RuUVvmkLK3g/edit?usp=sharing"  type="button" class="btn btn-primary"  target="_blank">REFERENCIA DE LLANTAS</a>
+@endif
+@if($vehiculo->clase_vehiculo=="Automóvil")
+<a href="https://docs.google.com/presentation/d/1arlR9HSTcVhV4js4UIL9ODdMYW7K7C42T6ORw1mKRkU/edit?usp=sharing"  type="button" class="btn btn-primary"  target="_blank">REFERENCIA DE LLANTAS</a>
+<a href="https://docs.google.com/presentation/d/1s-Xpvzdhih2YR1bAnVEEiTooJaiKrWs9O0j1_r1a-xk/edit?usp=sharing"  type="button" class="btn btn-primary"  target="_blank">REFERENCIA DE LLANTAS EJE1</a>
+<a href="https://docs.google.com/presentation/d/1dnkzdRJhwoyqM0nfbKwdGFPBZ5MUwaWeT4GuY---N_w/edit?usp=sharing"  type="button" class="btn btn-primary"  target="_blank">REFERENCIA DE LLANTAS EJE2 DOBLE </a>
+@endif
+@if($vehiculo->clase_vehiculo=="Pesados")
+<a href="https://docs.google.com/presentation/d/1s-Xpvzdhih2YR1bAnVEEiTooJaiKrWs9O0j1_r1a-xk/edit?usp=sharing"  type="button" class="btn btn-primary"  target="_blank">REFERENCIA DE LLANTAS EJE1</a>
+<a href="https://docs.google.com/presentation/d/1uuApoTA0Gtm9Q6TO90mTFZUC78L_Fz8nNt0WHuMbstY/edit?usp=sharing"  type="button" class="btn btn-primary"  target="_blank">REFERENCIA DE LLANTAS EJE2 </a>
+<a href="https://docs.google.com/presentation/d/1dnkzdRJhwoyqM0nfbKwdGFPBZ5MUwaWeT4GuY---N_w/edit?usp=sharing"  type="button" class="btn btn-primary"  target="_blank">REFERENCIA DE LLANTAS EJE2 DOBLE </a>
+@endif
+
+
 <!-- xxxxxxxxxxxxxxxxxxxxx -->
 
 

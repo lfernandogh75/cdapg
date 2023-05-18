@@ -123,5 +123,10 @@ class Peritaje extends Model
         return $this->hasOne('App\Models\Cierre');
         
     }
+
+    public function escanercontrol(){
+        return $this->hasOne('App\Models\Escanercontrol');
+        
+    }
     
 }

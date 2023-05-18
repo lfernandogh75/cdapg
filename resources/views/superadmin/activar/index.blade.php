@@ -331,6 +331,15 @@
 @endif
   
 @endif
+
+@if(isset($vehiculo->peritaje->escanercontrol))
+@if(Auth::user()->role->nombre_rol=="superadmin" && $vehiculo->peritaje->escanercontrol->activo)
+<p> <a style="color:hsl(20, 80%, 50%);"  href="/escanerinactiva/{{$vehiculo->peritaje->id}}"  tabindex="4">ESCANER</a>
+@else
+<p> <a style="color:rgb(49, 230, 25);"  href="/escaneractivar/{{$vehiculo->peritaje->id}}"  tabindex="4">ESCANER</a>
+@endif
+  
+@endif
       </div>
     </div>
   
