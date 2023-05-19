@@ -196,6 +196,22 @@ if (isset($vehiculo) && $vehiculoindex=="7" ) {
         return view('vehiculo.suspension')->with(compact('vehiculo'));
 }
 }
+
+if (isset($vehiculo) && $vehiculoindex=="sm" ) {
+    $peritaje=Peritaje::find($vehiculo->peritaje_id);
+    if (isset($peritaje->suspensioncontrol)){
+    $suspensions=$peritaje->suspensioncontrol->suspensionparts;
+    $responsable=$peritaje->suspensioncontrol->user;
+    $suspensioncontrol=$peritaje->suspensioncontrol;
+   // return view('vehiculo.sistemaelectrico')->with('vehiculo', $vehiculo);
+    return view('vehiculo.suspensionmecanizada')->with(compact('vehiculo','suspensions','responsable','suspensioncontrol'));
+    }else{
+        return view('vehiculo.suspensionmecanizada')->with(compact('vehiculo'));
+}
+}
+
+
+
 if (isset($vehiculo) && $vehiculoindex=="8" ) {
     $peritaje=Peritaje::find($vehiculo->peritaje_id);
     if (isset($peritaje->compresioncontrol)){
@@ -402,14 +418,16 @@ if (isset($vehiculo) && $vehiculoindex=="nfluido" ) {
 }
 
 if (isset($vehiculo) && $vehiculoindex=="escaner" ) {
-    $responsable=$vehiculo->peritaje->escanercontrol->user; 
-     $escanercontrol=$vehiculo->peritaje->escanercontrol;
+    $peritaje=Peritaje::find($vehiculo->peritaje_id);
+    if (isset($peritaje->escanercontrol)){
+    $responsable=$peritaje->escanercontrol->user; 
+     $escanercontrol=$peritaje->escanercontrol;
      $escaners=$escanercontrol->escanerparts;
     return view('vehiculo.escaner')->with(compact('vehiculo','responsable','escanercontrol','escaners')); 
     }else{
-        return view('vehiculo.index')->with(compact('vehiculo'));
+        return view('vehiculo.escaner')->with(compact('vehiculo'));
 }
-
+}
 
 if (isset($vehiculo) && $vehiculoindex=="vidrio" ) {
     $peritaje=Peritaje::find($vehiculo->peritaje_id);

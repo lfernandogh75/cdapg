@@ -46,7 +46,19 @@ class FrenoController extends Controller
     {
         $user=Auth::user();
         $peritaje=Peritaje::find($request->get('peritaje_id'));
-      $freno = new Freno();
+      if($peritaje->vehiculo->clase_vehiculo=="Motocicleta")
+      {
+        $ops="LA EFICACIA DE FRENADO TOTAL CORRESPONDE A LA SUMATORIA DE FUERZAS DE FRENADO Y PESOS DEL VEHICULO EN LAS  LLANTAS.";
+       
+      }
+      else{
+        $ops="LA EFICACIA DE FRENADO TOTAL CORRESPONDE A LA SUMATORIA DE FUERZAS DE FRENADO Y PESOS DEL VEHICULO EN LAS  LLANTAS. LA EFICACIA DE FRENADO AUXILIAR CORRESPONDE A LA SUMATORIA DE FUERZAS DE FRENADO Y PESOS DEL
+        VEHICULO EN LOS EJES DE FRENADO AUXILIAR.";
+
+      }
+      
+      
+        $freno = new Freno();
        if(isset($peritaje->frenocontrol)){
       
         $freno->frenopart_id = $request->get('pieza');
@@ -64,8 +76,11 @@ class FrenoController extends Controller
         $frenocontrol = new Frenocontrol();
         $frenocontrol->peritaje_id=$request->get('peritaje_id');
         $frenocontrol->user_id=$user->id;
-        $frenocontrol->observacion="N/A";
+        $frenocontrol->observacion=$ops;
         $frenocontrol->nivelaprobado=0;
+        $frenocontrol->frenadototal=0;
+        $frenocontrol->frenadoauxiliar=0;
+        
         $frenocontrol->save(); 
         $freno->frenopart_id = $request->get('pieza');
         $freno->eficiencia = $request->get('eficiencia');

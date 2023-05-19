@@ -1427,7 +1427,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1
 </tr>
 @endforeach
 </table>
-
+<P class="text-justify" style="font-size: x-small;  width: 250px; margin: 10px;">EFICACIA DE FRENADO TOTAL :{{$peritaje->frenocontrol->frenadototal}}%</p>
 <P class="text-justify" style="font-size: xx-small;
   margin: 10px;">{{$peritaje->frenocontrol->observacion}}</p>
 

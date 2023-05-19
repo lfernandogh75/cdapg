@@ -29,6 +29,8 @@ return new class extends Migration
             $table->boolean('activo')->default(1);
             $table->text('observacion');
             $table->integer('nivelaprobado');
+            $table->integer('frenadototal')->nullable();
+            $table->integer('frenadoauxiliar')->nullable();
             $table->timestamps();
         });
     }

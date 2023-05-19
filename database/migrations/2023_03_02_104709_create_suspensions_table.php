@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum("cambio", ["NO","SI","N/A"]);
             $table->enum("estado", ["N/A","BUEN ESTADO","ORIGINAL","CAMBIADO","BUENA REPARACION","MAL REPARADO","SUMIDO","BUENA SUSTITUCION","REPARACION REGULAR"]);
             $table->text('observaciones')->nullable();
+            $table->string('porcentaje')->nullable();
             $table->unsignedBigInteger('suspensioncontrol_id')
             ->nullable()
             ->index();

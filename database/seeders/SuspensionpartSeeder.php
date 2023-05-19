@@ -22,7 +22,12 @@ class SuspensionpartSeeder extends Seeder
                 ['name' => 'BRAZO AXIAL IZQUIERDO'],
                 ['name' => 'BUJES DE TIJERA DERECHA'],
                 ['name' => 'BUJES DE TIJERA IZQUIERDA'],
-                ['name' => 'ROTULA DERECHA']    
+                ['name' => 'ROTULA DERECHA'],
+                ['name' => 'DELENTERA DERECHA'],
+                ['name' => 'DELENTERA IZQUIERDA'],
+                ['name' => 'TRASERA DERECHA'],
+                ['name' => 'TRASERA IZQUIERDA']
+
                
         ];
     

@@ -46,10 +46,18 @@
             <label for="" class="form-label">NIVEL DE APROBACIÓN</label>
             <input id="nivelaprobado" name="nivelaprobado" type="number"  placeholder="0% a 100%" step="0" min="0" max="100"   class="form-control" tabindex="3" required value="{{$frenocontrol->nivelaprobado}}">
           </div>
+          <div class="form-group">
+            <label for="" class="form-label">EFICACIA DE FRENADO TOTAL</label>
+            <input id="frenadototal" name="frenadototal" type="number"  placeholder="0% a 100%" step="0" min="0" max="100"   class="form-control" tabindex="3" required value="{{$frenocontrol->frenadototal}}">
+          </div>
+          <div class="form-group">
+            <label for="" class="form-label">EFICACIA DE FRENADO AUXILIAR</label>
+            <input id="frenadoauxiliar" name="frenadoauxiliar" type="number"  placeholder="0% a 100%" step="0" min="0" max="100"   class="form-control" tabindex="3" required value="{{$frenocontrol->frenadoauxiliar}}">
+          </div>
           <input type="hidden" name="peritajeid" value="{{$vehiculo->peritaje->id}}">
 
           @method('PUT')
-         <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">FINALIZAR REGISTRO DE EXTERIORES</button>
+         <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">FINALIZAR REGISTRO </button>
         
           </form>
      @endif
@@ -64,6 +72,15 @@
        <label for="" class="form-label">NIVEL DE APROBACIÓN</label>
        <input id="nivelaprobado" name="nivelaprobado" type="number"  placeholder="0% a 100%" step="0" min="0" max="100"   class="form-control" tabindex="3" value="{{$frenocontrol->nivelaprobado}}" required readonly>
      </div>
+
+     <div class="form-group">
+      <label for="" class="form-label">EFICACIA DE FRENADO TOTAL</label>
+      <input id="frenadototal" name="frenadototal" type="number"  placeholder="0% a 100%" step="0" min="0" max="100"   class="form-control" tabindex="3" required value="{{$frenocontrol->frenadototal}}" readonly>
+    </div>
+    <div class="form-group">
+      <label for="" class="form-label">EFICACIA DE FRENADO AUXILIAR</label>
+      <input id="frenadoauxiliar" name="frenadoauxiliar" type="number"  placeholder="0% a 100%" step="0" min="0" max="100"   class="form-control" tabindex="3" required value="{{$frenocontrol->frenadoauxiliar}}" readonly>
+    </div>
      @endif
   @endif
  

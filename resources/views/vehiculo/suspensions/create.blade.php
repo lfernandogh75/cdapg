@@ -1,6 +1,8 @@
 @extends('layouts.plantillaperitaje')
 
 @section('contenido')
+ 
+@if(!isset($mecanizado))
 <h2>REGISTRAR PIEZAS DE SUSPENCION</h2>
 
 <form action="/ssuspensions" method="POST">
@@ -55,5 +57,40 @@
   <a href="/vehiculos?placa={{$peritaje->vehiculo->placa}}&vehiculoindex=7" class="btn btn-secondary" tabindex="5">Cancelar</a>
   <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
 </form>
+    
+@else
+
+<h2>REGISTRAR PIEZAS DE SUSPENCION</h2>
+
+<form action="/ssuspensionms" method="POST">
+    @csrf
+  <div class="mb-3">
+    <label for="" class="form-label">PIEZA</label>
+    <select name="pieza" class="form-select" id="pieza" required>
+      @foreach($suspensionparts as $suspensionpart)
+      <option value="{{$suspensionpart->id}}">{{$suspensionpart->name}}</option>
+      @endforeach
+    </select>
+
+    
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">PORCENTAJE</label>
+   
+    <input id="porcentaje" name="porcentaje"  type="number"   step="0" min="0" max="100" style="width : 80px; heigth : 10px;font-size: x-small" required >
+  </div>
+
+  
+  
+   
+  
+  <div class="mb-3">
+     
+    <input id="peritaje_id" name="peritaje_id" type="hidden"  value={{$peritaje->id}} class="form-control" tabindex="3">
+  </div>
+  <a href="/vehiculos?placa={{$peritaje->vehiculo->placa}}&vehiculoindex=sm" class="btn btn-secondary" tabindex="5">Cancelar</a>
+  <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+</form>
+@endif
 
 @endsection

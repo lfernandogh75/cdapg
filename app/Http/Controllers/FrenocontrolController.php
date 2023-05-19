@@ -84,6 +84,8 @@ class FrenocontrolController extends Controller
         $frenocontrol->activo=0;
         $frenocontrol->observacion=$request->get('observacion');
         $frenocontrol->nivelaprobado=$request->get('nivelaprobado');
+        $frenocontrol->frenadototal=$request->get('frenadototal');
+        $frenocontrol->frenadoauxiliar=$request->get('frenadoauxiliar');
         $frenocontrol->save(); 
         $vehiculo=$peritaje->vehiculo;
         return view('vehiculo.index')->with(compact('vehiculo'));

@@ -25,7 +25,7 @@
 --}}
  
 @if(isset($vehiculo)) 
- SUSPENSION DEL VEHICULO : {{$vehiculo->placa}} <br/>
+ SUSPENSION MECANIZADA DEL VEHICULO : {{$vehiculo->placa}} <br/>
   @endif
   @if(isset($responsable))  
    
@@ -35,7 +35,7 @@
 
 @if(isset($vehiculo) && $suspensioncontrol->activo)
   
-<a href="{{ URL::to('/') }}/ssuspensions/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
+<a href="{{ URL::to('/') }}/ssuspensionms/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR PIEZA</a>
 
 
 <form action="{{ route('suspensioncontrol.update','suspension')}}" method="POST" class="formdesactivar">
@@ -68,16 +68,13 @@
 </div>
 @endif
 @endif
-  <table id="suspensions2" class="table table-dark table-striped mt-4">
+  <table id="suspensions1" class="table table-dark table-striped mt-4">
   <thead>
     <tr>
       {{--<th scope="col">ID</th>--}}
       <th scope="col">PIEZA DE SUSPENSION</th>
-      <th scope="col">ESTADO</th>
-      <th scope="col">PARA CAMBIO</th>
-      <th scope="col">OBSERVACIONES</th>
-      <th scope="col">PORCENTAJE</th>
-      <th scope="col">PERITO</th>
+      <th scope="col">PORCENTAJE  </th>
+      <th scope="col">PERITO  </th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -88,15 +85,12 @@
       
         {{--<td>{{$suspension->id}}</td>--}}
         <td>{{$suspension->suspensionpart->name}}</td>
-        <td>{{$suspension->estado}}</td>
-        <td>{{$suspension->cambio}}</td>
-        <td>{{$suspension->observaciones}}</td>
         <td>{{$suspension->porcentaje}}</td>
         <td>{{$suspension->perito}}</td>
         <td>
           @if($suspensioncontrol->activo) 
-        <form action="{{ route('ssuspensions.destroy',$suspension->id) }}" method="POST">
-          <a href="/ssuspensions/{{$suspension->id}}/edit" class="btn btn-info">Editar</a>         
+        <form action="{{ route('ssuspensionms.destroy',$suspension->id) }}" method="POST">
+          <a href="/ssuspensionms/{{$suspension->id}}/edit" class="btn btn-info">Editar</a>         
               @csrf
               @method('DELETE')
               @if(Auth::user()->role->nombre_rol=="superadmin")
@@ -106,8 +100,8 @@
           
          @endif
                    
-        </td> 
-            
+        </td>   
+   
     </tr>
     @endforeach
     @endif
@@ -115,7 +109,7 @@
 
 @if(isset($vehiculo))
         <p>
-         <a href="{{ URL::to('/') }}/ssuspensions/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR  PIEZA </a>
+         <a href="{{ URL::to('/') }}/ssuspensionms/create?id={{$vehiculo->peritaje_id}}" class="btn btn-primary"  >AGREGAR  PIEZA </a>
        
      @endif
 
@@ -133,7 +127,7 @@
 <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 <script>
   $(document).ready(function () {
-  $('#suspensions2').DataTable();
+  $('#suspensions1').DataTable();
 });
 </script>
 <script src="/js/marca_lineas.js">

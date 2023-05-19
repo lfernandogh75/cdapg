@@ -2206,7 +2206,7 @@ $inspectorcompresion[]=$compresion->perito;
     <tr>
     <th>
 
-
+      @if(isset($peritaje->motorcontrol->piezasmotors))
 <div class="col-10"   style="margin: 1em;   border: 1px solid; width: 350px">
 
 
@@ -2259,8 +2259,10 @@ Inspector:  {{$inspector}} <br/>
 
 
     </div>
+    @endif
     </th>
     <th>
+      @if(isset($peritaje->escanercontrol->escanerparts))
         <div class="col-10"   style="margin: 1em;   border: 1px solid; width: 350px">
 
 
@@ -2309,7 +2311,7 @@ Inspector:  {{$inspector}} <br/>
                 </div>
 
 
-
+@endif
     </th>
     </tr>
 </table>

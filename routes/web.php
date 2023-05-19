@@ -111,6 +111,7 @@ Route::resource('sexteriors','App\Http\Controllers\ExteriorController');
 Route::resource('sfluidos','App\Http\Controllers\FluidoController');
 Route::resource('sllantas','App\Http\Controllers\LlantaController');
 Route::resource('ssuspensions','App\Http\Controllers\SuspensionController');
+Route::resource('ssuspensionms','App\Http\Controllers\SuspensionmController');
 Route::resource('scompresions','App\Http\Controllers\CompresionController');
 Route::resource('sluzs','App\Http\Controllers\LuzController');
 Route::resource('sfrenos','App\Http\Controllers\FrenoController');

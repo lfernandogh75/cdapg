@@ -1,6 +1,7 @@
 @extends('layouts.plantillaperitaje')
 
 @section('contenido')
+@if(!isset($mecanizado))
 <h2>EDITAR PIEZA DE SUSPENSION</h2>
 
 <form action="/ssuspensions/{{$suspension->id}}" method="POST">
@@ -49,5 +50,33 @@
   <a href="/vehiculos?placa={{$suspension->suspensioncontrol->peritaje->vehiculo->placa}}&vehiculoindex=7" class="btn btn-secondary">Cancelar</a>
   <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
+ 
+    
+@else
+<h2>EDITAR PIEZA DE SUSPENSION</h2>
+
+<form action="/ssuspensionms/{{$suspension->id}}" method="POST">
+    @csrf    
+    @method('PUT')
+  <div class="mb-3">
+    <label for="" class="form-label">PIEZA</label>
+    <input id="pieza" name="pieza" type="text" class="form-control" value="{{$suspension->suspensionpart->name}}" disabled>    
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">PORCENTAJE</label>
+    <input id="porcentaje" name="porcentaje" type="number"   step="0" min="0" max="100" style="width : 80px; heigth : 10px;font-size: x-small" value="{{$suspension->porcentaje}}" required>    
+  </div>
+   
+   
+   
+  
+  
+  
+  <a href="/vehiculos?placa={{$suspension->suspensioncontrol->peritaje->vehiculo->placa}}&vehiculoindex=sm" class="btn btn-secondary">Cancelar</a>
+  <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+
+    
+@endif
 
 @endsection
