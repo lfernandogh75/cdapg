@@ -22,7 +22,7 @@
         }
         @font-face {
     font-family: letrablack;
-    src: url({{url('/css/Black.otf')}});}
+    src: url({{url('/css/SemiBold.otf')}});}
     @font-face {
     font-family: letralight;
     src: url({{url('/css/Light.otf')}});
@@ -30,7 +30,7 @@
 }
 @font-face {
     font-family: letraSemiBold;
-    src: url({{url('/css/SemiBold.otf')}});
+    src: url({{url('/css/Medium.otf')}});
 
 }
 th{
