@@ -66,7 +66,7 @@ strong{
     background-image: no-repeat;
     background-image: fixed;
     background-image: center;
-    margin-top: 350px;  
+    
     background-image:url({{url('/iconos/piedepagina.png')}});   
 }
 #t3{
@@ -75,7 +75,7 @@ strong{
     background-image: no-repeat;
     background-image: fixed;
     background-image: center;
-    margin-top: 100px;  
+  
     background-image:url({{url('/iconos/piedepagina.png')}});   
 }
     #titulo {
@@ -105,6 +105,20 @@ margin: 10px 30px 0px 20px;
   <table width="100%">
     <td width="80%">
         <p>N° INSPECCION {{$peritaje->id}}</p>
+        @if(isset($peritaje->vehiculo->placa))
+    <div   style=" border-top-width: 5px;
+     border-right-width: 5px;
+     border-bottom-width: 5px;
+     width: 100px;
+   height: 40px; 
+   font-weight: bold;
+   background-color:;
+    
+     border-left-width: 5px;  border-radius: 5px 5px 5px 5px;  border-color: rgba(11, 5, 0, 0.951); text-align:center; margin: 10px;">
+      
+    
+      {{ $peritaje->vehiculo->placa }}</div>
+      @endif
         <p style="font-size: small;">CERTIFICADO DE PERITAJE </p>
     <table   style="font-size: x-small; margin: 0 auto;"  >
                 <tr>
@@ -161,20 +175,7 @@ margin: 10px 30px 0px 20px;
 
 </td>
     <td width="20%" align="right">
-     @if(isset($peritaje->vehiculo->placa))
-    <div   style=" border-top-width: 5px;
-     border-right-width: 5px;
-     border-bottom-width: 5px;
-     width: 100px;
-   height: 40px; 
-   font-weight: bold;
-   background-color: #eafe39;
-    
-     border-left-width: 5px;  border-radius: 5px 5px 5px 5px;  border-color: rgba(11, 5, 0, 0.951); text-align:center;">
-      
-    
-      {{ $peritaje->vehiculo->placa }}</div>
-      @endif
+     
     </td>
   </table>
   <p style="font-size: small;">NOVEDADES EN LA INSPECCION</p>
@@ -368,7 +369,29 @@ text-align:center;
     </div>
 
 </div>
-<div id="t2"></div>
+ 
+
+
+@php 
+$ancho="margin-top: 300px;";
+if(isset($peritaje->paginadocontrol))
+{
+ 
+  foreach($peritaje->paginadocontrol->paginadoparts as $paginado)
+  {
+    if($paginado->nombre=="PIE DE PAGINA 1" && $paginado->valor!=0)
+        $ancho="margin-top: ".$paginado->valor."px;";
+  }
+
+ 
+}
+      @endphp
+
+<div style="{{ $ancho }}" id="t2"></div>
+
+
+
+
 
 <div style="page-break-after:always;"></div>
 
@@ -3163,7 +3186,29 @@ if(isset($peritaje->paginadocontrol))
     <p class="text-justify">EL DOCUMENTO NO TENDRÁ VALOR SI FALTA ALGUNA DE SUS PÁGINAS, YA QUE ESTE ES INTEGRAL.</p>
    
   </strong>
-    <div id="t3"></div>
+     
+
+    @php      
+    $ancho="margin-top: 550px;";
+    if(isset($peritaje->paginadocontrol))
+    {
+     
+      foreach($peritaje->paginadocontrol->paginadoparts as $paginado)
+      {
+        if($paginado->nombre=="PIE DE PAGINA 2" && $paginado->valor!=0)
+            $ancho="margin-top: ".$paginado->valor."px;";
+      }
+    
+     
+    }
+          @endphp
+    
+    <div style="{{ $ancho }}" id="t3"></div>
+
+
+
+
+
    <script>
      //   if (window.opener) {
          //   document.querySelector("#firma").src = window.opener.obtenerImagen();
@@ -3176,4 +3221,4 @@ if(isset($peritaje->paginadocontrol))
 </body>
 
 </html>
- 
+
