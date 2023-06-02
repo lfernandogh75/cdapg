@@ -429,6 +429,22 @@ if (isset($vehiculo) && $vehiculoindex=="escaner" ) {
 }
 }
 
+if (isset($vehiculo) && $vehiculoindex=="paginado" ) {
+    $peritaje=Peritaje::find($vehiculo->peritaje_id);
+    if (isset($peritaje->paginadocontrol)){
+      
+     $paginadocontrol=$peritaje->paginadocontrol;
+     $paginados=$paginadocontrol->paginadoparts;
+    return view('vehiculo.paginado')->with(compact('vehiculo','paginadocontrol','paginados')); 
+    }else{
+        return view('vehiculo.paginado')->with(compact('vehiculo'));
+}
+}
+
+
+
+
+
 if (isset($vehiculo) && $vehiculoindex=="vidrio" ) {
     $peritaje=Peritaje::find($vehiculo->peritaje_id);
     if (isset($peritaje->vidriocontrol)){

@@ -128,5 +128,9 @@ class Peritaje extends Model
         return $this->hasOne('App\Models\Escanercontrol');
         
     }
+    public function paginadocontrol(){
+        return $this->hasOne('App\Models\Paginadocontrol');
+        
+    }
     
 }

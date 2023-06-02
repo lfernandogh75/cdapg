@@ -39,8 +39,8 @@
     <option value="{{old('categoria')}}">{{old('categoria')}}</option>
     @endif
     <option value="TARJETA">TARJETA</option>
-    <option value="RECESION">RECESION</option>
-    <option value="IMPRONTAS">IMPRONTAS</option>
+    <option value="RECEPCION">RECEPCION</option>
+    <option value="OTRAS">OTRAS</option>
     <option value="LLANTAS">LLANTAS</option>
     <option value="LUCES">LUCES</option>
     <option value="PARTES BAJAS">PARTES BAJAS</option>

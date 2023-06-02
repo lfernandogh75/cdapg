@@ -20,10 +20,35 @@
              height:250px;
              
         }
+        @font-face {
+    font-family: letrablack;
+    src: url({{url('/css/Black.otf')}});}
+    @font-face {
+    font-family: letralight;
+    src: url({{url('/css/Light.otf')}});
+
+}
+@font-face {
+    font-family: letraSemiBold;
+    src: url({{url('/css/SemiBold.otf')}});
+
+}
+th{
+  font-family: letrablack;
+}
+body,td{
+  font-family: letraSemiBold;
+}
+
+strong{
+  font-family: letralight;
+  font-size: 0.9em;
+}
+
+
         .text-justify {
   text-align: justify;
 }
- 
 #t1{
   width: 900px;
   height: 180px;
@@ -57,16 +82,10 @@
        
 font: bold 10px auto, verdana, sans-serif;
  text-shadow: rgba(0,0,0,0.5) 4px 4px 6px;
-color: #00B1DD;
+color: ;
 margin: 10px 30px 0px 20px;
 }
-body{
-    background-image: no-repeat;
-background-image: fixed;
-background-image: center;
-    background-image:url({{url('/iconos/marcadeagua.jpg')}});
-   
-}
+ 
     </style>
      <title>INSPECCIÓN Nº  {{ $vehiculo->peritaje_id }} PLACA {{ $vehiculo->placa }}
       
@@ -77,7 +96,6 @@ background-image: center;
 </head>
  
 <body>
-    
     <div id="t1">
         
     </div>
@@ -88,7 +106,7 @@ background-image: center;
     <td width="80%">
         <p>N° INSPECCION {{$peritaje->id}}</p>
         <p style="font-size: small;">CERTIFICADO DE PERITAJE </p>
-    <table   style="font-size: xx-small; margin: 0 auto;"  >
+    <table   style="font-size: x-small; margin: 0 auto;"  >
                 <tr>
                    
                     <th align="left">FECHA:</th>
@@ -151,6 +169,7 @@ background-image: center;
    height: 40px; 
    font-weight: bold;
    background-color: #eafe39;
+    
      border-left-width: 5px;  border-radius: 5px 5px 5px 5px;  border-color: rgba(11, 5, 0, 0.951); text-align:center;">
       
     
@@ -159,8 +178,9 @@ background-image: center;
     </td>
   </table>
   <p style="font-size: small;">NOVEDADES EN LA INSPECCION</p>
-  <P class="text-justify" style="font-size: xx-small;  width: 550px;">{{$peritaje->cierre->observacion}}</p>
-    </div>
+  
+  <P class="text-justify" style="font-size: x-small;  width: 500px;">{{$peritaje->cierre->observacion}}</p>
+</div>
       <br>
    
     @if(isset($peritaje->vehiculo->placa) && isset($peritaje->tarjeta ))
@@ -174,92 +194,92 @@ background-image: center;
        
         
                
-            <table  style="font-size: xx-small; margin: 0 auto;" >
+            <table  style="font-size: x-small; margin: 0 auto;" >
                 <tr>
                    
-                    <th align="left"  bgcolor ="#00B1DD">PLACA:</th>
-                     <td>{{ $peritaje->vehiculo->placa}}</td>
-                    <th align="left"  bgcolor ="#00B1DD">NACIONALIDAD:</th>
-                     <td>{{ $peritaje->tarjeta->nacionalidad }}</td>
-                     <th align="left"  bgcolor ="#00B1DD">VEHICULO</th>
-                     <td>{{ $peritaje->vehiculo->clase_vehiculo }}</td>
+                    <th align="left"  style="border-bottom:1pt solid black;">PLACA:</th>
+                     <td align="left"  style="border-bottom:1pt solid black;">{{ $peritaje->vehiculo->placa}}</td>
+                    <th  align="left"  style="border-bottom:1pt solid black;">NACIONALIDAD:</th>
+                     <td align="left"  style="border-bottom:1pt solid black;">{{ $peritaje->tarjeta->nacionalidad }}</td>
+                     <th  align="left"  style="border-bottom:1pt solid black;">VEHICULO</th>
+                     <td align="left"  style="border-bottom:1pt solid black;">{{ $peritaje->vehiculo->clase_vehiculo }}</td>
                      
-                     <th align="left"  bgcolor="#00B1DD">SERVICIO</th>
-                     <td> {{$peritaje->tarjeta->servicio->nombre}}</td>
+                     <th align="left"  style="border-bottom:1pt solid black;">SERVICIO</th>
+                     <td align="left"  style="border-bottom:1pt solid black;"> {{$peritaje->tarjeta->servicio->nombre}}</td>
                     
                     
                 </tr>
                 
                 <tr>
-                    <th align="left" bgcolor ="#00B1DD">Nº LICENCIA</th>
-                    <td>{{ $peritaje->tarjeta->licencia}}</td>
-                    <th align="left"   bgcolor="#00B1DD">MODELO</th>
-                    <td>{{ $peritaje->tarjeta->modelo}}</td>
-                    <th align="left"  bgcolor="#00B1DD">COMBUSTIBLE</th>
-                    <td> {{$peritaje->tarjeta->combustible->nombre}}</td>
+                    <th  align="left"  style="border-bottom:1pt solid black;">Nº LICENCIA</th>
+                    <td align="left"  style="border-bottom:1pt solid black;">{{ $peritaje->tarjeta->licencia}}</td>
+                    <th  align="left"  style="border-bottom:1pt solid black;">MODELO</th>
+                    <td align="left"  style="border-bottom:1pt solid black;">{{ $peritaje->tarjeta->modelo}}</td>
+                    <th  align="left"  style="border-bottom:1pt solid black;">COMBUSTIBLE</th>
+                    <td align="left"  style="border-bottom:1pt solid black;"> {{$peritaje->tarjeta->combustible->nombre}}</td>
                   
-                   <th align="left"  bgcolor="#00B1DD">N MOTOR</th>
-                <td> {{$peritaje->tarjeta->numero_motor}}</td>
+                   <th  align="left"  style="border-bottom:1pt solid black;">N MOTOR</th>
+                <td align="left"  style="border-bottom:1pt solid black;"> {{$peritaje->tarjeta->numero_motor}}</td>
                   
                 </tr>
                 
                  <tr>
-                    <th align="left"  bgcolor ="#00B1DD">FECHA MATRICULA:</th>
-                    <td>{{ $peritaje->tarjeta->fecha_matricula}}</td>
-                    <th align="left"  bgcolor="#00B1DD">COLOR</th>
-                    <td> {{$peritaje->tarjeta->color->nombre}}</td>
-                    <th align="left"  bgcolor ="#00B1DD">KILOMETRAJE</th>
-                    <td>{{ $peritaje->vehiculo->km }}Km</td>
-                    <th align="left"  bgcolor="#00B1DD">N SERIE</th>
-                     <td> {{$peritaje->tarjeta->numero_serie}}</td>
+                    <th  align="left"  style="border-bottom:1pt solid black;">FECHA MATRICULA:</th>
+                    <td align="left"  style="border-bottom:1pt solid black;">{{ $peritaje->tarjeta->fecha_matricula}}</td>
+                    <th  align="left"  style="border-bottom:1pt solid black;">COLOR</th>
+                    <td align="left"  style="border-bottom:1pt solid black;"> {{$peritaje->tarjeta->color->nombre}}</td>
+                    <th  align="left"  style="border-bottom:1pt solid black;">KILOMETRAJE</th>
+                    <td align="left"  style="border-bottom:1pt solid black;">{{ $peritaje->vehiculo->km }}Km</td>
+                    <th  align="left"  style="border-bottom:1pt solid black;">N SERIE</th>
+                     <td align="left"  style="border-bottom:1pt solid black;"> {{$peritaje->tarjeta->numero_serie}}</td>
                 </tr>
                <tr>
-                <th align="left"  bgcolor ="#00B1DD">TIPO MOTOR:</th>
-                <td>{{ $peritaje->cierre->tipomotor}}</td>
-                <th align="left"  bgcolor="#00B1DD">MARCA</th>
-                <td> {{$peritaje->tarjeta->marca->nombre}}</td>
-                <th align="left"   bgcolor="#00B1DD">CILINDRADA CC</th>
-                   <td>{{ $peritaje->tarjeta->cilindrada}}</td>
+                <th  align="left"  style="border-bottom:1pt solid black;">TIPO MOTOR:</th>
+                <td align="left"  style="border-bottom:1pt solid black;">{{ $peritaje->cierre->tipomotor}}</td>
+                <th  align="left"  style="border-bottom:1pt solid black;">MARCA</th>
+                <td align="left"  style="border-bottom:1pt solid black;"> {{$peritaje->tarjeta->marca->nombre}}</td>
+                <th  align="left"  style="border-bottom:1pt solid black;">CILINDRADA CC</th>
+                   <td align="left"  style="border-bottom:1pt solid black;">{{ $peritaje->tarjeta->cilindrada}}</td>
                   
-                   <th align="left"  bgcolor="#00B1DD">N VIN</th>
-                   <td> {{$peritaje->tarjeta->numero_vin}}</td>
+                   <th  align="left"  style="border-bottom:1pt solid black;">N VIN</th>
+                   <td align="left"  style="border-bottom:1pt solid black;"> {{$peritaje->tarjeta->numero_vin}}</td>
                
                
                </tr>  
 
                <tr>
-                <th align="left"  bgcolor ="#00B1DD">TIPO DE CAJA</th>
-                <td>{{ $peritaje->cierre->tipocaja}}</td>
-                <th align="left"   bgcolor="#00B1DD">LINEA</th>
-                <td> {{$peritaje->tarjeta->linea->nombre}}</td>
+                <th  align="left"  style="border-bottom:1pt solid black;">TIPO DE CAJA</th>
+                <td align="left"  style="border-bottom:1pt solid black;">{{ $peritaje->cierre->tipocaja}}</td>
+                <th  align="left"  style="border-bottom:1pt solid black;">LINEA</th>
+                <td align="left"  style="border-bottom:1pt solid black;"> {{$peritaje->tarjeta->linea->nombre}}</td>
                 
-                     <th align="left"  bgcolor="#00B1DD">CAPACIDAD</th>
-                     <td> {{$peritaje->tarjeta->capacidad}}</td>
+                     <th  align="left"  style="border-bottom:1pt solid black;">CAPACIDAD</th>
+                     <td align="left"  style="border-bottom:1pt solid black;"> {{$peritaje->tarjeta->capacidad}}</td>
                
-                <th align="left"  bgcolor="#00B1DD">N CHASIS</th>
-                <td> {{$peritaje->tarjeta->numero_chasis}}</td>
+                <th  align="left"  style="border-bottom:1pt solid black;">N CHASIS</th>
+                <td align="left"  style="border-bottom:1pt solid black;"> {{$peritaje->tarjeta->numero_chasis}}</td>
                </tr>
                <tr>
-                <th align="left"  bgcolor ="#00B1DD">MATRICULADO EN:</th>
-                <td>{{ $peritaje->tarjeta->matriculado}}</td>
-                <th align="left"   bgcolor="#00B1DD">PROPIETARIO:</th>
-                <td> {{$peritaje->tarjeta->propietario}}</td>
+                <th  align="left"  style="border-bottom:1pt solid black;">MATRICULADO EN:</th>
+                <td align="left"  style="border-bottom:1pt solid black;">{{ $peritaje->tarjeta->matriculado}}</td>
+                <th  align="left"  style="border-bottom:1pt solid black;">PROPIETARIO:</th>
+                <td align="left"  style="border-bottom:1pt solid black;"> {{$peritaje->tarjeta->propietario}}</td>
                 
-                     <th align="left"   bgcolor="#00B1DD">IDENTIFICACION:</th>
-                     <td> {{$peritaje->tarjeta->identificacion_propietario}}</td>
+                     <th  align="left"  style="border-bottom:1pt solid black;">IDENTIFICACION:</th>
+                     <td align="left"  style="border-bottom:1pt solid black;"> {{$peritaje->tarjeta->identificacion_propietario}}</td>
                
-                <th align="left"  bgcolor="#00B1DD">TIPO PINTURA</th>
-                <td> {{$peritaje->cierre->tipopintura}}</td>
+                <th  align="left"  style="border-bottom:1pt solid black;">TIPO PINTURA</th>
+                <td align="left"  style="border-bottom:1pt solid black;"> {{$peritaje->cierre->tipopintura}}</td>
                </tr>
                <tr>
-                <th  align="left"  colspan="3" bgcolor ="#00B1DD">FECHA VENCIMIENTO CERTIFICACO GNVC:</th>
+                <th  align="left"  colspan="3" bgcolor ="">FECHA VENCIMIENTO CERTIFICACO GNVC:</th>
                 <td>{{ $peritaje->cierre->gnvc}}</td>
                 
                 
-                     <th align="left"   bgcolor="#00B1DD">BLINDADO:</th>
+                     <th align="left"   bgcolor="">BLINDADO:</th>
                      <td> {{$peritaje->cierre->blindado}}</td>
                
-                <th align="left"  bgcolor="#00B1DD">POLARIZADO:</th>
+                <th align="left"  bgcolor="">POLARIZADO:</th>
                 <td> {{$peritaje->cierre->polarizado}}</td>
                </tr>
                
@@ -283,8 +303,8 @@ background-image: center;
 
 <div style=" border-top-width: 20px;
 border-right-width: thin;
-border-bottom-width: thin;  
-border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1DD;">
+border-bottom-width: thin; 
+border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: ;">
 
 
 <p style="font-size:10px;
@@ -292,8 +312,8 @@ margin-top:-19px;
  margin-left:30px;">TARJETA DE PROPIEDAD</p>
 <br>
 <table style="margin: 0 auto;">
-<td  align="center"  width="400px">   <img src="{{ url('imagen/'.$fotos[0]->imagen)}}" width="350px" height="300px"></td>
-<td align="center"  width="400px"> <img src="{{ url('imagen/'.$fotos[1]->imagen)}}"  width="350px" height="300px"></td>
+<td  align="center"  width="300px">   <img src="{{ url('imagen/'.$fotos[0]->imagen)}}" width="250px" height="200px"></td>
+<td align="center"  width="300px"> <img src="{{ url('imagen/'.$fotos[1]->imagen)}}"  width="250px" height="200px"></td>
 
 </table>
 
@@ -309,10 +329,10 @@ margin-top:-19px;
 <div style=" border-top-width: 20px;
      border-right-width: thin;
     border-bottom-width: thin;  
-    border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1DD;">
+    border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: ;">
 
     
-    <p style="font-size: xx-small;
+    <p style="font-size: x-small;
     font-size:10px;
      margin-top:-19px;
       margin-left:30px;">IMPRONTAS DEL VEHICULO</p>
@@ -321,7 +341,7 @@ margin-top:-19px;
     border-right-width: thin;
     border-bottom-width: thin; 
    
-    border-left-width: 1em;  border-radius: 5px 5px 5px 5px;  border-color:#00B1DD;">
+    border-left-width: 1em;  border-radius: 5px 5px 5px 5px;  border-color:;">
 
     
 <p style=" 
@@ -336,7 +356,7 @@ text-align:center;
     border-right-width: thin;
     border-bottom-width: thin; 
    
-    border-left-width: 1em;  border-radius: 5px 5px 5px 5px;  border-color:#00B1DD;">
+    border-left-width: 1em;  border-radius: 5px 5px 5px 5px;  border-color:;">
 
     
 <p style=" 
@@ -349,7 +369,10 @@ text-align:center;
 
 </div>
 <div id="t2"></div>
-    <div style="page-break-after:always;"></div>
+
+<div style="page-break-after:always;"></div>
+
+
 
 
 
@@ -358,7 +381,7 @@ text-align:center;
       @if(isset($peritaje->fotocontrol->fotoparts))
  @php ($fotos = []) @endphp
  @foreach($peritaje->fotocontrol->fotoparts as $foto) 
-             @if($foto->categoria=="RECESION")
+             @if($foto->categoria=="RECEPCION")
               @php $fotos[]=$foto @endphp
                @endif              
 @endforeach
@@ -367,14 +390,14 @@ text-align:center;
       <div class="col-11"  style=" border-top-width: 20px;
       border-right-width: thin;
      border-bottom-width: thin;  
-     border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1DD;">
+     border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: ;">
   
       
           <p style="font-size:10px;
           margin-top:-19px;
            margin-left:30px;"> REGISTRO FOTOGRAFICO</p>
-      <table width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
-          <tr bgcolor="#00B1DD">
+      <table  width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
+          <tr>
       
           </tr>
          
@@ -383,8 +406,8 @@ text-align:center;
       $c=count($foto)-1; @endphp
      @if($c==0)
    
-     <td>{{ $foto[0]->fotopart->name }}<br>
-         <img class="cssimagen" src="{{ url('imagen/'.$foto[0]->imagen)}}">
+     <td align="center"  width="300px">{{ $foto[0]->fotopart->name }}<br>
+         <img  src="{{ url('imagen/'.$foto[0]->imagen)}}" width="250px" height="200px">
          <br>
                     {{ $foto[0]->observacion }}
         </td>
@@ -395,24 +418,24 @@ text-align:center;
        <tr>
                 @if($i%2==0)  
          {{--     <td>{{ $foto[$i]->fotopart->name }}</td> --}}
-              <td>{{ $foto[$i]->fotopart->name }}<br>
-                     <img class="cssimagen" src="{{ url('imagen/'.$foto[$i]->imagen)}}" >
+              <td align="center"  width="300px">{{ $foto[$i]->fotopart->name }}<br>
+                     <img   src="{{ url('imagen/'.$foto[$i]->imagen)}}" width="250px" height="200px" >
                     <br>
                     {{ $foto[$i]->observacion }}
                 </td>
           
               @endif
             @if(($i+1)%2!=0)
-              <td>{{ $foto[$i+1]->fotopart->name }}<br>
-                     <img class="cssimagen" src="{{ url('imagen/'.$foto[$i+1]->imagen)}}" >
+              <td align="center"  width="300px">{{ $foto[$i+1]->fotopart->name }}<br>
+                     <img  src="{{ url('imagen/'.$foto[$i+1]->imagen)}}" width="250px" height="200px" >
                      <br>
                     {{ $foto[$i+1]->observacion }}</td>
               @endif     
           </tr>
           @endfor
           @if($c%2==0)
-              <td>{{ $foto[$c]->fotopart->name }}<br>
-                     <img class="cssimagen" src="{{ url('./imagen/'.$foto[$c]->imagen)}}" >
+              <td align="center"  width="300px">{{ $foto[$c]->fotopart->name }}<br>
+                     <img   src="{{ url('./imagen/'.$foto[$c]->imagen)}}" width="250px" height="200px">
                      <br>
                     {{ $foto[$c]->observacion }}</td>
               @endif
@@ -425,24 +448,39 @@ text-align:center;
   {{--fin de registro fotografico--}}
 
 
-  <div style="page-break-after:always;"></div>
+  @php 
+if(isset($peritaje->paginadocontrol))
+{
+  $activochasis=0;
+  foreach($peritaje->paginadocontrol->paginadoparts as $paginado)
+  {
+    if(($paginado->nombre=="REGISTRO FOTOGRAFICO"||$paginado->nombre=="LATONERIA") && $paginado->activo==1)
+       $activochasis=1;
+  }
+
+ if($activochasis)
+      echo "<div style='page-break-after:always;'></div>";
+}
+      @endphp
 
   {{-- inicio de latoneria o carroceria--}}
   @if(isset($peritaje->latoneriacontrol))
   <div class="col-11"  style=" border-top-width: 20px;
   border-right-width: thin;
  border-bottom-width: thin;  
- border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1DD;">
+ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: ;">
 
   @if($peritaje->latoneriacontrol->nivelaprobado!=0)
-  <p>LATONERIA O CARROCERIA {{$peritaje->latoneriacontrol->nivelaprobado}}%</p>
+  <p style="font-size:10px;
+  margin-top:-19px;
+   margin-left:30px;">LATONERIA O CARROCERIA {{$peritaje->latoneriacontrol->nivelaprobado}}%</p>
 @else
 <p style="font-size:10px;
 margin-top:-19px;
  margin-left:30px;">LATONERIA O CARROCERIA</p>
 @endif
 
-<table   style="font-size: xx-small; margin: 0 auto;" >
+<table   style="font-size: x-small; margin: 0 auto;" >
 
 <tr>
 <th>
@@ -452,14 +490,12 @@ margin-top:-19px;
 @if(isset($peritaje->latoneriacontrol->latoneriaparts))
 <div class="col-10"   style=" width: 320px; border: 1px solid;">
 <p > VISTA IZQUIERDA</p>
-<table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#00B1DD">
+<table   style="font-size: x-small; margin: 0 auto;">
+<tr bgcolor=""  style="border:1pt solid black;">
 
 <th>PIEZA</th>
 <th>ESTADO</th>
 <th>OBSERVACION</th>
-
-
 
 </tr>
 @foreach($peritaje->latoneriacontrol->latoneriaparts as $latoneria)
@@ -468,10 +504,9 @@ margin-top:-19px;
 $inspectorcarroceria[]=$latoneria->perito;
 @endphp
 <tr>
-<td  align="left">{{ $latoneria->latoneriapart->name }}</td>
-<td  align="left">{{ $latoneria->estado }}</td>
-<td  align="left">{{ $latoneria->observaciones }}</td>
-
+<td   align="left"  style="border-bottom:1pt solid black;">{{ $latoneria->latoneriapart->name }}</td>
+<td  align="left"  style="border-bottom:1pt solid black;">{{ $latoneria->estado }}</td>
+<td align="left"  style="border-bottom:1pt solid black;">{{ $latoneria->observaciones }}</td>
 
 </tr>
 @endif
@@ -481,7 +516,7 @@ $inspectorcarroceria[]=$latoneria->perito;
 
 
 
-
+<br>
 
 
 
@@ -496,13 +531,12 @@ $inspectorcarroceria[]=$latoneria->perito;
 @if(isset($peritaje->latoneriacontrol->latoneriaparts))
 <div class="col-10"   style=" width: 320px; border: 1px solid;">
 <p> VISTA DERECHA </p>
-<table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#00B1DD">
+<table   style="font-size: x-small; margin: 0 auto;">
+<tr bgcolor=""  style="border:1pt solid black;">
 
 <th>PIEZA</th>
 <th>ESTADO</th>
 <th>OBSERVACION</th>
-
 
 </tr>
 @foreach($peritaje->latoneriacontrol->latoneriaparts as $latoneria)
@@ -511,10 +545,9 @@ $inspectorcarroceria[]=$latoneria->perito;
 $inspectorcarroceria[]=$latoneria->perito;
 @endphp
 <tr>
-<td align="left">{{ $latoneria->latoneriapart->name }}</td>
-<td align="left">{{ $latoneria->estado }}</td>
-<td align="left">{{ $latoneria->observaciones }}</td>
-
+<td align="left"  style="border-bottom:1pt solid black;">{{ $latoneria->latoneriapart->name }}</td>
+<td align="left"  style="border-bottom:1pt solid black;">{{ $latoneria->estado }}</td>
+<td align="left"  style="border-bottom:1pt solid black;">{{ $latoneria->observaciones }}</td>
 
 </tr>
 @endif
@@ -523,7 +556,7 @@ $inspectorcarroceria[]=$latoneria->perito;
 
 
 
-
+<br>
 
 
 
@@ -546,8 +579,8 @@ $inspectorcarroceria[]=$latoneria->perito;
 @if(isset($peritaje->latoneriacontrol->latoneriaparts))
 <div class="col-10"   style=" width: 320px;  border: 1px solid;">
 <p> VISTA POSTERIOR</p>
-<table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#00B1DD">
+<table   style="font-size: x-small; margin: 0 auto;">
+<tr bgcolor=""  style="border:1pt solid black;">
   
    <th>PIEZA</th>
    <th>ESTADO</th>
@@ -561,10 +594,9 @@ $inspectorcarroceria[]=$latoneria->perito;
 $inspectorcarroceria[]=$latoneria->perito;
 @endphp
 <tr>
-   <td align="left">{{ $latoneria->latoneriapart->name }}</td>
-   <td align="left">{{ $latoneria->estado }}</td>
-   <td align="left">{{ $latoneria->observaciones }}</td>
-   
+   <td align="left"  style="border-bottom:1pt solid black;">{{ $latoneria->latoneriapart->name }}</td>
+   <td align="left"  style="border-bottom:1pt solid black;">{{ $latoneria->estado }}</td>
+   <td align="left"  style="border-bottom:1pt solid black;">{{ $latoneria->observaciones }}</td>
     
 </tr>
 @endif
@@ -573,7 +605,7 @@ $inspectorcarroceria[]=$latoneria->perito;
 
 
 
-
+<br>
 
 
 
@@ -589,8 +621,8 @@ $inspectorcarroceria[]=$latoneria->perito;
 @if(isset($peritaje->latoneriacontrol->latoneriaparts))
 <div class="col-10"   style=" width: 320px;  border: 1px solid;">
 <p> VISTA FRONTAL </p>
-<table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#00B1DD">
+<table   style="font-size: x-small; margin: 0 auto;">
+<tr bgcolor=""  style="border:1pt solid black;">
 
  <th>PIEZA</th>
  <th>ESTADO</th>
@@ -604,9 +636,9 @@ $inspectorcarroceria[]=$latoneria->perito;
 $inspectorcarroceria[]=$latoneria->perito;
 @endphp
 <tr>
- <td align="left">{{ $latoneria->latoneriapart->name }}</td>
- <td align="left">{{ $latoneria->estado }}</td>
- <td align="left">{{ $latoneria->observaciones }}</td>
+ <td align="left"  style="border-bottom:1pt solid black;">{{ $latoneria->latoneriapart->name }}</td>
+ <td align="left"  style="border-bottom:1pt solid black;">{{ $latoneria->estado }}</td>
+ <td align="left"  style="border-bottom:1pt solid black;">{{ $latoneria->observaciones }}</td>
  
   
 </tr>
@@ -615,7 +647,7 @@ $inspectorcarroceria[]=$latoneria->perito;
 </table>
 
 
-
+<br>
 
 
 
@@ -630,9 +662,9 @@ $inspectorcarroceria[]=$latoneria->perito;
   </tr>
 </table> 
 
- 
+  
+<P class="text-justify" style="font-size: x-small;   margin: 10px;">{{$peritaje->latoneriacontrol->observacion}}</p>
 
-<P class="text-justify" style="font-size: xx-small;  margin: 10px;">OBSERVACIONES: {{$peritaje->latoneriacontrol->observacion}}</p>
    
       {{--registro fotografico--}}
    
@@ -650,7 +682,7 @@ $inspectorcarroceria[]=$latoneria->perito;
       
          
       <table width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
-          <tr bgcolor="#00B1DD">
+          <tr>
       
           </tr>
          
@@ -701,12 +733,11 @@ $inspectorcarroceria[]=$latoneria->perito;
   {{--fin de registro fotografico--}}
 
 
-
-
-@php
+  @php
+           $inspectorcarroceria[]=$peritaje->latoneriacontrol->user->name;
            $inspectorcarroceria=array_unique($inspectorcarroceria); 
          @endphp
-          <p class="text-justify" style="font-size: xx-small;  margin: 10px;" >
+          <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
          @foreach ($inspectorcarroceria as $inspector )
        Inspector:  {{$inspector}} <br/>
          @endforeach
@@ -714,29 +745,49 @@ $inspectorcarroceria[]=$latoneria->perito;
 
 
   </div>
+  <br>
   @endif
 
 
 
     {{--fin de latoneria y carroceria--}}
 
-<br>
+ 
+@php 
+if(isset($peritaje->paginadocontrol))
+{
+  $activochasis=0;
+  foreach($peritaje->paginadocontrol->paginadoparts as $paginado)
+  {
+    if($paginado->nombre=="PINTURA" && $paginado->activo==1)
+       $activochasis=1;
+  }
+
+ if($activochasis)
+      echo "<div style='page-break-after:always;'></div>";
+}
+      @endphp
+
+
+
 {{-- inicio de pintura--}}
 @if(isset($peritaje->pinturacontrol))
 <div class="col-11"  style=" border-top-width: 20px;
 border-right-width: thin;
 border-bottom-width: thin;  
-border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1DD;">
+border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: ;">
 
 @if($peritaje->pinturacontrol->nivelaprobado!=0)
-<p>PINTURA {{$peritaje->pinturacontrol->nivelaprobado}}%</p>
+<p style="font-size:10px;
+margin-top:-19px;
+ margin-left:30px;">PINTURA {{$peritaje->pinturacontrol->nivelaprobado}}%</p>
 @else
 <p style="font-size:10px;
 margin-top:-19px;
 margin-left:30px;">PINTURA</p>
 @endif
 
-<table   style="font-size: xx-small; margin: 0 auto;" >
+<table   style="font-size: x-small; margin: 0 auto;" >
 
 <tr>
 <th>
@@ -746,8 +797,8 @@ margin-left:30px;">PINTURA</p>
 @if(isset($peritaje->pinturacontrol->latoneriaparts))
 <div class="col-10"   style=" width: 320px; border: 1px solid;">
 <p > VISTA IZQUIERDA</p>
-<table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#00B1DD">
+<table   style="font-size: x-small; margin: 0 auto;">
+<tr bgcolor=""  style="border:1pt solid black;">
 
 <th>PIEZA</th>
 <th>ESTADO</th>
@@ -762,9 +813,9 @@ margin-left:30px;">PINTURA</p>
      $inspectorpintura[]=$pintura->perito;
  @endphp
 <tr>
-<td  align="left">{{ $pintura->latoneriapart->name }}</td>
-<td  align="left">{{ $pintura->estado }}</td>
-<td  align="left">{{ $pintura->observaciones }}</td>
+<td  align="left"  style="border-bottom:1pt solid black;">{{ $pintura->latoneriapart->name }}</td>
+<td  align="left"  style="border-bottom:1pt solid black;">{{ $pintura->estado }}</td>
+<td  align="left"  style="border-bottom:1pt solid black;">{{ $pintura->observaciones }}</td>
 
 
 </tr>
@@ -790,8 +841,8 @@ margin-left:30px;">PINTURA</p>
 @if(isset($peritaje->pinturacontrol->latoneriaparts))
 <div class="col-10"   style=" width: 320px; border: 1px solid;">
 <p> VISTA DERECHA </p>
-<table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#00B1DD">
+<table   style="font-size: x-small; margin: 0 auto;">
+<tr bgcolor=""  style="border:1pt solid black;">
 
 <th>PIEZA</th>
 <th>ESTADO</th>
@@ -805,9 +856,9 @@ margin-left:30px;">PINTURA</p>
      $inspectorpintura[]=$pintura->perito;
  @endphp
 <tr>
-<td align="left">{{ $pintura->latoneriapart->name }}</td>
-<td align="left">{{ $pintura->estado }}</td>
-<td align="left">{{ $pintura->observaciones }}</td>
+<td align="left"  style="border-bottom:1pt solid black;">{{ $pintura->latoneriapart->name }}</td>
+<td align="left"  style="border-bottom:1pt solid black;">{{ $pintura->estado }}</td>
+<td align="left"  style="border-bottom:1pt solid black;">{{ $pintura->observaciones }}</td>
 
 
 </tr>
@@ -840,8 +891,8 @@ margin-left:30px;">PINTURA</p>
 @if(isset($peritaje->pinturacontrol->latoneriaparts))
 <div class="col-10"   style=" width: 320px;  border: 1px solid;">
 <p> VISTA POSTERIOR</p>
-<table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#00B1DD">
+<table   style="font-size: x-small; margin: 0 auto;">
+<tr bgcolor=""  style="border:1pt solid black;">
 
  <th>PIEZA</th>
  <th>ESTADO</th>
@@ -855,9 +906,9 @@ margin-left:30px;">PINTURA</p>
      $inspectorpintura[]=$pintura->perito;
  @endphp
 <tr>
- <td align="left">{{ $pintura->latoneriapart->name }}</td>
- <td align="left">{{ $pintura->estado }}</td>
- <td align="left">{{ $pintura->observaciones }}</td>
+ <td align="left"  style="border-bottom:1pt solid black;">{{ $pintura->latoneriapart->name }}</td>
+ <td align="left"  style="border-bottom:1pt solid black;">{{ $pintura->estado }}</td>
+ <td align="left"  style="border-bottom:1pt solid black;">{{ $pintura->observaciones }}</td>
  
   
 </tr>
@@ -883,8 +934,8 @@ margin-left:30px;">PINTURA</p>
 @if(isset($peritaje->pinturacontrol->latoneriaparts))
 <div class="col-10"   style=" width: 320px;  border: 1px solid;">
 <p> VISTA FRONTAL </p>
-<table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#00B1DD">
+<table   style="font-size: x-small; margin: 0 auto;">
+<tr bgcolor=""  style="border:1pt solid black;">
 
 <th>PIEZA</th>
 <th>ESTADO</th>
@@ -898,9 +949,9 @@ margin-left:30px;">PINTURA</p>
      $inspectorpintura[]=$pintura->perito;
  @endphp
 <tr>
-<td align="left">{{ $pintura->latoneriapart->name }}</td>
-<td align="left">{{ $pintura->estado }}</td>
-<td align="left">{{ $pintura->observaciones }}</td>
+<td align="left"  style="border-bottom:1pt solid black;">{{ $pintura->latoneriapart->name }}</td>
+<td align="left"  style="border-bottom:1pt solid black;">{{ $pintura->estado }}</td>
+<td align="left"  style="border-bottom:1pt solid black;">{{ $pintura->observaciones }}</td>
 
  
 </tr>
@@ -926,7 +977,7 @@ margin-left:30px;">PINTURA</p>
 
 
 
-<P class="text-justify" style="font-size: xx-small;  margin: 10px;">{{$peritaje->pinturacontrol->observacion}}</p>
+<P class="text-justify" style="font-size: x-small;  margin: 10px;">{{$peritaje->pinturacontrol->observacion}}</p>
  
     {{--registro fotografico--}}
  
@@ -944,7 +995,7 @@ margin-left:30px;">PINTURA</p>
     
        
     <table width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
-        <tr bgcolor="#00B1DD">
+        <tr>
     
         </tr>
        
@@ -996,9 +1047,10 @@ margin-left:30px;">PINTURA</p>
 
 
 @php
+$inspectorpintura[]=$peritaje->pinturacontrol->user->name;
 $inspectorpintura=array_unique($inspectorpintura); 
 @endphp
-<p class="text-justify" style="font-size: xx-small;  margin: 10px;" >
+<p class="text-justify" style="font-size: x-small;  margin: 10px;" >
 @foreach ($inspectorpintura as $inspector )
 Inspector:  {{$inspector}} <br/>
 @endforeach
@@ -1006,6 +1058,7 @@ Inspector:  {{$inspector}} <br/>
 
 
 </div>
+<br>
 @endif
 
 
@@ -1013,9 +1066,200 @@ Inspector:  {{$inspector}} <br/>
   {{--fin de pintura--}}
 
 
+@php 
+if(isset($peritaje->paginadocontrol))
+{
+  $activochasis=0;
+  foreach($peritaje->paginadocontrol->paginadoparts as $paginado)
+  {
+    if($paginado->nombre=="VIDRIOS" && $paginado->activo==1)
+       $activochasis=1;
+  }
+
+ if($activochasis)
+      echo "<div style='page-break-after:always;'></div>";
+}
+@endphp
+
+{{--inicio de vidrios--}}
+@if(isset($peritaje->vidriocontrol->vidrioparts))
+
+<div  class="col-10" style=" border-top-width: 20px;
+border-right-width: thin;
+border-bottom-width: thin;  
+border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: ;">
+ <table   style="font-size: x-small;width: 100%; margin: 0 auto;" >
+    
+  <tr>
+  <th>
 
 
-{{--chasis y suspension--}}
+
+
+  </th>
+  <th>
+    @if(isset($peritaje->vidriocontrol->vidrioparts))
+    <div class="col-10"   style="  margin: 1em;  border: 1px solid;">
+   @if($peritaje->vidriocontrol->nivelaprobado!=0)
+      <p> REVISION DE VIDRIOS {{$peritaje->vidriocontrol->nivelaprobado}}%</p>
+   
+       
+   @else
+   <p> REVISION DE VIDRIOS</p>
+   @endif
+    <table   style="font-size: x-small; margin: 0 auto;">
+        <tr bgcolor=""  style="border:1pt solid black;">
+           
+            <th>PIEZA</th>
+            <th>ESTADO</th>
+            <th>OBSERVACION</th>
+        {{--    <th>TIPO</th>
+            <th>OBSERVACION</th>--}}
+   
+        </tr>
+        @foreach($peritaje->vidriocontrol->vidrioparts as $vidrio)
+        <tr>
+          @php
+     $inspectorvidrio[]=$vidrio->perito;
+      @endphp
+            <td align="left"  style="border-bottom:1pt solid black;">{{ $vidrio->vidriopart->name }}</td>
+            <td align="left"  style="border-bottom:1pt solid black;">{{ $vidrio->estado }}</td>
+            <td align="left"  style="border-bottom:1pt solid black;">{{ $vidrio->observaciones }}</td>
+         {{--  <td>{{ $esterior->tipo }}</td>
+            <td>{{ $esterior->observaciones }}</td>--}}
+             
+        </tr>
+        @endforeach
+    </table>
+   
+   
+     
+       
+    <P class="text-justify" style="font-size: x-small; margin: 10px;">{{$peritaje->vidriocontrol->observacion}}</p>
+      
+      @php
+      $inspectorvidrio[]=$peritaje->vidriocontrol->user->name;
+      $inspectorvidrio=array_unique($inspectorvidrio); 
+    @endphp
+     <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
+    @foreach ($inspectorvidrio as $inspector )
+  Inspector:  {{$inspector}} <br/>
+    @endforeach
+     </p> 
+   
+   
+   
+               </div>
+               @endif
+
+      </th>
+  </tr>
+
+{{--registro fotografico vidrios--}}
+  
+@if(isset($peritaje->fotocontrol->fotoparts))
+@php ($fotos = []) @endphp
+@foreach($peritaje->fotocontrol->fotoparts as $foto) 
+            @if($foto->categoria=="VIDRIOS")
+             @php $fotos[]=$foto @endphp
+              @endif              
+@endforeach
+@if(count($fotos)>0)
+
+     <div class="col-11">
+ 
+     
+        
+     <table width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
+         <tr>
+     
+         </tr>
+        
+       
+      @php  $foto=$fotos;
+     $c=count($foto)-1; @endphp
+    @if($c==0)
+  
+    <td> 
+        <img class="cssimagen" src="{{ url('imagen/'.$foto[0]->imagen)}}">
+        <br>
+                   {{ $foto[0]->observacion }}
+       </td>
+   
+    @else
+      @for($i=0;$i<$c;$i++)
+     
+      <tr>
+               @if($i%2==0)  
+        {{--     <td>{{ $foto[$i]->fotopart->name }}</td> --}}
+             <td> 
+                    <img class="cssimagen" src="{{ url('imagen/'.$foto[$i]->imagen)}}" >
+                   <br>
+                   {{ $foto[$i]->observacion }}
+               </td>
+         
+             @endif
+           @if(($i+1)%2!=0)
+             <td> 
+                    <img class="cssimagen" src="{{ url('imagen/'.$foto[$i+1]->imagen)}}" >
+                    <br>
+                   {{ $foto[$i+1]->observacion }}</td>
+             @endif     
+         </tr>
+         @endfor
+         @if($c%2==0)
+             <td> 
+                    <img class="cssimagen" src="{{ url('./imagen/'.$foto[$c]->imagen)}}" >
+                    <br>
+                   {{ $foto[$c]->observacion }}</td>
+             @endif
+       @endif
+     </table> 
+     </div>
+     @endif
+     @endif
+ 
+ {{--fin de registro fotografico de fuga y niveles--}}
+
+
+</table> 
+
+
+</div>
+<br>
+@endif
+{{--fin de vidrios --}}
+
+
+
+
+
+
+
+
+@php 
+if(isset($peritaje->paginadocontrol))
+{
+  $activochasis=0;
+  foreach($peritaje->paginadocontrol->paginadoparts as $paginado)
+  {
+    if($paginado->nombre=="CHASIS Y PARTES BAJAS"&& $paginado->activo==1)
+       $activochasis=1;
+  }
+
+ if($activochasis)
+      echo "<div style='page-break-after:always;'></div>";
+}
+@endphp
+
+
+
+{{--chasis y partes bajas--}}
+@if(isset($peritaje->chasiscontrol->chasisparts))
+<div class="col-10" style=" border-top-width: 20px;
+border-right-width: thin;
+border-bottom-width: thin;  
+border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: ;">
 <br>
 <table   style="font-size: small;margin: 0 auto; width: 100%; " >
      
@@ -1024,18 +1268,15 @@ Inspector:  {{$inspector}} <br/>
 
 
         
-@if(isset($peritaje->chasiscontrol->chasisparts))
-<div class="col-10" style=" border-top-width: 20px;
-border-right-width: thin;
-border-bottom-width: thin;  
-border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1DD;">
+
+<div   class="col-10"  style=" margin: 1em;  border: 1px solid;">
 @if($peritaje->chasiscontrol->nivelaprobado!=0)
     <p> CHASIS {{$peritaje->chasiscontrol->nivelaprobado}}%</p>  
 @else
 <p> CHASIS</p>
 @endif
-    <table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#00B1DD">
+    <table   style="font-size: x-small; margin: 0 auto;">
+<tr bgcolor=""  style="border:1pt solid black;">
    
     <th>PIEZA</th>
     <th>ESTADO</th>
@@ -1046,25 +1287,87 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1
 </tr>
 @foreach($peritaje->chasiscontrol->chasisparts as $chasis)
 @php
-$inspectorchasis[]=$chasis->perito;
-@endphp
+     $inspectorchasis[]=$chasis->perito;
+ @endphp
 <tr>
-    <td align="left">{{ $chasis->chasispart->name }}</td>
-    <td align="left">{{ $chasis->estado }}</td>
-    <td align="left">{{ $chasis->observaciones}}</td>
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $chasis->chasispart->name }}</td>
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $chasis->estado }}</td>
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $chasis->observaciones}}</td>
  {{--  <td>{{ $esterior->tipo }}</td>
     <td>{{ $esterior->observaciones }}</td>--}}
      
 </tr>
 @endforeach
  
+</table>
+<P class="text-justify" style="font-size: x-small;   margin: 10px;">{{$peritaje->chasiscontrol->observacion}}</p>
+    @php
+     $inspectorchasis[]=$peritaje->chasiscontrol->user->name;
+    $inspectorchasis=array_unique($inspectorchasis); 
+  @endphp
+   <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
+  @foreach ($inspectorchasis as $inspector )
+Inspector:  {{$inspector}} <br/>
+  @endforeach
+   </p> 
+</th>
+<th>
+    @if(isset($peritaje->bajacontrol->bajaparts))
+    <div   class="col-10"  style=" margin: 1em;  border: 1px solid;">
+   @if($peritaje->bajacontrol->nivelaprobado!=0)
+        <p>PARTE BAJA {{$peritaje->bajacontrol->nivelaprobado}}%</p>   
+   @else
+   <p>PARTE BAJA</p>
+   @endif
+        <table style="font-size: x-small; margin: 0 auto;">
+        <tr bgcolor=""  style="border:1pt solid black;">
+           
+            <th>PIEZA</th>
+            <th>ESTADO</th>
+            <th>OBSERVACION</th>
+            
+   
+        </tr>
+        @foreach($peritaje->bajacontrol->bajaparts as $baja)
+        @php
+     $inspectorbaja[]=$baja->perito;
+ @endphp
+        <tr>
+            <td align="left"  style="border-bottom:1pt solid black;">{{ $baja->bajapart->name }}</td>
+            <td align="left"  style="border-bottom:1pt solid black;">{{ $baja->estado }}</td>
+            <td align="left"  style="border-bottom:1pt solid black;">{{ $baja->observaciones }}</td>
+             
+            
+             
+        </tr>
+        @endforeach
+       
+    </table>
+    <P class="text-justify" style="font-size: x-small;   margin: 10px;">{{$peritaje->bajacontrol->observacion}}</p>
+        @php
+        $inspectorbaja[]=$peritaje->bajacontrol->user->name;
+              $inspectorbaja=array_unique($inspectorbaja); 
+            @endphp
+             <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
+            @foreach ($inspectorbaja as $inspector )
+          Inspector:  {{$inspector}} <br/>
+            @endforeach
+             </p> 
+        @endif
+
+</th>
+</tr>
+</table>
+
+
+
 
     {{--registro fotografico chasis--}}
    
     @if(isset($peritaje->fotocontrol->fotoparts))
     @php ($fotos = []) @endphp
     @foreach($peritaje->fotocontrol->fotoparts as $foto) 
-                @if($foto->categoria=="CHASIS")
+                @if($foto->categoria=="CHASIS" || $foto->categoria=="PARTES BAJAS")
                  @php $fotos[]=$foto @endphp
                   @endif              
    @endforeach
@@ -1075,7 +1378,7 @@ $inspectorchasis[]=$chasis->perito;
          
             
          <table width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
-             <tr bgcolor="#00B1DD">
+             <tr>
          
              </tr>
             
@@ -1119,49 +1422,45 @@ $inspectorchasis[]=$chasis->perito;
                  @endif
            @endif
          </table> 
-
-         @php
-$inspectorchasis=array_unique($inspectorchasis); 
-@endphp
-<p class="text-justify" style="font-size: xx-small;  margin: 10px;" >
-@foreach ($inspectorchasis as $inspector )
-Inspector:  {{$inspector}} <br>
-@endforeach
-</p> 
          </div>
          @endif
          @endif
      
      {{--fin de registro fotografico chasis--}}
 
-</table>
-
-
-
- 
-
- {{-- <textarea style="font-size: xx-small;  width: 250px;"   readonly>{{$peritaje->chasiscontrol->observacion}}</textarea>--}}
 
 
 
 
+    
 
-       @endif
-   </th>
-   <th>
-   
-       </th>
-   </tr>
- 
-</table> 
+ {{-- <textarea style="font-size: x-small;  width: 250px;"   readonly>{{$peritaje->chasiscontrol->observacion}}</textarea>--}}
 
 
 
-</div>
 
+       </div>
+     
+ </div>
+ <br>
+ @endif
 
 {{--fin de chasis --}}
-<br>
+
+@php 
+if(isset($peritaje->paginadocontrol))
+{
+  $activochasis=0;
+  foreach($peritaje->paginadocontrol->paginadoparts as $paginado)
+  {
+    if($paginado->nombre=="FUGAS Y NIVELES" && $paginado->activo==1)
+       $activochasis=1;
+  }
+
+ if($activochasis)
+      echo "<div style='page-break-after:always;'></div>";
+}
+@endphp
 
 
 
@@ -1170,8 +1469,8 @@ Inspector:  {{$inspector}} <br>
  <div  class="col-10" style=" border-top-width: 20px;
  border-right-width: thin;
  border-bottom-width: thin;  
- border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1DD;">
-  <table   style="font-size: xx-small;width: 100%; margin: 0 auto;" >
+ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: ;">
+  <table   style="font-size: x-small;width: 100%; margin: 0 auto;" >
      
    <tr>
    <th>
@@ -1187,8 +1486,8 @@ Inspector:  {{$inspector}} <br>
 @else
 <p> FUGAS DE FLUIDOS</p>
 @endif
-    <table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#00B1DD">
+    <table   style="font-size: x-small; margin: 0 auto;">
+<tr bgcolor=""  style="border:1pt solid black;">
    
     <th>PIEZA</th>
     <th>FUGA</th>
@@ -1199,12 +1498,12 @@ Inspector:  {{$inspector}} <br>
 </tr>
 @foreach($peritaje->fluidocontrol->fluidoparts as $fluido)
 @php
-$inspectorfluido[]=$fluido->perito;
-@endphp
+     $inspectorfluido[]=$fluido->perito;
+ @endphp
 <tr>
-    <td align="left">{{ $fluido->fluidopart->name }}</td>
-    <td align="left">{{ $fluido->estado }}</td>
-    <td align="left">{{ $fluido->observaciones }}</td>
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $fluido->fluidopart->name }}</td>
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $fluido->estado }}</td>
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $fluido->observaciones }}</td>
  {{--  <td>{{ $esterior->tipo }}</td>
     <td>{{ $esterior->observaciones }}</td>--}}
      
@@ -1215,16 +1514,18 @@ $inspectorfluido[]=$fluido->perito;
 
 
 
-<p  class="text-justify"  style="font-size: xx-small; margin: 10px;">{{$peritaje->fluidocontrol->observacion}}</p>
+<P class="text-justify" style="font-size: x-small; margin: 10px;">{{$peritaje->fluidocontrol->observacion}}</p>
+    @php
+    
+    $inspectorfluido[]=$peritaje->fluidocontrol->user->name;
+    $inspectorfluido=array_unique($inspectorfluido); 
+  @endphp
+   <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
+  @foreach ($inspectorfluido as $inspector )
+Inspector:  {{$inspector}} <br/>
+  @endforeach
+   </p> 
 
-@php
-           $inspectorfluido=array_unique($inspectorfluido); 
-         @endphp
-          <p class="text-justify" style="font-size: xx-small;  margin: 10px;" >
-         @foreach ($inspectorfluido as $inspector )
-       Inspector:  {{$inspector}} <br/>
-         @endforeach
-          </p> 
 
 
 
@@ -1241,8 +1542,8 @@ $inspectorfluido[]=$fluido->perito;
 @else
 <p>NIVELES DE FLUIDOS</p>  
 @endif
-<table style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#00B1DD">
+<table style="font-size: x-small; margin: 0 auto;">
+<tr bgcolor=""  style="border:1pt solid black;">
    
     <th>PIEZA</th>
     <th>ESTADO</th>
@@ -1250,15 +1551,15 @@ $inspectorfluido[]=$fluido->perito;
    
     
 
-</tr>
+</tr> 
 @foreach($peritaje->nfluidocontrol->fluidoparts as $nfluido)
 @php
-$inspectornfluido[]=$nfluido->perito;
-@endphp
+    
+ @endphp
 <tr>
-    <td align="left">{{ $nfluido->fluidopart->name }}</td>
-    <td align="left">{{ $nfluido->estado }}</td>
-    <td align="left">{{ $nfluido->observaciones}}</td>
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $nfluido->fluidopart->name }}</td>
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $nfluido->estado }}</td>
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $nfluido->observaciones}}</td>
     
     
     
@@ -1267,15 +1568,17 @@ $inspectornfluido[]=$nfluido->perito;
 @endforeach
 
 </table>
-<P class="text-justify" style="font-size: xx-small;  margin: 10px;">{{$peritaje->nfluidocontrol->observacion}}</p>
-  @php
-  $inspectornfluido=array_unique($inspectornfluido); 
-@endphp
- <p class="text-justify" style="font-size: xx-small;  margin: 10px;" >
-@foreach ($inspectornfluido as $inspector )
+ 
+<P class="text-justify" style="font-size: x-small;  margin: 10px;">{{$peritaje->nfluidocontrol->observacion}}</p>
+    @php
+     $inspectornfluido[]=$peritaje->nfluidocontrol->user->name;
+    $inspectornfluido=array_unique($inspectornfluido); 
+  @endphp
+   <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
+  @foreach ($inspectornfluido as $inspector )
 Inspector:  {{$inspector}} <br/>
-@endforeach
- </p> 
+  @endforeach
+   </p> 
 
            </div> 
            @endif
@@ -1298,7 +1601,7 @@ Inspector:  {{$inspector}} <br/>
       
          
       <table width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
-          <tr bgcolor="#00B1DD">
+          <tr>
       
           </tr>
          
@@ -1351,23 +1654,36 @@ Inspector:  {{$inspector}} <br/>
 
 </table> 
 
-
-
+<br>
 </div>
-
 @endif
 {{--fin de fugas de fluidos y niveles --}}
-<br>
 
+
+
+
+@php 
+if(isset($peritaje->paginadocontrol))
+{
+  $activochasis=0;
+  foreach($peritaje->paginadocontrol->paginadoparts as $paginado)
+  {
+    if($paginado->nombre=="EXTERIOR Y INTERIOR" && $paginado->activo==1)
+       $activochasis=1;
+  }
+
+ if($activochasis)
+      echo "<div style='page-break-after:always;'></div>";
+}
+@endphp
 
    
   {{--inicio exteriores y interior--}}
-  @if(isset($peritaje->interiorcontrol->interiorparts)|| isset($peritaje->exteriorcontrol->piezasexteriores))
-
+  @if(isset($peritaje->interiorcontrol->interiorparts)||isset($peritaje->exteriorcontrol->piezasexteriores))
   <div class="col-10"    style=" border-top-width: 20px;
  border-right-width: thin;
 border-bottom-width: thin;  
-border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1DD;">
+border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: ;">
 
 
 
@@ -1393,7 +1709,7 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1
  
  
  <table   style="font-size: x-small; margin: 0 auto;">
-     <tr bgcolor="#00B1DD">
+     <tr bgcolor=""  style="border:1pt solid black;">
         
          <th>PIEZA</th>
          <th>ESTADO</th>
@@ -1404,12 +1720,13 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1
      </tr>
      @foreach($peritaje->exteriorcontrol->piezasexteriores as $esterior)
      @php
-      $inspectoresterior[]=$esterior->perito;
-     @endphp
+     $inspectoresterior[]=$esterior->perito;
+ @endphp
+
      <tr>
-         <td align="left" >{{ $esterior->exteriorpart->name }}</td>
-         <td align="left" >{{ $esterior->estado }}</td>
-         <td align="left" >{{ $esterior->observaciones }}</td>
+         <td align="left"  style="border-bottom:1pt solid black;" >{{ $esterior->exteriorpart->name }}</td>
+         <td align="left"  style="border-bottom:1pt solid black;" >{{ $esterior->estado }}</td>
+         <td align="left"  style="border-bottom:1pt solid black;" >{{ $esterior->observaciones }}</td>
       {{--  <td>{{ $esterior->tipo }}</td>
          <td>{{ $esterior->observaciones }}</td>--}}
           
@@ -1422,16 +1739,17 @@ border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1
 
   
     
- <P class="text-justify" style="font-size: xx-small;  margin: 10px;">{{$peritaje->exteriorcontrol->observacion}}</p>
+ <P class="text-justify" style="font-size: x-small; margin: 10px;">{{$peritaje->exteriorcontrol->observacion}}</p>
    
-  @php
-  $inspectoresterior=array_unique($inspectoresterior); 
-@endphp
- <p class="text-justify" style="font-size: xx-small;  margin: 10px;" >
-@foreach ($inspectoresterior as $inspector )
+    @php
+     $inspectoresterior[]=$peritaje->exteriorcontrol->user->name;
+    $inspectoresterior=array_unique($inspectoresterior); 
+  @endphp
+   <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
+  @foreach ($inspectoresterior as $inspector )
 Inspector:  {{$inspector}} <br/>
-@endforeach
- </p> 
+  @endforeach
+   </p> 
 
 
 
@@ -1453,7 +1771,7 @@ Inspector:  {{$inspector}} <br/>
   
  
     <table style="font-size: x-small; margin: 0 auto;">
-     <tr bgcolor="#00B1DD">
+     <tr bgcolor=""  style="border:1pt solid black;">
         
          <th>PIEZA</th>
          <th>ESTADO</th>
@@ -1463,12 +1781,12 @@ Inspector:  {{$inspector}} <br/>
      </tr>
      @foreach($peritaje->interiorcontrol->interiorparts as $interior)
      @php
-$inspectorinterior[]=$interior->perito;
-@endphp
+     $inspectorinterior[]=$interior->perito;
+ @endphp
      <tr>
-         <td align="left" >{{ $interior->interiorpart->name }}</td>
-         <td align="left" >{{ $interior->estado }}</td>
-         <td align="left" >{{ $interior->observaciones }}</td>
+         <td align="left"  style="border-bottom:1pt solid black;" >{{ $interior->interiorpart->name }}</td>
+         <td align="left"  style="border-bottom:1pt solid black;" >{{ $interior->estado }}</td>
+         <td align="left"  style="border-bottom:1pt solid black;" >{{ $interior->observaciones }}</td>
           
          
           
@@ -1480,21 +1798,22 @@ $inspectorinterior[]=$interior->perito;
 
       
  </table>
- <P class="text-justify" style="font-size: xx-small;  margin: 10px;">{{$peritaje->interiorcontrol->observacion}}</p>
+ <P class="text-justify" style="font-size: x-small;  margin: 10px;">{{$peritaje->interiorcontrol->observacion}}</p>
  
-  @php
-  $inspectorinterior=array_unique($inspectorinterior); 
-@endphp
- <p class="text-justify" style="font-size: xx-small;  margin: 10px;" >
-@foreach ($inspectorinterior as $inspector )
+    @php
+     $inspectorinterior[]=$peritaje->interiorcontrol->user->name;
+    $inspectorinterior=array_unique($inspectorinterior); 
+  @endphp
+   <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
+  @foreach ($inspectorinterior as $inspector )
 Inspector:  {{$inspector}} <br/>
-@endforeach
- </p> 
+  @endforeach
+   </p> 
                 </div> 
                 @endif
             </th>
         </tr>
- {{--registro fotografico exteriores y interiores--}}
+ {{--registro fotografico fugas y niveles--}}
    
  @if(isset($peritaje->fotocontrol->fotoparts))
  @php ($fotos = []) @endphp
@@ -1510,7 +1829,7 @@ Inspector:  {{$inspector}} <br/>
       
          
       <table width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
-          <tr bgcolor="#00B1DD">
+          <tr>
       
           </tr>
          
@@ -1564,22 +1883,37 @@ Inspector:  {{$inspector}} <br/>
 
 
     </table> 
-
-  </div>
-  @endif
+    </div>
+    <br>
+    @endif
+    
     {{--FIN DE EXTERIOR Y INTERIOR--}}
 
-    <br>
+@php 
+if(isset($peritaje->paginadocontrol))
+{
+  $activochasis=0;
+  foreach($peritaje->paginadocontrol->paginadoparts as $paginado)
+  {
+    if($paginado->nombre=="REVISION LUCES Y ELECTRICOS" && $paginado->activo==1)
+       $activochasis=1;
+  }
 
+ if($activochasis)
+      echo "<div style='page-break-after:always;'></div>";
+}
+@endphp
+
+  
 
       {{--inicio electrico  y luces--}}
-      @if(isset($peritaje->electricocontrol->piezaselectricas)||isset($peritaje->vlucescontrol->luzparts))
+      @if(isset($peritaje->vlucescontrol->luzparts)||isset($peritaje->electricocontrol->piezaselectricas))
       <div class="col-10" 
  
       style=" border-top-width: 20px;
           border-right-width: thin;
          border-bottom-width: thin;  
-         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1DD;">
+         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: ;">
       <table   style="font-size: x-small; width: 100%; margin: 0 auto;" >
       
         <tr>
@@ -1602,7 +1936,7 @@ Inspector:  {{$inspector}} <br/>
  
  
  <table   style="font-size: x-small; margin: 0 auto;">
-     <tr bgcolor="#00B1DD">
+     <tr bgcolor="" style="border:1pt solid black;">
         
          <th>PIEZA</th>
          <th>ESTADO</th>
@@ -1613,12 +1947,12 @@ Inspector:  {{$inspector}} <br/>
      </tr>
      @foreach($peritaje->vlucescontrol->luzparts as $luces)
      @php
-$inspectorluces[]=$luces->perito;
-@endphp
+     $inspectorluces[]=$luces->perito;
+ @endphp
      <tr>
-         <td align="left" >{{ $luces->luzpart->name }}</td>
-         <td align="left" >{{ $luces->estado }}</td>
-         <td align="left" >{{ $luces->observaciones }}</td>
+         <td align="left"  style="border-bottom:1pt solid black;" >{{ $luces->luzpart->name }}</td>
+         <td align="left"  style="border-bottom:1pt solid black;" >{{ $luces->estado }}</td>
+         <td align="left"  style="border-bottom:1pt solid black;" >{{ $luces->observaciones }}</td>
       {{--  <td>{{ $esterior->tipo }}</td>
          <td>{{ $esterior->observaciones }}</td>--}}
           
@@ -1631,16 +1965,17 @@ $inspectorluces[]=$luces->perito;
 
   
     
- <P class="text-justify" style="font-size: xx-small;  margin: 10px;">{{$peritaje->vlucescontrol->observacion}}</p>
+ <P class="text-justify" style="font-size: x-small;  margin: 10px;">{{$peritaje->vlucescontrol->observacion}}</p>
    
-  @php
-  $inspectorluces=array_unique($inspectorluces); 
-@endphp
- <p class="text-justify" style="font-size: xx-small;  margin: 10px;" >
-@foreach ($inspectorluces as $inspector )
+    @php
+     $inspectorluces[]=$peritaje->vlucescontrol->user->name;
+    $inspectorluces=array_unique($inspectorluces); 
+  @endphp
+   <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
+  @foreach ($inspectorluces as $inspector )
 Inspector:  {{$inspector}} <br/>
-@endforeach
- </p>
+  @endforeach
+   </p> 
 
 
 
@@ -1662,7 +1997,7 @@ Inspector:  {{$inspector}} <br/>
   
  
     <table style="font-size: x-small; margin: 0 auto;">
-     <tr bgcolor="#00B1DD">
+     <tr bgcolor="" style="border:1pt solid black;">
         
          <th>PIEZA</th>
          <th>ESTADO</th>
@@ -1673,11 +2008,11 @@ Inspector:  {{$inspector}} <br/>
      @foreach($peritaje->electricocontrol->piezaselectricas as $electrico)
      @php
      $inspectorelectrico[]=$electrico->perito;
-     @endphp
+ @endphp
      <tr>
-         <td align="left" >{{ $electrico->electricalpart->name }}</td>
-         <td align="left" >{{ $electrico->estado }}</td>
-         <td align="left" >{{ $electrico->observaciones }}</td>
+         <td align="left"  style="border-bottom:1pt solid black;" >{{ $electrico->electricalpart->name }}</td>
+         <td align="left"  style="border-bottom:1pt solid black;" >{{ $electrico->estado }}</td>
+         <td align="left"  style="border-bottom:1pt solid black;" >{{ $electrico->observaciones }}</td>
           
          
           
@@ -1689,15 +2024,16 @@ Inspector:  {{$inspector}} <br/>
 
       
  </table>
- <P class="text-justify" style="font-size: xx-small;  margin: 10px;">{{$peritaje->electricocontrol->observacion}}</p>
-  @php
-  $inspectorelectrico=array_unique($inspectorelectrico); 
-@endphp
- <p class="text-justify" style="font-size: xx-small;  margin: 10px;" >
-@foreach ($inspectorelectrico as $inspector )
+ <P class="text-justify" style="font-size: x-small;  margin: 10px;">{{$peritaje->electricocontrol->observacion}}</p>
+    @php
+     $inspectorelectrico[]=$peritaje->electricocontrol->user->name;
+    $inspectorelectrico=array_unique($inspectorelectrico); 
+  @endphp
+   <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
+  @foreach ($inspectorelectrico as $inspector )
 Inspector:  {{$inspector}} <br/>
-@endforeach
- </p> 
+  @endforeach
+   </p>
 
                 </div> 
                 @endif
@@ -1719,7 +2055,7 @@ Inspector:  {{$inspector}} <br/>
       
          
       <table width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
-          <tr bgcolor="#00B1DD">
+          <tr>
       
           </tr>
          
@@ -1763,11 +2099,10 @@ Inspector:  {{$inspector}} <br/>
               @endif
         @endif
       </table> 
-     
+      </div>
       @endif
       @endif
-    </div>
-   
+  
   {{--fin de registro fotografico de electrico y luces--}}
 
 
@@ -1775,35 +2110,50 @@ Inspector:  {{$inspector}} <br/>
 
     </table> 
     <br>
-    {{--FIN DE electrico Y luces--}}
+   
 
   </div>
-  @endif
+  <br>
+@endif
+ {{--FIN DE electrico Y luces--}}
 
+@php 
+if(isset($peritaje->paginadocontrol))
+{
+  $activochasis=0;
+  foreach($peritaje->paginadocontrol->paginadoparts as $paginado)
+  {
+    if($paginado->nombre=="FRENOS Y LLANTAS" && $paginado->activo==1)
+       $activochasis=1;
+  }
 
+ if($activochasis)
+      echo "<div style='page-break-after:always;'></div>";
+}
+@endphp
 
   {{-- llantas prueba de frenado--}}
-  @if(isset($peritaje->frenocontrol->frenoparts)|| isset($peritaje->llantacontrol->llantaparts))
+  @if(isset($peritaje->frenocontrol->frenoparts)||isset($peritaje->llantacontrol->llantaparts))
   <div class="col-10" 
  
       style=" border-top-width: 20px;
           border-right-width: thin;
          border-bottom-width: thin;  
-         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1DD;">
-<table   style="font-size: xx-small; width: 100%;  margin: 0 auto;" >
+         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: ;">
+<table   style="font-size: x-small; width: 100%;  margin: 0 auto;" >
      
     <tr>
     <th>
  <br>
  @if(isset($peritaje->frenocontrol->frenoparts))
-<div class="col-10"   style=" width: 300px;  border: 1px solid;">
+<div class="col-10"   style=" width: 300px;  border: 1px solid; margin:10px;">
     @if($peritaje->frenocontrol->nivelaprobado!=0)
 <p> PRUEBA DE FRENOS {{$peritaje->frenocontrol->nivelaprobado}}%</p>    
 @else
 <p> PRUEBA DE FRENOS</p>  
 @endif
-<table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#00B1DD">
+<table   style="font-size: x-small; margin: 0 auto;">
+<tr bgcolor=""  style="border:1pt solid black;">
    
     <th>PIEZA</th>
     <th>EFICIENCIA</th>
@@ -1816,27 +2166,34 @@ Inspector:  {{$inspector}} <br/>
 
 </tr>
 @foreach($peritaje->frenocontrol->frenoparts as $freno)
+@php
+     $inspectorfreno[]=$freno->perito;
+ @endphp
 <tr>
-    <td>{{ $freno->frenopart->name }}</td>
-    <td>{{ $freno->eficiencia }}</td>
-    <td>{{ $freno->minimo }}</td>
-    <td>{{ $freno->fuerza }}</td>
-    <td>{{ $freno->peso }}</td>
-    <td>{{ $freno->unidad }}</td>
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $freno->frenopart->name }}</td>
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $freno->eficiencia }}</td>
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $freno->minimo }}</td>
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $freno->fuerza }}</td>
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $freno->peso }}</td>
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $freno->unidad }}</td>
 
   
      
 </tr>
 @endforeach
 </table>
+<P class="text-justify" style="font-size: x-small;  width: 250px; margin: 10px;">EFICACIA DE FRENADO TOTAL :{{$peritaje->frenocontrol->frenadototal}}%</p>
+    <P class="text-justify" style="font-size: x-small;  width: 250px; margin: 10px;">EFICACIA DE FRENADO AUXILIAR :{{$peritaje->frenocontrol->frenadoauxiliar}}%</p>
+<P class="text-justify" style="font-size: x-small;  width: 250px; margin: 10px;">{{$peritaje->frenocontrol->observacion}}</p>
 
-<P class="text-justify" style="font-size: xx-small;
-  margin: 10px;">{{$peritaje->frenocontrol->observacion}}</p>
-
-<p class="text-justify" style="font-size: xx-small;  margin: 10px;" >
-  
-Inspector:  {{$freno->perito}} 
-   
+    @php
+     $inspectorfreno[]=$peritaje->frenocontrol->user->name;
+    $inspectorfreno=array_unique($inspectorfreno); 
+  @endphp
+   <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
+  @foreach ($inspectorfreno as $inspector )
+Inspector:  {{$inspector}} <br/>
+  @endforeach
    </p> 
 
 
@@ -1856,8 +2213,8 @@ Inspector:  {{$freno->perito}}
  @else
  <p>ESTADO DE LAS LLANTAS</p>
  @endif
- <table style="font-size: xx-small; margin: 0 auto;">
- <tr bgcolor="#00B1DD">
+ <table style="font-size: x-small; margin: 0 auto;">
+ <tr bgcolor=""  style="border:1pt solid black;">
     
      <th>PIEZA</th>
      <th>PARA CAMBIO</th>
@@ -1870,13 +2227,13 @@ Inspector:  {{$freno->perito}}
  </tr>
  @foreach($peritaje->llantacontrol->llantaparts as $llanta)
  @php
-$inspectorllanta[]=$llanta->perito;
-@endphp
+     $inspectorllanta[]=$llanta->perito;
+ @endphp
  <tr>
-     <td  align="left">{{ $llanta->llantapart->name }}</td>
-     <td  align="left">{{ $llanta->cambio }}</td>
-     <td  align="left">{{ $llanta->vidautil }}%</td>
-     <td  align="left">{{ $llanta->labrado}}mm</td>
+     <td  align="left"  style="border-bottom:1pt solid black;">{{ $llanta->llantapart->name }}</td>
+     <td  align="left"  style="border-bottom:1pt solid black;">{{ $llanta->cambio }}</td>
+     <td  align="left"  style="border-bottom:1pt solid black;">{{ $llanta->vidautil }}%</td>
+     <td  align="left"  style="border-bottom:1pt solid black;">{{ $llanta->labrado}}mm</td>
       
      
      
@@ -1885,15 +2242,16 @@ $inspectorllanta[]=$llanta->perito;
  @endforeach
  
  </table>
- <P class="text-justify" style="font-size: xx-small;  margin: 10px;">{{$peritaje->llantacontrol->observacion}}</p>
-  @php
-  $inspectorllanta=array_unique($inspectorllanta); 
-@endphp
- <p class="text-justify" style="font-size: xx-small;  margin: 10px;" >
-@foreach ($inspectorllanta as $inspector )
+ <P class="text-justify" style="font-size: x-small;  margin: 10px;">{{$peritaje->llantacontrol->observacion}}</p>
+    @php
+     $inspectorllanta[]=$peritaje->llantacontrol->user->name;
+    $inspectorllanta=array_unique($inspectorllanta); 
+  @endphp
+   <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
+  @foreach ($inspectorllanta as $inspector )
 Inspector:  {{$inspector}} <br/>
-@endforeach
- </p> 
+  @endforeach
+   </p> 
  
             </div> 
             @endif
@@ -1916,7 +2274,7 @@ Inspector:  {{$inspector}} <br/>
      
         
      <table width="90%" class="table table-bordered" style="font-size: small; margin: 0 auto;" >
-         <tr bgcolor="#00B1DD">
+         <tr>
      
          </tr>
         
@@ -1960,30 +2318,192 @@ Inspector:  {{$inspector}} <br/>
              @endif
        @endif
      </table> 
-    
+     </div>
      @endif
      @endif
-    </div>
-    @endif
+ 
  {{--fin de registro fotografico de llantas--}}
 
  </table> 
- {{--fin de prueba de frenado y llantas--}}
+ 
 
 
 </div>
+<br>
+@endif
+{{--fin de prueba de frenado y llantas--}}
+
+@php 
+if(isset($peritaje->paginadocontrol))
+{
+  $activochasis=0;
+  foreach($peritaje->paginadocontrol->paginadoparts as $paginado)
+  {
+    if($paginado->nombre=="COMPRESION MOTOR Y SUSPENSION MECANIZADA" && $paginado->activo==1)
+       $activochasis=1;
+  }
+
+ if($activochasis)
+      echo "<div style='page-break-after:always;'></div>";
+}
+@endphp
+
+
+{{--compresion de motor--}}
+@if(isset($peritaje->compresioncontrol->compresionparts)||isset($peritaje->suspensioncontrol->suspensionparts))
+<div class="col-10" 
+ 
+      style=" border-top-width: 20px;
+          border-right-width: thin;
+         border-bottom-width: thin;  
+         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: ;">
+<table   style="font-size: x-small;  margin: 0 auto;" >  
+    <tr>
+        @if(isset($peritaje->compresioncontrol->compresionparts))
+        <th>
+       
+        
+
+      
+        <br>
+        <img  src="{{ url('/iconos/motor.jpg')}}" style=" width: 150px;">
+    </th>
+    <th>
+
+          
+        <br>
+        <div class="col-10"   style=" margin: 1em; width: 200px; border: 1px solid;">
+
+@if($peritaje->compresioncontrol->nivelaprobado!=0)
+<p>COMPRESION Y FUGAS DEL MOTOR {{$peritaje->compresioncontrol->nivelaprobado}}%</p>  
+@else
+<p>COMPRESION Y FUGAS DEL MOTOR</p> 
+@endif
+<table style="font-size: x-small; margin: 0 auto;">
+<tr bgcolor=""  style="border:1pt solid black;">
+
+ <th>PIEZA</th>
+ <th>COMPRESION</th>
+ <th>FUGA</th>
+ 
+
+</tr>
+@foreach($peritaje->compresioncontrol->compresionparts as $compresion)
+@php
+     $inspectorcompresion[]=$compresion->perito;
+ @endphp
+<tr>
+ <td align="left"  style="border-bottom:1pt solid black;">{{ $compresion->compresionpart->name }}</td>
+ <td align="left"  style="border-bottom:1pt solid black;">{{ $compresion->compresion }}</td>
+ <td align="left"  style="border-bottom:1pt solid black;">{{ $compresion->fuga }}</td>
+ 
+  
+</tr>
+@endforeach
+<tr>
+
+ <th>PROMEDIOS</th>
+ <th>{{round($peritaje->compresioncontrol->compresionparts->avg('compresion'),2).'PSI'}}</th>
+ <th>{{round($peritaje->compresioncontrol->compresionparts->avg('fuga'),2).'%'}}</th>
+ 
+
+</tr>
+</table>
+
+
+
+        </div> 
+       
+          <br>
+          <P class="text-justify" style="font-size: x-small;  width: 300px;">{{$peritaje->compresioncontrol->observacion}}</p> 
+            @php
+             $inspectorcompresion[]=$peritaje->compresioncontrol->user->name;
+              $inspectorcompresion=array_unique($inspectorcompresion); 
+            @endphp
+             <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
+            @foreach ($inspectorcompresion as $inspector )
+          Inspector:  {{$inspector}} <br/>
+            @endforeach
+             </p> 
+        </th>
+@endif
+        <th>
+            @if(isset($peritaje->suspensioncontrol->suspensionparts))
+<div class="col-10"   style="margin: 1em; border: 1px solid;">
+<p>SUSPENSION MECANIZADA: </p>
+<table style="font-size: x-small; margin: 0 auto;">
+<tr bgcolor=""  style="border:1pt solid black;">
+   
+    <th>PIEZA</th>
+    <th>PORCENTAJE</th>
+   
+    
+
+</tr>
+@foreach($peritaje->suspensioncontrol->suspensionparts as $suspension)
+
+<tr>
+    @if(isset($suspension->porcentaje))
+    @php
+   $inspectorsuspension[]=$suspension->perito;
+    @endphp
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $suspension->suspensionpart->name }}</td>
+    <td align="left"  style="border-bottom:1pt solid black;">{{ $suspension->porcentaje }}%</td>
+     @endif
+     
+</tr>
+@endforeach
+
+</table>
+<p class="text-justify" style="font-size: x-small;  margin: 10px;">LOS VALORES REGISTRADOS
+    CORRESPONDEN A LA ADHERENCIA, EL
+    VALOR MINIMO DEBE SER 40%.</p>
+    @php
+     $inspectorsuspension[]=$peritaje->suspensioncontrol->user->name;
+    $inspectorsuspension=array_unique($inspectorsuspension); 
+  @endphp
+   <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
+  @foreach ($inspectorsuspension as $inspector )
+Inspector:  {{$inspector}} <br/>
+  @endforeach
+   </p> 
+
+           </div> 
+           @endif
+        </th>
+    </tr>
+</table> 
+</div>
+<br>
+@endif
+{{--fin de compresion suspension mecanizado--}}
+
+@php 
+if(isset($peritaje->paginadocontrol))
+{
+  $activochasis=0;
+  foreach($peritaje->paginadocontrol->paginadoparts as $paginado)
+  {
+    if($paginado->nombre=="RESULTADO LUCES Y ESTADO SUSPENSION" && $paginado->activo==1)
+       $activochasis=1;
+  }
+
+ if($activochasis)
+      echo "<div style='page-break-after:always;'></div>";
+}
+@endphp
 
 
 {{--compresion de motor revision de luces--}}
-@if(isset($peritaje->compresioncontrol->compresionparts)|| isset($peritaje->luzcontrol->luzparts))
+@if( isset($peritaje->suspensioncontrol->suspensionparts)|| isset($peritaje->luzcontrol->luzparts))
 
 <div class="col-10" 
  
       style=" border-top-width: 20px;
           border-right-width: thin;
          border-bottom-width: thin;  
-         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1DD;">
-<table   style="font-size: xx-small;  margin: 0 auto;" >  
+         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: ;">
+<table   style="font-size: x-small;  margin: 0 auto;" >  
     <tr>
     <th>
 
@@ -2001,8 +2521,8 @@ Inspector:  {{$inspector}} <br/>
        
        
        
-        <table   style="font-size: xx-small; margin: 0 auto;">
-         <tr bgcolor="#00B1DD">
+        <table   style="font-size: x-small; margin: 0 auto;">
+         <tr bgcolor=""  style="border:1pt solid black;">
             
              <th>PIEZA</th>
              <th>INTENCIDAD</th>
@@ -2016,12 +2536,15 @@ Inspector:  {{$inspector}} <br/>
          </tr>
          @foreach($peritaje->luzcontrol->luzparts as $luz)
          <tr>
-             <td align="left">{{ $luz->luzpart->name }}</td>
-             <td align="left">{{ $luz->intensidad }}</td>
-             <td align="left">{{ $luz->minimo }}</td>
-             <td align="left">{{ $luz->unidad }}</td>
-             <td align="left">{{ $luz->inclinacion }}</td>
-             <td align="left">{{ $luz->rango }}</td>
+          @php
+          $inspectorluz[]=$luz->perito;
+          @endphp
+             <td align="left"  style="border-bottom:1pt solid black;">{{ $luz->luzpart->name }}</td>
+             <td align="left"  style="border-bottom:1pt solid black;">{{ $luz->intensidad }}</td>
+             <td align="left"  style="border-bottom:1pt solid black;">{{ $luz->minimo }}</td>
+             <td align="left"  style="border-bottom:1pt solid black;">{{ $luz->unidad }}</td>
+             <td align="left"  style="border-bottom:1pt solid black;">{{ $luz->inclinacion }}</td>
+             <td align="left"  style="border-bottom:1pt solid black;">{{ $luz->rango }}</td>
         
           {{--  <td>{{ $esterior->tipo }}</td>
              <td>{{ $esterior->observaciones }}</td>--}}
@@ -2033,13 +2556,19 @@ Inspector:  {{$inspector}} <br/>
         
         
         
-        <p  class="text-justify" style="font-size: xx-small;  margin: 10px;" >{{$peritaje->luzcontrol->observacion}}</p>
+        <p  class="text-justify" style="font-size: x-small;  margin: 10px;" >{{$peritaje->luzcontrol->observacion}}</p>
         
-        <p class="text-justify" style="font-size: xx-small;  margin: 10px;" >
+        <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
           
-        Inspector:  {{$luz->perito}} <br/>
-          
-           </p> 
+          @php
+          $inspectorluz[]=$peritaje->luzcontrol->user->name;
+          $inspectorluz=array_unique($inspectorluz); 
+        @endphp
+         <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
+        @foreach ($inspectorluz as $inspector )
+      Inspector:  {{$inspector}} <br/>
+        @endforeach
+         </p>
         
       
         
@@ -2048,136 +2577,245 @@ Inspector:  {{$inspector}} <br/>
     </th>
     <th>
 
+      @if(isset($peritaje->suspensioncontrol->suspensionparts))
+      
+     
+        <div class="col-10"   style=" margin: 1em;width: 300px;  border: 1px solid;">
+       
+          @if($peritaje->suspensioncontrol->nivelaprobado!=0)
+          <p>ESTADO DE LA SUSPENSION {{$peritaje->suspensioncontrol->nivelaprobado}}%</p>
+   @else
+   <p>ESTADO DE LA SUSPENSION</p>
+   @endif
+     
+     
+     
+       
+      <table style="font-size: x-small; margin: 0 auto;">
+      <tr bgcolor=""  style="border:1pt solid black;">
+         
+          <th>PIEZA</th>
+          <th>ESTADO</th>
+          <th>OBSERVACION</th>
+         
           
-        <br>
-        <div class="col-10"   style=" margin: 1em; width: 270px; border: 1px solid;">
-@if(isset($peritaje->compresioncontrol->compresionparts))
+      
+      </tr>
+      @foreach($peritaje->suspensioncontrol->suspensionparts as $suspension)
+      <tr>
+        @if(!isset($suspension->porcentaje))
+        @php
+     $inspectorsuspension2[]=$suspension->perito;
+ @endphp
 
-
-@if($peritaje->compresioncontrol->nivelaprobado!=0)
-<p>COMPRESION Y FUGAS DEL MOTOR {{$peritaje->compresioncontrol->nivelaprobado}}%</p>
-@else
-<p>COMPRESION Y FUGAS DEL MOTOR</p>
-@endif
-
-<table style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#00B1DD">
-
- <th>PIEZA</th>
- <th>COMPRESION</th>
- <th>FUGA</th>
- 
-
-</tr>
-@foreach($peritaje->compresioncontrol->compresionparts as $compresion)
-@php
-$inspectorcompresion[]=$compresion->perito;
-@endphp
-<tr>
- <td align="left">{{ $compresion->compresionpart->name }}</td>
- <td align="left">{{ $compresion->compresion }}</td>
- <td align="left">{{ $compresion->fuga }}</td>
- 
-  
-</tr>
-@endforeach
-<tr>
-
- <th>PROMEDIOS</th>
- <th>{{round($peritaje->compresioncontrol->compresionparts->avg('compresion'),2).'PSI'}}</th>
- <th>{{round($peritaje->compresioncontrol->compresionparts->avg('fuga'),2).'%'}}</th>
- 
-
-</tr>
-</table>
-<p class="text-justify" style="font-size: xx-small;  margin: 10px;  width: 250px;">{{$peritaje->compresioncontrol->observacion}}</p>
-
-@php
-           $inspectorcompresion=array_unique($inspectorcompresion); 
-         @endphp
-          <p class="text-justify" style="font-size: xx-small;  margin: 10px;" >
-         @foreach ($inspectorcompresion as $inspector )
-       Inspector:  {{$inspector}} <br/>
-         @endforeach
-          </p> 
-        </div> 
-        @endif
+          <td align="left"  style="border-bottom:1pt solid black;">{{ $suspension->suspensionpart->name }}</td>
+          <td align="left"  style="border-bottom:1pt solid black;">{{ $suspension->estado }}</td>
+          <td align="left"  style="border-bottom:1pt solid black;">{{ $suspension->observaciones }}</td>
+         @endif  
            
-
+      </tr>
+      @endforeach
+      
+      </table>
+      <p  class="text-justify" style="font-size: x-small;  margin: 10px;" >{{$peritaje->suspensioncontrol->observacion}}</p>
+      @php
+              $inspectorsuspension2[]=$peritaje->suspensioncontrol->user->name;
+              $inspectorsuspension=array_unique($inspectorsuspension2); 
+            @endphp
+             <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
+            @foreach ($inspectorsuspension as $inspector )
+          Inspector:  {{$inspector}} <br/>
+            @endforeach
+             </p> 
+      
+                 </div> 
+                 @endif
         </th>
     </tr>
 </table> 
 
   </div>
+  <br>
   @endif 
 {{--fin de compresion y luces --}}
 
+@php 
+if(isset($peritaje->paginadocontrol))
+{
+  $activochasis=0;
+  foreach($peritaje->paginadocontrol->paginadoparts as $paginado)
+  {
+    if($paginado->nombre=="EMISION DE GASES" && $paginado->activo==1)
+       $activochasis=1;
+  }
+
+ if($activochasis)
+      echo "<div style='page-break-after:always;'></div>";
+}
+@endphp
 
 {{--gases--}}
-@if(isset($peritaje->emisiongas))   
+@if(isset($peritaje->emisiongas) && isset($peritaje->tarjeta))  
+
 <div class="col-10" 
  
       style=" border-top-width: 20px;
           border-right-width: thin;
          border-bottom-width: thin;  
-         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1DD;">
+         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: ;">
+<p  style="font-size: small;
+font-size:10px;
+ margin-top:-19px;
+  margin-left:20px;">EMISION DE GASES</p>
+  <br>
+<div class="col-10"   style=" width: 890px;  border: 1px solid;  margin: 0 auto;">
 
-<div class="col-10"   style=" width: 620px;  border: 1px solid;  margin: 0 auto;">
-<p>EMISION DE GASES</p>
+  @if($peritaje->tarjeta->combustible->nombre=="DIESEL") 
 
-
-
-
-
-<table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#00B1DD">
- 
-  <th COLSPAN=2>MONOXICO DE CARBONO CO</th>
-  <th COLSPAN=2>DIOXIDO DE CARBONO CO2</th>
-  <th COLSPAN=2>OXIGENO O2</th>
-  <th COLSPAN=2>HIDROCARBUROS HC</th>
-  <th COLSPAN=2>OXIDO NITROSO NO</th>
-  <th>UNIDAD</th>
-  
-
-</tr>
-
-<tr>
-  <td>NORMA </td>
-  <td>VALOR</td>
-  <td>NORMA </td>
-  <td>VALOR</td>
-  <td>NORMA </td>
-  <td>VALOR</td>
-  <td>NORMA </td>
-  <td>VALOR</td>
-  <td>NORMA </td>
-  <td>VALOR</td>
-</tr>
-<tr>  emisiongas
-  <td> {{$peritaje->emisiongas->conorma}}</td>
-  <td> {{$peritaje->emisiongas->covlr}}</td>
-  <td> {{$peritaje->emisiongas->codosnorma}}</td>
-  <td> {{$peritaje->emisiongas->codosvlr}}</td>
-  <td> {{$peritaje->emisiongas->oxnorma}}</td>
-  <td> {{$peritaje->emisiongas->oxvlr}}</td>
-  
-  <td> {{$peritaje->emisiongas->hcnorma}}</td>
-  <td> {{$peritaje->emisiongas->hcvlr}}</td>
-  <td> {{$peritaje->emisiongas->nonorma}}</td>
-  <td> {{$peritaje->emisiongas->novlr}}</td>
-  <td> {{$peritaje->emisiongas->unidad}}</td>
+<table   style="font-size: small; margin: 0 auto;">
+      
+      
+  <tr>
+   <td> </td>
+      <td>Ciclo 1 </td>
+      <td>Unidad</td>
+      <td>Ciclo 2 </td>
+      <td>Unidad</td>
+      <td>Ciclo 3 </td>
+      <td>Unidad</td>
+      <td>Ciclo 4 </td>
+      <td>Unidad</td>
+  </tr>
+  <tr> <td><p   style="width : 70px; heigth : 10px;font-size: x-small">OPACIDAD</p></td>
+   <td><input value="{{$peritaje->emisiongas->opacidadcuno}}" id="opacidadcuno" name="opacidadcuno" style="width : 50px; heigth : 10px;font-size: x-small" type="text" required ></td>
+   <td><input value="{{$peritaje->emisiongas->opacidadcunou}}"  id="opacidadcunou" name="opacidadcunou" type="text" style="width : 50px; heigth : 10px;font-size: x-small" required  value="%"></td>
+   <td><input value="{{$peritaje->emisiongas->opacidadcdos}}" id="opacidadcdos" name="opacidadcdos" type="text" style="width : 60px; heigth : 10px;font-size: x-small" required   ></td>
+   <td><input value="{{$peritaje->emisiongas->opacidadcdosu}}" id="opacidadcdosu" name="opacidadcdosu" type="text" style="width : 60px; heigth : 10px;font-size: x-small" required  value="%" ></td>
+   <td><input value="{{$peritaje->emisiongas->opacidadctres}}" id="opacidadctres" name="opacidadctres" style="width : 50px; heigth : 10px;font-size: x-small" type="text" required ></td>
+   <td><input value="{{$peritaje->emisiongas->opacidadctresu}}" id="opacidadctresu" name="opacidadctresu" type="text" style="width : 50px; heigth : 10px;font-size: x-small" required  value="%" ></td>
+   <td><input value="{{$peritaje->emisiongas->opacidadccuatro}}" id="opacidadccuatro" name="opacidadccuatro" style="width : 70px; heigth : 10px;font-size: x-small" type="text" required ></td>
+   <td><input value="{{$peritaje->emisiongas->opacidadccuatrou}}" id="opacidadccuatrou" name="opacidadccuatrou" type="text" style="width : 70px; heigth : 10px;font-size: x-small" required   value="%"></td>
+      
+      
+       
+  </tr>
+  <tr> <td><p   style="width : 70px; heigth : 10px;font-size: x-small">GOBERNADA</p></td>
+   <td><input value="{{$peritaje->emisiongas->gobernadacuno}}" id="gobernadacuno" name="gobernadacunocuno" style="width : 50px; heigth : 10px;font-size: x-small" type="text" required ></td>
+   <td><input value="{{$peritaje->emisiongas->gobernadacunou}}" id="gobernadacunocunou" name="gobernadacunocunou" type="text" style="width : 50px; heigth : 10px;font-size: x-small" required  value="rpm"></td>
+   <td><input value="{{$peritaje->emisiongas->gobernadacdos}}" id="gobernadacdos" name="gobernadacunocdos" type="text" style="width : 60px; heigth : 10px;font-size: x-small" required   ></td>
+   <td><input value="{{$peritaje->emisiongas->gobernadacdosu}}" id="gobernadacdosu" name="gobernadacunocdosu" type="text" style="width : 60px; heigth : 10px;font-size: x-small" required  value="rpm" ></td>
+   <td><input value="{{$peritaje->emisiongas->gobernadactres}}" id="gobernadactres" name="gobernadacunoctres" style="width : 50px; heigth : 10px;font-size: x-small" type="text" required ></td>
+   <td><input value="{{$peritaje->emisiongas->gobernadactresu}}"  id="gobernadactresu" name="gobernadacunoctresu" type="text" style="width : 50px; heigth : 10px;font-size: x-small" required  value="rpm" ></td>
+   <td><input value="{{$peritaje->emisiongas->gobernadaccuatro}}"  id="gobernadaccuatro" name="gobernadacunoccuatro" style="width : 70px; heigth : 10px;font-size: x-small" type="text" required ></td>
+   <td><input  value="{{$peritaje->emisiongas->gobernadaccuatrou}}" id="gobernadaccuatrou" name="gobernadacunoccuatrou" type="text" style="width : 70px; heigth : 10px;font-size: x-small" required   value="rpm"></td>
+   
+   
+    
+ </tr>
+ </tr>
+ <tr> <td><p   style="width : 60px; heigth : 10px;font-size: x-small">Valor:</p></td>
+  <td><input  value="{{$peritaje->emisiongas->resultado}}" id="resultado" name="resultado" style="width : 50px; heigth : 10px;font-size: x-small" type="text" required ></td>
+  <td><p   style="width : 60px; heigth : 10px;font-size: x-small">Norma:</p></td>
+  <td><input  value="{{$peritaje->emisiongas->norma}}" id="norma" name="norma" type="text" style="width : 60px; heigth : 10px;font-size: x-small" required></td>
+  <td><p   style="width : 60px; heigth : 10px;font-size: x-small">Unidad:</p></td>
+  <td><input  value="{{$peritaje->emisiongas->unidad}}" id="unidad" name="unidad" style="width : 50px; heigth : 10px;font-size: x-small" type="text" required    ></td>
+   
   
    
+  
+  
+   
+ </tr>
+  
+ </table>
+ @else
+ <table   style="font-size: small; margin:10px;">
+  <tr bgcolor=""  style="border:1pt solid black;">
+     <th></th>
+      <th COLSPAN=3>MONOXICO DE CARBONO CO</th>
+      <th COLSPAN=3>DIOXIDO DE CARBONO CO2</th>
+      <th COLSPAN=3>OXIGENO O2</th>
+      <th COLSPAN=3>HIDROCARBUROS HC</th>
+      <th COLSPAN=3>OXIDO NITROSO NO</th>
+   
+      
+ 
+  </tr>
+   
+  <tr style="border-bottom:1pt solid black;">
+   <td></td>
+      <td>NORMA </td>
+      <td>VALOR</td>
+      <td>UNIDAD</td>
+      <td>NORMA </td>
+      <td>VALOR</td>
+      <td>UNIDAD</td>
+      <td>NORMA </td>
+      <td>VALOR</td>
+      <td>UNIDAD</td>
+      <td>NORMA </td>
+      <td>VALOR</td>
+      <td>UNIDAD</td>
+      <td>NORMA </td>
+      <td>VALOR</td>
+      <td>UNIDAD</td>
+  </tr>
+  <tr style="border-bottom:1pt solid black;">
+   <td><p   style="width : 45px; heigth : 10px;font-size: x-small">Relenti</p></td>
+      <td> {{$peritaje->emisiongas->conorma}}</td>
+      <td> {{$peritaje->emisiongas->covlr}}</td>
+      <td> {{$peritaje->emisiongas->counidad}}</td>
+      <td> {{$peritaje->emisiongas->codosnorma}}</td>
+      <td> {{$peritaje->emisiongas->codosvlr}}</td>
+      <td> {{$peritaje->emisiongas->codosunidad}}</td>
+      <td> {{$peritaje->emisiongas->oxnorma}}</td>
+      <td> {{$peritaje->emisiongas->oxvlr}}</td>
+      <td> {{$peritaje->emisiongas->oxunidad}}</td>
+      
+      <td> {{$peritaje->emisiongas->hcnorma}}</td>
+      <td> {{$peritaje->emisiongas->hcvlr}}</td>
+      <td> {{$peritaje->emisiongas->hcunidad}}</td>
+      <td> {{$peritaje->emisiongas->nonorma}}</td>
+      <td> {{$peritaje->emisiongas->novlr}}</td>
+      <td> {{$peritaje->emisiongas->nounidad}}</td>
+      
+       
+  </tr>
+  
+  <tr style="border-bottom:1pt solid black;">
+   <td><p   style="width : 45px; heigth : 10px;font-size: x-small">Crucero</p></td>
+   <td> {{$peritaje->emisiongas->conormac}}</td>
+   <td> {{$peritaje->emisiongas->covlrc}}</td>
+   <td> {{$peritaje->emisiongas->counidadc}}</td>
+   <td> {{$peritaje->emisiongas->codosnormac}}</td>
+   <td> {{$peritaje->emisiongas->codosvlrc}}</td>
+   <td> {{$peritaje->emisiongas->codosunidadc}}</td>
+   <td> {{$peritaje->emisiongas->oxnormac}}</td>
+   <td> {{$peritaje->emisiongas->oxvlrc}}</td>
+   <td> {{$peritaje->emisiongas->oxunidadc}}</td>
+   
+   <td> {{$peritaje->emisiongas->hcnormac}}</td>
+   <td> {{$peritaje->emisiongas->hcvlrc}}</td>
+   <td> {{$peritaje->emisiongas->hcunidadc}}</td>
+   <td> {{$peritaje->emisiongas->nonormac}}</td>
+   <td> {{$peritaje->emisiongas->novlrc}}</td>
+   <td> {{$peritaje->emisiongas->nounidadc}}</td>
+   
+    
 </tr>
+  
+ </table>
 
-</table>
-<p class="text-justify" style="font-size: xx-small;  margin: 10px;" >
+@endif 
+
+
+
+<p class="text-justify" style="font-size: x-small;  margin: 10px;" >
     Inspector:  {{$peritaje->emisiongas->user->name}}</p>
 
-<p><label style="font-size: xx-small;">OBSERVACION</label></p>
+<p><label style="font-size: x-small;  margin: 10px;">OBSERVACION</label></p>
 
-<p  class="text-justify" style="font-size: xx-small;  margin: 10px;">{{$peritaje->emisiongas->observacion}}</p>
+<p  class="text-justify" style="font-size: x-small;  margin: 10px;">{{$peritaje->emisiongas->observacion}}</p>
 
                 
 
@@ -2187,22 +2825,40 @@ $inspectorcompresion[]=$compresion->perito;
 
 
 </div>
-@endif 
+<br>
+
+
+@endif
 {{---fin de gases --}}
+
+@php 
+if(isset($peritaje->paginadocontrol))
+{
+  $activochasis=0;
+  foreach($peritaje->paginadocontrol->paginadoparts as $paginado)
+  {
+    if($paginado->nombre=="PARTES DEL MOTOR Y ESCANER" && $paginado->activo==1)
+       $activochasis=1;
+  }
+
+ if($activochasis)
+      echo "<div style='page-break-after:always;'></div>";
+}
+@endphp
 
 {{--inicio motor y escaner--}}
 
 
 @if(isset($peritaje->motorcontrol->piezasmotors)|| isset($peritaje->escanercontrol->escanerparts))
-<br>
+
 <div class="col-10" 
  
       style=" border-top-width: 20px;
           border-right-width: thin;
          border-bottom-width: thin;  
-         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1DD;">
+         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: ;">
 
-<table   style="font-size: xx-small;  margin: 0 auto;" >  
+<table   style="font-size: x-small;  margin: 0 auto;" >  
     <tr>
     <th>
       @if(isset($peritaje->motorcontrol->piezasmotors))
@@ -2216,8 +2872,8 @@ $inspectorcompresion[]=$compresion->perito;
 <p>PARTES DEL MOTOR</p>
 @endif
 
-<table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#00B1DD">
+<table   style="font-size: x-small; margin: 0 auto;">
+<tr bgcolor=""  style="border:1pt solid black;">
 
  <th>PIEZA</th>
  <th>ESTADO</th>
@@ -2232,9 +2888,9 @@ $inspectormotor[]=$motor->perito;
 @endphp
 
 <tr>
- <td  align="left">{{ $motor->motorpark->name }}</td>
- <td  align="left">{{ $motor->estado }}</td>
- <td  align="left">{{ $motor->observaciones }}</td>
+ <td align="left"  style="border-bottom:1pt solid black;">{{ $motor->motorpark->name }}</td>
+ <td align="left"  style="border-bottom:1pt solid black;">{{ $motor->estado }}</td>
+ <td align="left"  style="border-bottom:1pt solid black;">{{ $motor->observaciones }}</td>
 {{--  <td>{{ $esterior->tipo }}</td>
  <td>{{ $esterior->observaciones }}</td>--}}
   
@@ -2243,16 +2899,17 @@ $inspectormotor[]=$motor->perito;
 </table>
 
 @php
+  $inspectormotor[]=$peritaje->motorcontrol->user->name;
 $inspectormotor=array_unique($inspectormotor); 
 @endphp
-<p class="text-justify" style="font-size: xx-small;  margin: 10px;" >
+<p class="text-justify" style="font-size: x-small;  margin: 10px;" >
 @foreach ($inspectormotor as $inspector )
 Inspector:  {{$inspector}} <br/>
 @endforeach
 </p> 
 
 
-<p class="text-justify" style="font-size: xx-small;  margin: 10px;" >{{$peritaje->motorcontrol->observacion}}</p>
+<p class="text-justify" style="font-size: x-small;  margin: 10px;" >{{$peritaje->motorcontrol->observacion}}</p>
 
 
 
@@ -2262,7 +2919,7 @@ Inspector:  {{$inspector}} <br/>
     @endif
     </th>
     <th>
-    @if(isset($peritaje->escanercontrol->escanerparts))
+      @if( isset($peritaje->escanercontrol->escanerparts))
         <div class="col-10"   style="margin: 1em;   border: 1px solid; width: 350px">
 
 
@@ -2270,8 +2927,8 @@ Inspector:  {{$inspector}} <br/>
             <p>ESCANER CODIGOS DE ERROR</p>
             
             
-            <table   style="font-size: xx-small; margin: 0 auto;">
-            <tr bgcolor="#00B1DD">
+            <table   style="font-size: x-small; margin: 0 auto;">
+            <tr bgcolor=""  style="border:1pt solid black;">
             
              <th>CODIGO</th>
              <th>ELEMENTO</th>
@@ -2286,9 +2943,9 @@ Inspector:  {{$inspector}} <br/>
            $inspectorescaner[]=$escaner->perito;
            @endphp
             <tr>
-             <td  align="left">{{ $escaner->codigo }}</td>
-             <td  align="left">{{ $escaner->elemento }}</td>
-            <td  align="left">{{ $escaner->observaciones }}</td>
+             <td align="left"  style="border-bottom:1pt solid black;">{{ $escaner->codigo }}</td>
+             <td align="left"  style="border-bottom:1pt solid black;">{{ $escaner->elemento }}</td>
+            <td align="left"  style="border-bottom:1pt solid black;">{{ $escaner->observaciones }}</td>
             {{--  <td>{{ $esterior->tipo }}</td>
              <td>{{ $esterior->observaciones }}</td>--}}
               
@@ -2297,14 +2954,15 @@ Inspector:  {{$inspector}} <br/>
             </table>
             
             @php
+            $inspectorescaner[]=$peritaje->escanercontrol->user->name;
               $inspectorescaner=array_unique($inspectorescaner); 
             @endphp
-             <p class="text-justify" style="font-size: xx-small;  margin: 10px;" >
+             <p class="text-justify" style="font-size: x-small;  margin: 10px;" >
             @foreach ($inspectorescaner as $inspector )
           Inspector:  {{$inspector}} <br/>
             @endforeach
              </p> 
-            <p class="text-justify" style="font-size: xx-small;  margin: 10px;" >{{$peritaje->escanercontrol->observacion}}</p>
+            <p class="text-justify" style="font-size: x-small;  margin: 10px;" >{{$peritaje->escanercontrol->observacion}}</p>
             
              
             
@@ -2316,25 +2974,44 @@ Inspector:  {{$inspector}} <br/>
     </tr>
 </table>
 </div> 
+<br>
     @endif
 {{--fin de motor y escaner --}}
+
+
+@php 
+if(isset($peritaje->paginadocontrol))
+{
+  $activochasis=0;
+  foreach($peritaje->paginadocontrol->paginadoparts as $paginado)
+  {
+    if($paginado->nombre=="HISTORICO" && $paginado->activo==1)
+       $activochasis=1;
+  }
+
+ if($activochasis)
+      echo "<div style='page-break-after:always;'></div>";
+}
+@endphp
+
 
 {{--inicio vhistorio y otro--}}
 
 
 @if( isset($peritaje->cierre))
-<br>
+
 <div class="col-10" 
  
       style=" border-top-width: 20px;
           border-right-width: thin;
          border-bottom-width: thin;  
-         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: #00B1DD;">
+         border-left-width: thin;  border-radius: 30px 30px 5px 5px;  border-color: ;">
+
 <p style="font-size:10px;
 margin-top:-19px;
  margin-left:30px;">HISTORICO VEHICULAR</p>
-
-<table   style="font-size: xx-small;  margin: 0 auto;" >  
+ 
+<table   style="font-size: x-small;  margin: 0 auto;" >  
     <tr>
     <th>
 
@@ -2344,8 +3021,8 @@ margin-top:-19px;
 
  
 
-<table   style="font-size: xx-small; margin: 0 auto;">
-<tr bgcolor="#00B1DD">
+<table   style="font-size: x-small; margin: 10px;">
+<tr bgcolor=""  style="border:1pt solid black;">
 
  <th>RTM Y EC VIGENTE</th>
  <th>FECHA DE VIGENCIA</th>
@@ -2368,10 +3045,10 @@ margin-top:-19px;
 </table>
 
 
-<p class="text-justify" style="font-size: xx-small;  margin: 10px;" >Embargos:{{ $peritaje->cierre->embargo}}</p>
+<p class="text-justify" style="font-size: x-small;  margin: 10px;" >Embargos:{{ $peritaje->cierre->embargo}}</p>
 
 
-<p class="text-justify" style="font-size: xx-small;  margin: 10px;" >Otros: {{ $peritaje->cierre->observacionhv}}</p>
+<p class="text-justify" style="font-size: x-small;  margin: 10px;" >Otros: {{ $peritaje->cierre->observacionhv}}</p>
 
 
 
@@ -2394,7 +3071,20 @@ margin-top:-19px;
 
     
 
-     <div style="page-break-after:always;"></div>
+@php 
+if(isset($peritaje->paginadocontrol))
+{
+  $activochasis=0;
+  foreach($peritaje->paginadocontrol->paginadoparts as $paginado)
+  {
+    if($paginado->nombre=="POLÍTICAS" && $paginado->activo==1)
+       $activochasis=1;
+  }
+
+ if($activochasis)
+      echo "<div style='page-break-after:always;'></div>";
+}
+@endphp
 
     <strong>Para todos los efectos se hace saber al cliente que ninguno de los resultados se produjo basados en el kilometraje del vehículo, por cuanto es un sistema de fácil vulneración lo cual no es detectable con el servicio aquí prestado </p>
     <p class="text-justify">CÓDIGO FASECOLDA:  Es la asignación que se le da al vehículo de acuerdo a la guía fasecolda actualizada al mes de la revisión, y comprende las características técnicas del mismo al momento de su importación al país e inclusión al mercado colombiano.
@@ -2464,14 +3154,15 @@ margin-top:-19px;
 
    {{--<img  src="" alt="Firma del usuario" id="firma">--}}
 
-    <br><br><br>
+    <br>
     {{--<input style=" border: 0;" id="nombre" value="{{$nombre}}">--}}
   <label for="">Nombre:{{$vehiculo->solicitante}}</label><br>
   <label for="">{{$vehiculo->tipoidentificacion}}:{{$vehiculo->numeroidentificacion}}</label>
     <br> 
     <p class="text-justify">EN MI CALIDAD DE CLIENTE MANIFIESTO QUE HE SIDO INFORMADO DE LOS ALCANCES Y LIMITACIONES DEL SERVICIO PRESTADO.</p>
     <p class="text-justify">EL DOCUMENTO NO TENDRÁ VALOR SI FALTA ALGUNA DE SUS PÁGINAS, YA QUE ESTE ES INTEGRAL.</p>
-    
+   
+  </strong>
     <div id="t3"></div>
    <script>
      //   if (window.opener) {

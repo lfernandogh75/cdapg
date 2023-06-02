@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+    font-family: letrablack;
+    src: url(Black.otf);
+
+}
+h1{
+    font-family: letrablack;
+}
+
+ 

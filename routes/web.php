@@ -129,7 +129,7 @@ Route::resource('spinturas','App\Http\Controllers\PinturaController');
 Route::resource('svlucess','App\Http\Controllers\VlucesController');
 Route::resource('snfluidos','App\Http\Controllers\NfluidoController');
 Route::resource('sescaners','App\Http\Controllers\EscanerController');
-
+Route::resource('spaginados','App\Http\Controllers\PaginadoController');
 
 Route::group(['middleware' => ['superadmin']], function () {
 Route::resource('/marca',MarcaController::class);
